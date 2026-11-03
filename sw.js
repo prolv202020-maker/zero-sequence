@@ -1,5 +1,6 @@
 /* 第零序列 · 音乐 / 情绪说书 / 官方旁白注入 Service Worker */
 const PLAYER='<script src="/zero-sequence/assets/js/audio-player.js?v=5" defer></script>';
+const UNLOCK='<script src="/zero-sequence/assets/js/progressive-archive.js?v=1" defer></script>';
 const NARRATOR='<script src="/zero-sequence/assets/js/narrator-pro.js?v=2" defer></script>';
 // 正式音频接入脚本仅在配置了真正的音频时才启用，避免显示“制作中”卡片。
 self.addEventListener('install',()=>self.skipWaiting());
@@ -16,6 +17,7 @@ self.addEventListener('fetch',event=>{
       else html=html.replace(/\/zero-sequence\/assets\/js\/audio-player\.js(?:\?v=\d+)?/g,'/zero-sequence/assets/js/audio-player.js?v=5');
       if(html.includes('class="article"') && !html.includes('/zero-sequence/assets/js/narrator-pro.js')) html=html.replace('</body>',NARRATOR+'</body>');
       else html=html.replace(/\/zero-sequence\/assets\/js\/narrator-pro\.js(?:\?v=\d+)?/g,'/zero-sequence/assets/js/narrator-pro.js?v=2');
+      if(!html.includes('/zero-sequence/assets/js/progressive-archive.js')) html=html.replace('</body>',UNLOCK+'</body>');
       const headers=new Headers(res.headers);headers.delete('content-length');headers.set('cache-control','no-cache');
       return new Response(html,{status:res.status,statusText:res.statusText,headers});
     }catch(err){return fetch(event.request);}
