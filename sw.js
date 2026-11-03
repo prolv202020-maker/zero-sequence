@@ -1,5 +1,6 @@
-/* 第零序列 · 音乐 / 听书系统注入 Service Worker */
-const PLAYER='<script src="/zero-sequence/assets/js/audio-player.js?v=4" defer></script>';
+/* 第零序列 · 音乐 / 情绪说书系统注入 Service Worker */
+const PLAYER='<script src="/zero-sequence/assets/js/audio-player.js?v=5" defer></script>';
+const NARRATOR='<script src="/zero-sequence/assets/js/narrator-pro.js?v=2" defer></script>';
 self.addEventListener('install',()=>self.skipWaiting());
 self.addEventListener('activate',e=>e.waitUntil(self.clients.claim()));
 self.addEventListener('fetch',event=>{
@@ -11,11 +12,11 @@ self.addEventListener('fetch',event=>{
       if(!type.includes('text/html')) return res;
       let html=await res.text();
       if(!html.includes('/zero-sequence/assets/js/audio-player.js')) html=html.replace('</body>',PLAYER+'</body>');
-      else html=html.replace(/\/zero-sequence\/assets\/js\/audio-player\.js(?:\?v=\d+)?/g,'/zero-sequence/assets/js/audio-player.js?v=4');
-      const headers=new Headers(res.headers); headers.delete('content-length'); headers.set('cache-control','no-cache');
+      else html=html.replace(/\/zero-sequence\/assets\/js\/audio-player\.js(?:\?v=\d+)?/g,'/zero-sequence/assets/js/audio-player.js?v=5');
+      if(html.includes('class="article"') && !html.includes('/zero-sequence/assets/js/narrator-pro.js')) html=html.replace('</body>',NARRATOR+'</body>');
+      else html=html.replace(/\/zero-sequence\/assets\/js\/narrator-pro\.js(?:\?v=\d+)?/g,'/zero-sequence/assets/js/narrator-pro.js?v=2');
+      const headers=new Headers(res.headers);headers.delete('content-length');headers.set('cache-control','no-cache');
       return new Response(html,{status:res.status,statusText:res.statusText,headers});
-    }catch(err){
-      return fetch(event.request);
-    }
+    }catch(err){return fetch(event.request);}
   })());
 });
