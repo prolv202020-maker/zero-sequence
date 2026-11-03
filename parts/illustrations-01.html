@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>第一篇插画画廊 · 第零序列</title>
+<meta name="description" content="《第零序列》第一篇《轮回启幕》概念插画。按照阅读进度依次解锁场景和事件画面。">
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+.gallery-hero{display:grid;grid-template-columns:minmax(200px,.75fr) 1.25fr;gap:30px;align-items:center;padding:27px;border:1px solid #e5cda062;border-radius:24px;background:linear-gradient(120deg,#32365e,#202540);margin:35px 0}
+.gallery-hero img{width:100%;max-height:430px;object-fit:contain;border-radius:13px;box-shadow:0 20px 46px #0b0c2370}
+.gallery-hero h1{font-size:clamp(34px,5vw,58px);margin:16px 0}
+.gallery-hero p{line-height:1.95;color:#d7d8e4}
+.gallery-info{margin:18px 0;padding:20px;border:1px solid #e1ce9b40;background:#242945a0;border-radius:15px;line-height:1.8}
+.art-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:19px;margin:30px 0}
+.art-card{overflow:hidden;border:1px solid #e3c89050;border-radius:18px;background:#2c3154;box-shadow:0 17px 45px #0b0c242d}
+.art-frame{aspect-ratio:16 / 9;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 30%,#7771ae54,#20243f)}
+.art-frame img{display:block;width:100%;height:100%;object-fit:cover}
+.art-locked{font-size:45px;color:#cab5ed;letter-spacing:6px}
+.art-copy{padding:20px 22px}
+.art-copy small{font:11px Georgia;color:#e9d099;letter-spacing:1.8px}
+.art-copy h2{font-size:23px;margin:9px 0}
+.art-copy p{font-size:13px;color:#d7d7e4;line-height:1.85}
+.art-copy a{display:inline-block;margin-top:9px;color:#f0d596;text-decoration:underline}
+.art-card.is-locked .art-copy h2{color:#d1cbd9}
+.note{color:#c7c6d4;font-size:12px;line-height:1.75}
+@media(max-width:760px){.gallery-hero{grid-template-columns:1fr}.gallery-hero img{max-height:340px}.art-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><a class="brand" href="../index.html">☾ <span>第零序列<small>THE ZERO SEQUENCE</small></span></a>
+<nav><a href="../index.html">首页</a><a href="part-01.html">第一篇</a><a href="../archive/unlocks.html">分篇档案</a><a href="final-archive.html">全部总结</a></nav></header>
+<main class="page">
+<div class="crumb"><a href="../index.html">首页</a> / <a href="part-01.html">第一篇</a> / 概念插画画廊</div>
+<section class="gallery-hero">
+<img src="../assets/images/illustrations/part-01-cover.webp" width="520" height="650" loading="eager" alt="第一篇轮回启幕的概念视觉封面">
+<div><p class="eyebrow">PART 01 · VISUAL ARCHIVE</p><h1>轮回启幕<br><span style="color:#ead09a">插画画廊</span></h1>
+<p>在文字之外，看见晨星镇的黎明、广阔城邦与险境的另一面。画廊会跟随你的阅读进度解锁，尚未读到的场景不会提前展示。</p>
+<p class="note">图片属于第一批视觉概念稿，暂不代表最终角色造型或场景定稿。将来会根据正式人物档案和小说设定继续校正。</p>
+<a class="button" href="part-01.html">返回第一篇目录</a></div></section>
+<div class="gallery-info"><strong id="art-count">正在读取此设备的解锁进度……</strong>
+<div class="note">解锁进度记录在当前浏览器；阅读对应章节后，返回此页即可查看。图片采用 WebP 压缩，未解锁画面不会预先加载。</div></div>
+<div class="art-grid" id="art-list"></div>
+<div class="gallery-info">提示：如果你已经读过章节但没有解锁，可以回到该章底部点击「标记本章已读」。</div>
+</main>
+<footer>© 第零序列 · 第一篇场景插画画廊 · 图像为概念美术</footer>
+<script>
+(()=>{
+'use strict';
+const BASE='../assets/images/illustrations/';
+const art=[
+{need:6,name:'晨星镇 · 黎明',tag:'SCENE 01',file:'scene-starfall-town.webp',description:'初期探索城镇的日常氛围与远方未知。',link:'../volumes/volume-01.html'},
+{need:21,name:'维兰德城 · 城市与商路',tag:'SCENE 02',file:'scene-viland-city.webp',description:'繁忙的商贸中心与更广阔的冒险舞台。',link:'../volumes/volume-03.html'},
+{need:41,name:'灰石盟约 · 运输线',tag:'SCENE 03',file:'scene-graystone-trade.webp',description:'矿区、车队和工匠的合作景象。',link:'../volumes/volume-05.html'},
+{need:61,name:'白霜边境 · 寒潮',tag:'SCENE 04',file:'scene-frost-border.webp',description:'风雪边境的守卫与艰难跋涉。',link:'../volumes/volume-07.html'},
+{need:81,name:'黑风试炼 · 危险之地',tag:'SCENE 05',file:'scene-blackwind-trial.webp',description:'一次需要共同面对的高危战斗。',link:'../volumes/volume-09.html'}
+];
+let p=0;try{p=Math.max(0,Math.min(100,Number(JSON.parse(localStorage.getItem('zs:part-progress:v1')||'{}').p01?.max)||0));}catch(e){}
+const host=document.getElementById('art-list');
+for(const a of art){
+ const unlocked=p>=a.need,card=document.createElement('article');card.className='art-card'+(unlocked?'':' is-locked');
+ const frame=document.createElement('div');frame.className='art-frame';
+ if(unlocked){const img=document.createElement('img');img.src=BASE+a.file;img.loading='lazy';img.alt=a.name+'概念插画';frame.appendChild(img);}
+ else{const lock=document.createElement('span');lock.className='art-locked';lock.textContent='🔒';lock.setAttribute('aria-label','尚未解锁');frame.appendChild(lock);}
+ const copy=document.createElement('div');copy.className='art-copy';
+ const tag=document.createElement('small');tag.textContent=a.tag+(unlocked?' · 已解锁':' · 未解锁');
+ const h=document.createElement('h2');h.textContent=unlocked?a.name:'未揭晓的场景';
+ const desc=document.createElement('p');desc.textContent=unlocked?a.description:'阅读至第一篇第'+a.need+'章后解锁本幅概念插画。';
+ copy.append(tag,h,desc);
+ if(unlocked){const link=document.createElement('a');link.href=a.link;link.textContent='返回对应卷目 →';copy.appendChild(link);}
+ card.append(frame,copy);host.appendChild(card);
+}
+document.getElementById('art-count').textContent='第一篇已解锁 '+p+'/100 章 · 插画已开放 '+art.filter(a=>p>=a.need).length+'/'+art.length+' 张（不含概念封面）';
+})();
+</script>
+<script src="../assets/js/audio-player.js" defer></script>
+</body></html>
