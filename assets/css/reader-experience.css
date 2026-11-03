@@ -30,3 +30,10 @@ body[data-zs-reader-theme="light"] .article p{color:#252e42}
 .zs-chapter-tools a{font-size:12px;border:1px solid #d7c18c73;padding:8px 12px;border-radius:9px;color:#f2d5a1}
 @media(max-width:600px){.zs-reader-fab{left:10px;bottom:76px;padding:10px 12px}.zs-reader-panel{left:10px;bottom:128px;width:min(310px,calc(100vw - 20px))}.zs-continue{align-items:flex-start;flex-direction:column}.zs-continue a{width:100%;text-align:center}.zs-resume{margin:18px 0 10px}.article{line-height:var(--zs-reader-leading)}}
 @media(prefers-reduced-motion:reduce){.zs-progress,.article{transition:none}}
+
+/* 手机端导航采用横向滚动，保持可点触面积。 */
+@media(max-width:680px){
+ header{align-items:flex-start;flex-direction:column;gap:7px;padding:14px 10px 10px;overflow:visible}
+ header nav{display:flex;max-width:100%;width:100%;overflow-x:auto;flex-wrap:nowrap;justify-content:flex-start;gap:6px;padding-bottom:6px;scrollbar-width:thin}
+ header nav a{flex:0 0 auto;padding:7px 9px;min-height:32px;white-space:nowrap;font-size:12px}
+}
