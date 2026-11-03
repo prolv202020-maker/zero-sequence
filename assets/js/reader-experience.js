@@ -26,7 +26,7 @@
     put(OPT,options);
   }
   function addSearchNav(){
-    const nav=$('header nav');if(!nav||nav.querySelector('.zs-search-nav'))return;
+    const nav=$('header nav');if(!nav||nav.querySelector('.zs-search-nav')||[...nav.querySelectorAll('a')].some(a=>a.getAttribute('href')?.endsWith('search.html')))return;
     const a=document.createElement('a');a.href=ROOT+'search.html';a.textContent='搜索';a.className='zs-search-nav';nav.appendChild(a);
   }
   function addContinue(){

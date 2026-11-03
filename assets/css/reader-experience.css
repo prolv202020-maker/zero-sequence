@@ -8,7 +8,7 @@ body[data-zs-reader-theme="paper"] .article p{color:#322920}
 body[data-zs-reader-theme="light"] .article{background:#f5f6f8!important;color:#252e42!important;border-color:#d9dee8;box-shadow:0 12px 38px #07081833}
 body[data-zs-reader-theme="light"] .article p{color:#252e42}
 .zs-progress{position:fixed;top:0;left:0;height:4px;background:linear-gradient(90deg,#9daeff,#eed49a);z-index:10005;width:0;pointer-events:none;transition:width .15s linear}
-.zs-reader-fab{position:fixed;bottom:20px;left:18px;z-index:10010;border:1px solid #e6cea0a6;background:#171a30f5;color:#f8ebca;border-radius:999px;padding:11px 16px;font:600 13px inherit;cursor:pointer;box-shadow:0 10px 30px #08091580}
+.zs-reader-fab{position:fixed;bottom:20px;left:18px;z-index:10010;border:1px solid #e6cea0a6;background:#171a30f5;color:#f8ebca;border-radius:999px;padding:11px 16px;font:600 13px "Noto Serif SC","Songti SC",serif;cursor:pointer;box-shadow:0 10px 30px #08091580}
 .zs-reader-fab:focus-visible,.zs-reader-panel button:focus-visible,.zs-reader-panel select:focus-visible{outline:2px solid #efdca2;outline-offset:3px}
 .zs-reader-panel{position:fixed;bottom:76px;left:18px;z-index:10010;max-width:calc(100vw - 32px);width:310px;background:#202440fa;border:1px solid #d8bd86b0;box-shadow:0 20px 55px #0a0c1bc9;border-radius:18px;padding:18px;color:#f4f0e8}
 .zs-reader-panel[hidden]{display:none}
