@@ -67,7 +67,7 @@ const total=el('div','zs-unlock-card');total.append(el('small','','ALL PARTS'),e
 }
 function partPage(){if(!/\/parts\/part-0\d\.html$/.test(location.pathname))return;const p=Number((location.pathname.match(/part-(\d+)\.html/)||[])[1]||1);const hero=document.querySelector('.part-hero');if(hero)hero.insertAdjacentElement('afterend',partCard(p));
 if(p!==1)return;
-document.querySelectorAll('a[href*="/volumes/volume-"]').forEach(link=>{const found=link.getAttribute('href').match(/volume-(\d+)\.html/);if(!found)return;const vol=Number(found[1]);const need=(vol-1)*10;if(need<=get(1).max)return;const detail=link.querySelector('p');if(detail)detail.textContent='🔒 本卷简介将在阅读至前一卷结束后解锁。';});
+document.querySelectorAll('a[href*="/volumes/volume-"]').forEach(link=>{const found=link.getAttribute('href').match(/volume-(\d+)\.html/);if(!found)return;const vol=Number(found[1]);const need=(vol-1)*10;if(need<=get(1).max)return;const heading=link.querySelector('h3');if(heading)heading.textContent='🔒 第'+vol+'卷 · 尚未解锁';const detail=link.querySelector('p');if(detail)detail.textContent='本卷标题与简介将在阅读至前一卷结束后解锁。';});
 const lead=hero&&hero.querySelector('.lead');if(lead&&get(1).max<90)lead.textContent='从重生的起点出发。随着阅读推进，第一篇的地图、人物、势力与谜团将逐步揭晓。';
 }
 function recapGate(){if(!/\/parts\/recap-01\.html$/.test(location.pathname))return;
