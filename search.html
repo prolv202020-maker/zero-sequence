@@ -1,0 +1,25 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>搜索章节与档案 · 第零序列</title>
+<meta name="description" content="《第零序列》章节标题、卷目与公开人物资料搜索。">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>.s-hero{margin:22px 0 26px;padding:30px;border:1px solid #dbc38a65;background:linear-gradient(135deg,#30355b,#242745);border-radius:20px}.s-hero h1{font-size:clamp(32px,5vw,50px);margin:10px 0}
+.s-row{display:grid;grid-template-columns:1fr 155px;gap:10px;margin-top:22px}.s-row input,.s-row select{width:100%;border:1px solid #e8d49a85;background:#171a32;color:#fff;padding:14px 16px;border-radius:12px;font:inherit;font-size:16px}.s-row input:focus,.s-row select:focus{outline:2px solid #e8d49a;outline-offset:2px}
+.s-results{display:grid;gap:11px;margin:18px 0 35px}.s-hit{padding:18px 20px;border:1px solid #dfd1a743;border-radius:14px;background:#30345590;display:block}.s-hit:hover{border-color:#efd69c;transform:translateY(-2px)}.s-hit small{font-size:11px;color:#f2d79f}.s-hit h2{font-size:20px;margin:8px 0 7px;letter-spacing:0}.s-hit p{font-size:13px;color:#cccddc;line-height:1.75;margin:0}#s-count{font-size:13px;color:#c8c5d3}@media(max-width:600px){.s-hero{padding:22px}.s-row{grid-template-columns:1fr}}</style></head><body>
+<header><a class="brand" href="index.html">☾ <span>第零序列<small>THE ZERO SEQUENCE</small></span></a><nav><a href="parts/part-01.html">第一篇</a><a href="archive/characters.html">人物</a><a href="archive/world.html">地图</a></nav></header>
+<main class="page"><div class="crumb"><a href="index.html">首页</a> / 搜索</div><section class="s-hero"><p class="eyebrow">THE ZERO SEQUENCE · SEARCH</p><h1>查找章节与档案</h1>
+<p class="lead">仅搜索已发布的卷名、章节标题与公开人物资料；不收录作者内部设定或终局秘密。目前不提供正文全文搜索。</p>
+<div class="s-row"><input type="search" id="s-input" placeholder="例如：黑风、银月、顾长渊、第五卷" aria-label="输入搜索关键词" autocomplete="off"><select id="s-type" aria-label="搜索类别"><option value="all">全部</option><option value="chapter">章节</option><option value="volume">卷目</option><option value="archive">公开档案</option></select></div></section><p id="s-count" role="status" aria-live="polite"></p><div id="s-results" class="s-results"></div>
+</main><footer>© 第零序列 · 公开章节搜索</footer><script src="assets/js/audio-player.js" defer></script>
+<script>
+(async()=>{
+const input=document.getElementById('s-input'),type=document.getElementById('s-type'),out=document.getElementById('s-results'),status=document.getElementById('s-count');
+let data=[];try{const response=await fetch('assets/data/search-index.json?v=1',{cache:'no-cache'});if(!response.ok)throw Error('index');data=await response.json();}catch{status.textContent='搜索索引暂时无法加载，请使用第一篇目录。';return}
+const qparam=new URLSearchParams(location.search).get('q');if(qparam)input.value=qparam.slice(0,80);
+function render(){const query=input.value.toLowerCase().replace(/\s+/g,'').trim(),kind=type.value;
+const all=data.filter(item=>(kind==='all'||item.type===kind)&&(!query||(item.title+' '+item.desc).toLowerCase().replace(/\s+/g,'').includes(query)));
+const found=all.slice(0,60);out.replaceChildren();status.textContent=(query?'匹配到 ':'浏览公开资料 · ')+all.length+' 条结果'+(all.length>60?'（显示前60条）':'');
+if(!found.length){const empty=document.createElement('p');empty.textContent='没有找到匹配的公开内容，可以尝试其他关键词。';out.append(empty)}
+found.forEach(item=>{const a=document.createElement('a');a.className='s-hit';a.href=item.url;const sm=document.createElement('small');sm.textContent=({chapter:'章节',volume:'卷目',archive:'设定'})[item.type]||'资料';const h=document.createElement('h2');h.textContent=item.title;const p=document.createElement('p');p.textContent=item.desc;a.append(sm,h,p);out.append(a)})
+}
+input.addEventListener('input',render);type.addEventListener('change',render);render();
+})();
+</script></body></html>
