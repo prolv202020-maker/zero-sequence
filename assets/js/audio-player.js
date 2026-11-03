@@ -167,6 +167,17 @@
   window.addEventListener('pagehide',()=>{try{synth&&synth.cancel();}catch(e){}});
   document.addEventListener('visibilitychange',()=>{if(document.hidden&&synth&&reading&&!readPaused){/* allow lock-screen/device TTS where supported */}});
 
-  function init(){buildAudioUI();buildNarrator();}
+  function init(){
+    buildAudioUI();
+    buildNarrator(); // native fallback while the richer narrator loads
+    if(document.querySelector('.article') && !document.querySelector('script[src*="narrator-pro.js"]')){
+      const script=document.createElement('script');
+      script.src='/zero-sequence/assets/js/narrator-pro.js?v=2';
+      document.body.appendChild(script);
+    }
+    if('serviceWorker' in navigator){
+      navigator.serviceWorker.register('/zero-sequence/sw.js').catch(()=>{});
+    }
+  }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
