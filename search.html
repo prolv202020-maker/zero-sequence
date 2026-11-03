@@ -17,12 +17,12 @@ const qparam=new URLSearchParams(location.search).get('q');if(qparam)input.value
 function render(){const query=input.value.toLowerCase().replace(/\s+/g,'').trim(),kind=type.value;
 const progress=(()=>{try{return JSON.parse(localStorage.getItem('zs:part-progress:v1')||'{}')['p01']?.max||0}catch{return 0}})();
 const publicItem=(item)=>{
- if(item.type==='chapter'){const m=(item.url||'').match(/volume-(\\d+)\\/chapter-(\\d+)/);if(m){const v=Number(m[1]),n=Number(m[2]);return v<=10&&((v-1)*10+n)<=Math.max(1,progress)}}
- if(item.type==='volume'){const m=(item.url||'').match(/volume-(\\d+)/);if(m)return Number(m[1])<=10&&(Number(m[1])-1)*10<=progress}
+ if(item.type==='chapter'){const m=(item.url||'').match(/volume-(\d+)\/chapter-(\d+)/);if(m){const v=Number(m[1]),n=Number(m[2]);return v<=10&&((v-1)*10+n)<=Math.max(1,progress)}}
+ if(item.type==='volume'){const m=(item.url||'').match(/volume-(\d+)/);if(m)return Number(m[1])<=10&&(Number(m[1])-1)*10<=progress}
  if(item.type==='archive')return progress>=100;
  return item.type!=='chapter'&&item.type!=='archive';
 };
-const all=data.filter(item=>publicItem(item)&&(kind==='all'||item.type===kind)&&(!query||(item.title+' '+item.desc).toLowerCase().replace(/\\s+/g,'').includes(query)));
+const all=data.filter(item=>publicItem(item)&&(kind==='all'||item.type===kind)&&(!query||(item.title+' '+item.desc).toLowerCase().replace(/\s+/g,'').includes(query)));
 const found=all.slice(0,60);out.replaceChildren();status.textContent=(query?'匹配到 ':'浏览公开资料 · ')+all.length+' 条结果'+(all.length>60?'（显示前60条）':'');
 if(!found.length){const empty=document.createElement('p');empty.textContent='没有找到匹配的公开内容，可以尝试其他关键词。';out.append(empty)}
 found.forEach(item=>{const a=document.createElement('a');a.className='s-hit';a.href=item.url;const sm=document.createElement('small');sm.textContent=({chapter:'章节',volume:'卷目',archive:'设定'})[item.type]||'资料';const h=document.createElement('h2');h.textContent=item.title;const p=document.createElement('p');p.textContent=item.desc;a.append(sm,h,p);out.append(a)})
