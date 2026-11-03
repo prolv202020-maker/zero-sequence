@@ -169,7 +169,10 @@
 
   function init(){
     buildAudioUI();
-    buildNarrator(); // native fallback while the richer narrator loads
+    if(!document.querySelector('script[src*="reader-experience.js"]')){
+      const reader=document.createElement('script');reader.src='/zero-sequence/assets/js/reader-experience.js?v=1';document.body.appendChild(reader);
+    }
+    // 单一情绪朗读界面由 narrator-pro.js 提供，避免先显示旧版播放器再替换
     if(document.querySelector('.article') && !document.querySelector('script[src*="narrator-pro.js"]')){
       const script=document.createElement('script');
       script.src='/zero-sequence/assets/js/narrator-pro.js?v=2';
