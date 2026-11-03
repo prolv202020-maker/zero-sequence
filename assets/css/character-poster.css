@@ -1,0 +1,31 @@
+/* 第零序列 · 角色海报卡 / 人物档案视觉系统 */
+:root{--poster-gold:#e3cf91}
+.character-art-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:22px}
+.character-art-card{--accent:#d9c49c;--art:none;position:relative;isolation:isolate;min-height:460px;overflow:hidden;border:1px solid color-mix(in srgb,var(--accent) 44%,transparent);background:#0b0e17;box-shadow:0 18px 55px rgba(0,0,0,.28);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;text-decoration:none;color:#f7f2e8}
+.character-art-card::before{content:'';position:absolute;inset:0;z-index:-3;background-image:var(--art);background-size:cover;background-position:center top;background-repeat:no-repeat;transition:transform .55s ease,filter .35s ease}
+.character-art-card::after{content:'';position:absolute;inset:0;z-index:-2;background:linear-gradient(180deg,rgba(5,7,12,.08) 0%,rgba(5,7,12,.12) 28%,rgba(5,7,12,.65) 65%,rgba(5,7,12,.98) 100%),linear-gradient(135deg,color-mix(in srgb,var(--accent) 12%,transparent),transparent 48%)}
+.character-art-card:hover{transform:translateY(-5px);border-color:color-mix(in srgb,var(--accent) 82%,white 5%);box-shadow:0 26px 72px rgba(0,0,0,.42)}
+.character-art-card:hover::before{transform:scale(1.035);filter:saturate(1.08)}
+.character-art-top{position:absolute;left:17px;right:17px;top:15px;display:flex;justify-content:space-between;gap:10px;align-items:center;font-size:10px;letter-spacing:.18em;color:#f7e8b1;text-shadow:0 2px 12px #000}
+.character-art-core{padding:5px 8px;border:1px solid color-mix(in srgb,var(--accent) 55%,transparent);background:rgba(7,9,16,.62);backdrop-filter:blur(8px)}
+.character-art-copy{position:absolute;left:20px;right:20px;bottom:19px;text-shadow:0 3px 16px #000}
+.character-art-copy h3{font-size:38px;line-height:1;margin:5px 0 3px;letter-spacing:.05em;color:#fff}
+.character-art-en{font-family:Georgia,'Times New Roman',serif;font-size:11px;letter-spacing:.28em;color:color-mix(in srgb,var(--accent) 74%,white 26%);text-transform:uppercase}
+.character-art-role{margin:12px 0 10px!important;color:#f3eee4;font-size:14px;line-height:1.5}
+.character-art-tags{display:flex;gap:6px;flex-wrap:wrap}.character-art-tags span{padding:4px 8px;border:1px solid color-mix(in srgb,var(--accent) 56%,transparent);background:rgba(8,10,17,.72);font-size:10px;color:#f4eee2;letter-spacing:.06em}
+.character-art-link{display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid color-mix(in srgb,var(--accent) 35%,transparent);color:color-mix(in srgb,var(--accent) 80%,white 20%);font-size:11px;letter-spacing:.08em}
+.character-art-card.gold{--accent:#e1c470}.character-art-card.violet{--accent:#bc8cff}.character-art-card.red{--accent:#ef665a}.character-art-card.void{--accent:#aa80ff}
+.character-text-card{min-height:245px;position:relative;overflow:hidden}.character-text-card::after{content:'等待角色视觉 ↗';position:absolute;right:18px;bottom:15px;color:#8f8a99;font-size:11px}
+
+.dossier-profile{display:grid;grid-template-columns:minmax(300px,.88fr) 1.25fr;gap:34px;align-items:start}
+.character-poster{--accent:#d9c49c;--art:none;position:relative;isolation:isolate;min-height:650px;overflow:hidden;border:1px solid color-mix(in srgb,var(--accent) 48%,transparent);background:#0a0c13;box-shadow:0 26px 80px rgba(0,0,0,.46);display:flex;align-items:flex-end;padding:30px}
+.character-poster::before{content:'';position:absolute;inset:0;z-index:-3;background-image:var(--art);background-size:cover;background-position:center top;background-repeat:no-repeat}
+.character-poster::after{content:'';position:absolute;inset:0;z-index:-2;background:linear-gradient(180deg,rgba(5,6,10,.04) 0%,rgba(5,6,10,.08) 32%,rgba(5,6,10,.58) 68%,rgba(5,6,10,.98) 100%),linear-gradient(135deg,color-mix(in srgb,var(--accent) 10%,transparent),transparent 52%)}
+.character-poster.gold{--accent:#e1c470}.character-poster.violet{--accent:#bc8cff}.character-poster.red{--accent:#ef665a}.character-poster.void{--accent:#aa80ff}
+.poster-frame{position:absolute;inset:16px;border:1px solid rgba(255,255,255,.1);pointer-events:none}.poster-frame::before,.poster-frame::after{content:'';position:absolute;width:52px;height:1px;background:var(--accent);opacity:.7}.poster-frame::before{left:-1px;top:-1px}.poster-frame::after{right:-1px;bottom:-1px}
+.poster-copy{position:relative;z-index:2;width:100%;text-shadow:0 3px 18px #000}.poster-kicker{font:11px/1.4 Georgia,'Times New Roman',serif;letter-spacing:.24em;color:color-mix(in srgb,var(--accent) 78%,white 22%)}
+.poster-copy h1{font-size:58px;line-height:1;margin:7px 0 2px;color:#fff}.poster-en{font-family:Georgia,'Times New Roman',serif;font-size:13px;letter-spacing:.34em;color:#d8d0df}.poster-role{margin:14px 0 12px;color:#f2eadf;font-size:15px}.poster-tags{display:flex;flex-wrap:wrap;gap:7px}.poster-tags span{padding:6px 10px;border:1px solid color-mix(in srgb,var(--accent) 58%,transparent);background:rgba(7,8,14,.72);font-size:11px}
+.dossier-side>.eyebrow{margin-top:4px}.dossier-side>h1{font-size:46px;margin:8px 0}.dossier-side .lead{font-size:16px;line-height:1.9}.dossier-meta{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:22px}.dossier-meta .card{min-height:100px}.dossier-quote{margin:22px 0 0;border-left:2px solid var(--accent,#d9c49c);padding:12px 18px;font-size:19px;line-height:1.75;color:#f1eadf;background:linear-gradient(90deg,rgba(255,255,255,.035),transparent)}
+.dossier-section{margin-top:42px}.dossier-line{height:1px;background:linear-gradient(90deg,var(--accent,#d9c49c),transparent);margin:18px 0 20px}.dossier-ability{border-top:2px solid var(--accent,#d9c49c)}
+@media(max-width:920px){.character-art-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.dossier-profile{grid-template-columns:1fr}.character-poster{min-height:720px;max-width:590px;width:100%;margin:auto}}
+@media(max-width:580px){.character-art-grid{grid-template-columns:1fr}.character-art-card{min-height:540px}.character-art-copy h3{font-size:42px}.character-poster{min-height:570px;padding:22px}.poster-copy h1{font-size:46px}.dossier-meta{grid-template-columns:1fr}.dossier-side>h1{font-size:38px}}
