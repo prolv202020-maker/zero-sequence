@@ -75,7 +75,7 @@ const container=document.getElementById('volumes');if(!container)return;
 const sec=el('section','');sec.id='zs-progress-home';sec.append(el('p','eyebrow','UNLOCK PROGRESS · 独立进度'),el('h2','','篇章解锁进度'));
 sec.append(el('p','lead','第一篇与后续每一篇独立记录进度；总档案只汇总已经读到的剧情。'));
 const grid=el('div','zs-unlock-grid');
-[1,2].forEach(p=>{const card=el('div','zs-unlock-card');card.append(el('small','',p===1?'PART 01 · 已发布':'PART 02 · 已发布'),el('h3','','第'+p+'篇 · '+nameOf(p)),el('p','',summary(p)));card.append(meter(p));card.append(aLink(BASE+'parts/part-0'+p+'.html','阅读本篇 →'),aLink(BASE+'archive/unlocks.html?part='+p,'查看解锁状态 →'));grid.append(card);});
+[1,2].forEach(p=>{const card=el('div','zs-unlock-card');card.append(el('small','',p===1?'PART 01 · 已发布':'PART 02 · 待重写草稿'),el('h3','','第'+p+'篇 · '+nameOf(p)),el('p','',summary(p)));card.append(meter(p));card.append(aLink(BASE+'parts/part-0'+p+'.html','阅读本篇 →'),aLink(BASE+'archive/unlocks.html?part='+p,'查看解锁状态 →'));grid.append(card);});
 const total=el('div','zs-unlock-card');total.append(el('small','','ALL PARTS'),el('h3','','最终篇 · 全部总结'),el('p','','只整合目前已经解锁的信息；未公开的真相仍然封存。'),aLink(BASE+'parts/final-archive.html','打开总档案 →'));grid.append(total);sec.append(grid);container.insertAdjacentElement('afterend',sec);
 }
 function partPage(){if(!/\/parts\/part-0\d\.html$/.test(location.pathname))return;const p=Number((location.pathname.match(/part-(\d+)\.html/)||[])[1]||1);const hero=document.querySelector('.part-hero, .part2-hero');if(hero)hero.insertAdjacentElement('afterend',partCard(p));
@@ -111,7 +111,18 @@ if(!shown.length)host.append(el('p','lead','尚未解锁正文档案。阅读第
 host.append(el('p','zs-footer-notice','这里是当前阅读进度的阶段总结，并非全书已完结。最终真相只会在相应正文公开后进入档案。'));const acts=el('div','zs-unlock-actions');acts.append(aLink(BASE+'archive/unlocks.html','进入分篇档案'),aLink(BASE+'parts/part-01.html','返回第一篇'));host.append(acts);}
 render();document.addEventListener('zs:part-progress-changed',render);
 }
-function init(){css();articleUnlock();homepage();partPage();recapGate();archiveGate();catalogPage();finalPage();}
+function markPartTwoDraft(){
+const m=location.pathname.match(/\/chapters\/volume-(1[1-9]|20)\/chapter-\d{3}\.html$/);
+if(!m)return;
+const lead=document.querySelector('main.page>.lead');
+if(lead)lead.textContent=lead.textContent.replace('正式正文','剧情草稿 · 待重写至3000—3500字');
+const article=document.querySelector('main.page>.article');if(!article)return;
+const note=el('div','zs-unlock-panel');
+note.setAttribute('role','note');
+note.append(el('strong','','本章为情节草稿，尚非正式小说正文'),el('p','','本章需要按每章3000—3500字标准重新创作场景、对话、战斗、人物心理与细节后，才视为完成。当前内容仅供查看第二篇剧情结构。'));
+article.parentNode.insertBefore(note,article);
+}
+function init(){css();markPartTwoDraft();articleUnlock();homepage();partPage();recapGate();archiveGate();catalogPage();finalPage();}
 window.ZSUnlock={get,set,entries,partOf};
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
