@@ -4,3 +4,20 @@
 @media(max-width:650px){.gear-hero{grid-template-columns:1fr}.gear-emblem{min-height:145px}.gear-emblem span{font-size:88px}.gear-emblem:before{inset:10px}.gear-rules,.gear-grid,.gear-quality,.gear-life,.gear-catalog-filter{grid-template-columns:1fr}.gear-step{min-height:0}.gear-card{padding:18px}.gear-stages{grid-template-columns:1fr 1fr}.gear-entry{grid-template-columns:1fr}.gear-emblem:after{inset:40px}}
 /* 2026-11 weapon evolution and quality catalog */
 .gear-framework-intro{font-size:14px;color:#dddcea;line-height:1.9;margin:0 0 19px}.gear-tier-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}.gear-tier{min-height:145px;padding:16px 14px;border:1px solid #e2c88858;border-radius:15px;background:linear-gradient(145deg,#393b64db,#222844ed)}.gear-tier-no{font:12px Georgia,serif;color:#f2d89c;letter-spacing:.13em}.gear-tier h3{font-size:20px;margin:10px 0 6px;color:#fff3ce}.gear-tier p{font-size:11px;line-height:1.75;color:#ced2e2;margin:0}.gear-framework-matrix{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:18px 0}.gear-framework-panel{padding:23px;border:1px solid #ccb88d52;border-radius:16px;background:linear-gradient(135deg,#303653ed,#242842e8)}.gear-framework-panel h3{font-size:21px;color:#f5dcaa;margin:0 0 14px}.gear-framework-panel dl{margin:0}.gear-framework-row{display:grid;grid-template-columns:125px 1fr;gap:10px;padding:10px 0;border-top:1px solid #f4dba81c}.gear-framework-row dt{font-size:12px;color:#f6dcac;font-weight:600}.gear-framework-row dd{font-size:12px;color:#d7d9e6;line-height:1.7;margin:0}.gear-framework-footer{border:1px solid #d9bd8b58;border-radius:16px;padding:22px 24px;background:#262c49}.gear-framework-footer h3{color:#f6d9a0;font-size:20px;margin:0 0 10px}.gear-framework-footer ul{margin:0 0 15px;padding-left:21px}.gear-framework-footer li,.gear-framework-footer p{line-height:1.85;color:#d6d9e7;font-size:12px}.gear-framework-footer li{margin:6px 0}.gear-framework-footer p{border-top:1px solid #ead29b35;padding-top:13px;margin:0}@media(max-width:960px){.gear-tier-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:660px){.gear-tier-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.gear-framework-matrix{grid-template-columns:1fr}.gear-framework-row{grid-template-columns:100px 1fr}.gear-tier{min-height:130px}}@media(max-width:390px){.gear-tier-grid{grid-template-columns:1fr}}
+
+
+/* 2026-11 weapons system expansion: shield / repair / consciousness / 7-person provenance */
+.gear-enhance-bands{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin:17px 0 13px}
+.gear-enhance-band{border:1px solid #efd5a65c;border-radius:11px;padding:12px 8px;background:#2f3656;text-align:center}
+.gear-enhance-band b{display:block;font:17px Georgia;color:#f7d99e}
+.gear-enhance-band span{display:block;font-size:10px;color:#ccd2e5;margin-top:7px}
+.gear-character-section{margin-top:29px}
+.gear-character-section>h3{font-size:26px;color:#f0d6a1;margin:0 0 12px}
+.gear-character-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin:15px 0 20px}
+.gear-character-dossier{border:1px solid #e5cf9a50;border-radius:13px;background:linear-gradient(130deg,#35395ecf,#262b48ef);overflow:hidden}
+.gear-character-dossier summary{padding:17px 19px;cursor:pointer;color:#f4dfba;font-weight:600;font-size:13px}
+.gear-character-dossier summary:hover{background:#ffffff0a}
+.gear-character-dossier p{margin:4px 19px 12px;color:#e0dfed;line-height:1.85;font-size:12px}
+.gear-character-dossier .gear-character-note{padding-top:10px;border-top:1px solid #eed7aa29;color:#c8ccde}
+.gear-framework-footer{margin-top:15px}
+@media(max-width:720px){.gear-enhance-bands{grid-template-columns:repeat(2,minmax(0,1fr))}.gear-character-grid{grid-template-columns:1fr}.gear-character-section>h3{font-size:22px}}
