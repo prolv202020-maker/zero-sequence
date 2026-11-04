@@ -97,24 +97,90 @@
 @media(prefers-reduced-motion:reduce){.profession,.system-cinema-art img{transition:none}}
 
 
-/* ORIGINAL GENERATED ART — compact six-frame cinematic sprite */
-.class-cinema-stills{margin:0 0 28px;padding:21px;border:1px solid #d4b4fc45;border-radius:22px;background:radial-gradient(circle at 50% -10%,#6a59d82e,transparent 55%),linear-gradient(135deg,#242845c4,#1a203ad9);box-shadow:0 16px 43px #0d0d2c52}
-.class-stills-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:0 0 15px;padding:0 2px}
-.class-stills-head>span{font:10px Georgia,serif;color:#f3d8a5;letter-spacing:.18em}
-.class-stills-head strong{font-size:20px;color:#fff6e6;font-weight:700}
-.class-stills-head small{font-size:11px;color:#c5c9dd}
-.class-stills-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:9px}
-.class-still{position:relative;isolation:isolate;display:block;aspect-ratio:150 / 84;overflow:hidden;border-radius:11px;border:1px solid #d7baff4a;background-image:url('../assets/images/classes/class-scenes.svg');background-repeat:no-repeat;background-size:300% 200%;box-shadow:0 10px 24px #090b2266;transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease;scroll-margin-top:70px}
-.class-still:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#080a1cf2 0%,#15102f55 37%,transparent 85%);pointer-events:none}
-.class-still:hover,.class-still:focus-visible{transform:translateY(-6px);border-color:#f7d9ae;box-shadow:0 16px 40px #05071e9c,0 0 22px #af8bfd55}
-.class-still:focus-visible{outline:2px solid #f2d49f;outline-offset:3px}
-.class-still span{position:absolute;z-index:2;bottom:10px;left:9px;right:2px;white-space:nowrap;font-size:clamp(9px,1.15vw,13px);font-weight:700;color:white;text-shadow:0 2px 9px #000;letter-spacing:.035em}
-.still-sword{background-position:0 0}.still-heal{background-position:50% 0}.still-rage{background-position:100% 0}.still-shadow{background-position:0 100%}.still-thunder{background-position:50% 100%}.still-shield{background-position:100% 100%}
-.class-stills-bottom{text-align:center;color:#b7b6d5;font:9px Georgia,serif;letter-spacing:.23em;margin:16px 0 0}
-.class-stills-bottom span{font-size:15px;color:#f2d49f}
-@media(max-width:900px){.class-stills-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.class-still span{font-size:12px}}
-@media(max-width:470px){.class-cinema-stills{padding:14px}.class-stills-head strong{font-size:18px}.class-stills-grid{gap:6px}.class-still span{bottom:5px;left:5px;font-size:9px}.class-stills-bottom{letter-spacing:.08em}}
-@media(prefers-reduced-motion:reduce){.class-still{transition:none}}
+/* HIGH RESOLUTION CLASS ART GALLERY — reuse original character portraits */
+.class-cinema-stills{
+  --gallery-line:rgba(218,195,255,.34);
+  position:relative;isolation:isolate;overflow:hidden;
+  margin:0 0 35px;padding:26px 25px 23px;
+  border:1px solid var(--gallery-line);border-radius:24px;
+  background:radial-gradient(ellipse at 49% -5%,rgba(154,106,242,.20),transparent 58%),
+    linear-gradient(142deg,rgba(34,36,70,.96),rgba(18,22,48,.98) 70%);
+  box-shadow:0 18px 56px #090c2569,inset 0 1px rgba(255,255,255,.12);
+}
+.class-cinema-stills:before{
+  content:"";position:absolute;inset:8px;border:1px solid #d8baff16;
+  border-radius:17px;pointer-events:none;
+}
+.class-stills-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:0 0 19px;padding:0 3px}
+.class-stills-head>span{font:10px Georgia,serif;color:#edd6aa;letter-spacing:.2em}
+.class-stills-head strong{font-size:23px;line-height:1.4;color:#fff7ec;letter-spacing:.04em}
+.class-stills-head small{font-size:11px;color:#c4c8de}
+.class-stills-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:11px}
+.class-still{
+  --still-accent:#c5a8ff;position:relative;isolation:isolate;display:block;overflow:hidden;
+  height:clamp(228px,25vw,296px);border:1px solid color-mix(in srgb,var(--still-accent),transparent 52%);
+  border-radius:15px;background:linear-gradient(145deg,#373355,#16162c);
+  box-shadow:0 14px 25px #070a2080,inset 0 0 1px #fff6;
+  text-decoration:none;scroll-margin-top:82px;
+  transition:transform .32s ease,border-color .32s ease,box-shadow .32s ease;
+}
+.class-still>img{
+  position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;
+  object-position:50% 22%;filter:saturate(1.08) contrast(1.06);
+  transform:scale(1.005);transition:transform .6s cubic-bezier(.2,.7,.2,1),filter .4s ease;
+}
+.class-still:before{
+  content:"";position:absolute;inset:7px;z-index:2;border:1px solid #ffefd742;
+  border-radius:9px;pointer-events:none;transition:border-color .32s;
+}
+.class-still:after{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,#080d2380 0%,transparent 25%,#0b0c2200 42%,#080916a6 75%,#080917f7 100%);
+}
+.class-still .still-no{
+  position:absolute;z-index:3;top:14px;left:14px;font:12px Georgia,serif;letter-spacing:.17em;
+  color:#fff7ec;text-shadow:0 2px 10px #02030d;
+}
+.class-still .still-no:after{content:"";display:inline-block;vertical-align:middle;width:17px;height:1px;background:var(--still-accent);margin-left:9px}
+.class-still .still-info{position:absolute;z-index:3;left:15px;right:10px;bottom:14px;display:flex;flex-direction:column;gap:4px;transform:translateY(0);transition:transform .32s ease}
+.class-still .still-info strong{font-size:clamp(16px,1.7vw,22px);color:#fff8f1;text-shadow:0 3px 12px #01020d;letter-spacing:.065em;line-height:1.35}
+.class-still .still-info small{font-size:10px;letter-spacing:.03em;color:#e3dfee;text-shadow:0 2px 9px #000;line-height:1.5}
+.class-still .still-info em{font:9px Georgia,serif;letter-spacing:.14em;font-style:normal;color:var(--still-accent);text-shadow:0 2px 9px #000}
+.class-still:hover,.class-still:focus-visible{
+  transform:translateY(-7px);border-color:var(--still-accent);
+  box-shadow:0 21px 35px #070a20a6,0 0 26px color-mix(in srgb,var(--still-accent),transparent 64%);
+}
+.class-still:hover>img,.class-still:focus-visible>img{transform:scale(1.065);filter:saturate(1.18) contrast(1.1)}
+.class-still:hover:before,.class-still:focus-visible:before{border-color:#ffe7b180}
+.class-still:hover .still-info,.class-still:focus-visible .still-info{transform:translateY(-3px)}
+.class-still:focus-visible{outline:2px solid #f7d9a4;outline-offset:4px}
+.still-sword{--still-accent:#d1b1ff}
+.still-heal{--still-accent:#e1b0fb}
+.still-rage{--still-accent:#ffae8e}
+.still-shadow{--still-accent:#bda5f9}
+.still-thunder{--still-accent:#a6d8ff}
+.still-shield{--still-accent:#a3caff}
+.still-heal>img{object-position:49% 17%}
+.still-rage>img{object-position:52% 19%}
+.still-shadow>img{object-position:51% 20%}
+.still-thunder>img{object-position:50% 17%}
+.still-shield>img{object-position:52% 17%}
+.class-stills-bottom{color:#bcb8d5;font:10px Georgia,serif;letter-spacing:.2em;text-align:center;margin:19px 0 0}
+.class-stills-bottom span{color:#f0d5a4;font-size:16px;margin-left:5px}
+@media(max-width:1060px){.class-stills-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.class-still{height:clamp(240px,34vw,340px)}.class-still .still-info strong{font-size:22px}}
+@media(max-width:620px){
+  .class-cinema-stills{padding:18px 14px 20px;border-radius:19px}
+  .class-stills-head{gap:7px 10px}.class-stills-head strong{font-size:21px}
+  .class-stills-head>span{font-size:9px}.class-stills-head small{font-size:10px;width:100%}
+  .class-stills-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+  .class-still{height:clamp(210px,61vw,300px);border-radius:12px}
+  .class-still .still-info{left:12px;bottom:12px}
+  .class-still .still-info strong{font-size:18px}
+  .class-still .still-info small{font-size:9px}
+  .class-still .still-no{top:12px;left:12px}
+  .class-stills-bottom{font-size:9px;letter-spacing:.08em}
+}
+@media(prefers-reduced-motion:reduce){.class-still,.class-still>img,.class-still .still-info{transition:none}}
 
 </style>
 </head>
@@ -123,7 +189,18 @@
 <main class="page class-page">
 <div class="crumb"><a href="../index.html">首页</a> / 职业体系</div>
 <section class="class-hero"><div class="class-hero-copy"><p class="eyebrow">CLASS SYSTEM · GODS & DEMONS REINCARNATION</p><h1>职业体系</h1><p class="lead">《神魔轮回》的职业不是一条锁死的技能树，而是一套成长框架。玩家从统一初始模板进入世界，完成初醒试炼后选择基础分支；真正的强弱，来自身体适应、技能熟练、装备、传承与后期的法则理解。</p></div><div class="class-hero-art" aria-hidden="true"></div><span class="class-hero-edition" aria-hidden="true">CLASS ARCHIVE · VISUAL EDITION</span></section>
-<section class="class-cinema-stills" aria-label="职业体系视觉图鉴"><div class="class-stills-head"><span>THE AWAKENED · ART COLLECTION</span><strong>六种战斗姿态</strong><small>以职业为起点，以选择决定未来</small></div><div class="class-stills-grid"><a class="class-still still-sword" href="#fighter" aria-label="查看剑士职业"><span>01 / 剑士</span></a><a class="class-still still-heal" href="#support" aria-label="查看治疗师职业"><span>02 / 治疗师</span></a><a class="class-still still-rage" href="#fighter" aria-label="查看狂战士职业"><span>03 / 狂战士</span></a><a class="class-still still-shadow" href="#ranger" aria-label="查看刺客职业"><span>04 / 刺客</span></a><a class="class-still still-thunder" href="#caster" aria-label="查看雷电术士职业"><span>05 / 雷电术士</span></a><a class="class-still still-shield" href="#guardian" aria-label="查看盾卫职业"><span>06 / 盾卫</span></a></div><div class="class-stills-bottom">EXPLORE THE PATHS BELOW <span aria-hidden="true">↓</span></div></section>
+<section class="class-cinema-stills" aria-label="职业体系高清人物立绘图鉴">
+  <div class="class-stills-head"><span>THE AWAKENED · ART COLLECTION</span><strong>六种战斗姿态</strong><small>高清人物立绘 · 点击卡片探索职业</small></div>
+  <div class="class-stills-grid">
+<a class="class-still still-sword" href="#fighter" aria-label="查看剑士职业与代表角色顾长渊"><img src="../assets/css/%60images/characters/f948ca5d-b2ab-4754-9cc7-72ed6df61f7c.png" alt="顾长渊的高清人物立绘，代表剑士职业" loading="eager" decoding="async"><span class="still-no">01</span><span class="still-info"><em>BLADE / SWORDSMAN</em><strong>剑士</strong><small>代表角色 · 顾长渊</small></span></a>
+<a class="class-still still-heal" href="#support" aria-label="查看治疗师职业与代表角色苏紫璃"><img src="../assets/css/%60images/characters/586162d7-874d-4bf5-99a8-18fd31b2164e.png" alt="苏紫璃的高清人物立绘，代表治疗师职业" loading="eager" decoding="async"><span class="still-no">02</span><span class="still-info"><em>MOON / HEALER</em><strong>治疗师</strong><small>代表角色 · 苏紫璃</small></span></a>
+<a class="class-still still-rage" href="#fighter" aria-label="查看狂战士职业与代表角色林烈"><img src="../assets/css/%60images/characters/linlie.png" alt="林烈的高清人物立绘，代表狂战士职业" loading="lazy" decoding="async"><span class="still-no">03</span><span class="still-info"><em>BLOOD / BERSERKER</em><strong>狂战士</strong><small>代表角色 · 林烈</small></span></a>
+<a class="class-still still-shadow" href="#ranger" aria-label="查看刺客职业与代表角色罗烬"><img src="../assets/css/%60images/characters/luojin.png" alt="罗烬的高清人物立绘，代表刺客职业" loading="lazy" decoding="async"><span class="still-no">04</span><span class="still-info"><em>SHADOW / ASSASSIN</em><strong>刺客</strong><small>代表角色 · 罗烬</small></span></a>
+<a class="class-still still-thunder" href="#caster" aria-label="查看雷电术士职业与代表角色凌天曜"><img src="../assets/css/%60images/characters/ling%20tianyao.png" alt="凌天曜的高清人物立绘，代表雷电术士职业" loading="lazy" decoding="async"><span class="still-no">05</span><span class="still-info"><em>THUNDER / CASTER</em><strong>雷电术士</strong><small>代表角色 · 凌天曜</small></span></a>
+<a class="class-still still-shield" href="#guardian" aria-label="查看盾卫职业与代表角色戴玄岳"><img src="../assets/css/%60images/characters/DAI%20XUANYUE.png" alt="戴玄岳的高清人物立绘，代表盾卫职业" loading="lazy" decoding="async"><span class="still-no">06</span><span class="still-info"><em>GUARD / SHIELD</em><strong>盾卫</strong><small>代表角色 · 戴玄岳</small></span></a>
+  </div>
+  <div class="class-stills-bottom">EXPLORE THE PATHS BELOW <span aria-hidden="true">↓</span></div>
+</section>
 <div class="class-statbar"><article><small>MAIN SYSTEMS</small><strong>5 大体系</strong></article><article><small>BASE CLASSES</small><strong>20 基础职业</strong></article><article><small>CORE SKILLS</small><strong>240 核心技能</strong></article><article><small>SUB CLASSES</small><strong>12 副职业</strong></article></div>
 <div class="class-rules"><section class="info-panel"><p class="eyebrow">HOW IT WORKS</p><h2>职业成长规则</h2><ul><li>所有玩家开局均为 <b>Lv.1 初醒者 / 职业未觉醒</b>，初期模板一致。</li><li>完成初醒试炼后，通常在约 Lv.3 左右进入第一条公开职业分支。</li><li>职业并非固定数值模板。同一职业可因任务、导师、装备、战斗习惯与特殊传承产生不同进化。</li><li>中后期技能成长逐渐从“学会技能”转向 <b>熟练度、身体融合、领域与法则悟性</b>。</li><li>稀有职业与特殊进化只部分公开；拥有隐藏路线，不代表可以无代价碾压普通职业。</li><li>职业只是主战框架，武器潜力、材料锻造、符文/铭文与副职业会共同决定最终战斗方式。</li></ul></section><section class="info-panel"><p class="eyebrow">SUB CLASS</p><h2>十二副职业</h2><p class="lead" style="margin-top:10px">副职业可多修，单项最高 Lv.10。生产、研究与采集并非装饰系统，稀有品质和成功率也会受到材料、熟练度以及运势影响。</p><div class="sub-tags"><span>炼药师</span><span>炼金师</span><span>附魔师</span><span>锻造师</span><span>工程师</span><span>铭文师</span><span>采集师</span><span>矿物师</span><span>建筑师</span><span>料理师</span><span>制图师</span><span>研究员</span></div></section></div>
 <section class="info-panel" style="margin-bottom:42px"><p class="eyebrow">LEVEL & REALM</p><h2>等级与境界</h2><div class="realm-grid"><div class="realm"><small>Lv.1–10</small><b>初醒者</b><span>建立职业基础与身体适应</span></div><div class="realm"><small>Lv.11–20</small><b>凝源者</b><span>稳定源能循环，技能开始形成个人风格</span></div><div class="realm"><small>Lv.21–30</small><b>超凡者</b><span>职业能力明显超越普通人体极限</span></div><div class="realm"><small>Lv.31–40</small><b>灵域者</b><span>开始触及范围影响与灵域雏形</span></div><div class="realm"><small>Lv.41–50</small><b>统御者</b><span>战斗体系成熟，可统御技能链与团队节奏</span></div><div class="realm"><small>Lv.51–60</small><b>领域者</b><span>形成稳定领域能力</span></div><div class="realm"><small>Lv.61–70</small><b>王座者</b><span>职业与个人意志高度融合</span></div><div class="realm"><small>Lv.71–79</small><b>法则候选者</b><span>开始理解法则，而非只使用技能</span></div><div class="realm"><small>Lv.80+</small><b>高阶规则层</b><span>职业逐渐向法则、本源与个人道路演化</span></div></div></section>
