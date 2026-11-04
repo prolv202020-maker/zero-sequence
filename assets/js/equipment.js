@@ -2,7 +2,7 @@
 (()=>{'use strict';
 const root=document.getElementById('gear-catalog'),final=document.getElementById('zs-gear-final');
 if(!root&&!final)return;
-const KEY='zs:part-progress:v1',source='../assets/data/equipment.json?v=1';
+const KEY='zs:part-progress:v1',source='../assets/data/equipment.json?v=2';
 const iconFor={'武器':'⚔','盾与防具':'◇','机关构件':'⚙','工具与防护':'⌁','特殊辅助器具':'◈','特殊遗物':'✧','锻造材料':'◆','技术与制作':'✎'};
 const by=(id)=>document.getElementById(id);
 const em=(tag,cls,txt)=>{const a=document.createElement(tag);if(cls)a.className=cls;if(txt!==undefined)a.textContent=txt;return a;};
@@ -34,7 +34,23 @@ function makeCard(item){
  detail.append(inner);card.append(detail);return card;
 }
 function makeLockedCard(i){const c=em('article','gear-card is-locked');c.append(em('div','gear-lock','⌑'),em('h3','','未解锁的装备档案'),em('p','gear-intro','对应章节尚未阅读。名称、属性与人物归属暂时隐藏。'));return c;}
+
+function renderWeaponFramework(){
+ const host=by('gear-framework');if(!host||!data.weaponFramework)return;
+ const fw=data.weaponFramework;host.replaceChildren();
+ const make=(tag,cls,txt)=>em(tag,cls,txt);
+ const intro=make('p','gear-framework-intro',fw.introduction);host.append(intro);
+ const tiers=make('div','gear-tier-grid');
+ fw.tiers.forEach(t=>{const card=make('article','gear-tier');card.append(make('span','gear-tier-no',String(t.rank).padStart(2,'0')),make('h3','',t.name),make('p','',t.description));tiers.append(card);});
+ host.append(tiers);
+ const matrix=make('div','gear-framework-matrix');
+ const sections=[['四大数据与状态',fw.identity],['成长潜力',fw.potentials],['六种成长方式',fw.growth],['材料来源',fw.materials],['武器变异',fw.mutations]];
+ sections.forEach(([name,items])=>{const panel=make('section','gear-framework-panel');panel.append(make('h3','',name));const list=make('dl','');items.forEach(item=>{const row=make('div','gear-framework-row');row.append(make('dt','',item.name),make('dd','',item.detail));list.append(row);});panel.append(list);matrix.append(panel);});host.append(matrix);
+ const footer=make('div','gear-framework-footer');footer.append(make('h3','','平衡与连续性规则'));const ul=make('ul','');fw.principles.forEach(s=>ul.append(make('li','',s)));footer.append(ul,make('p','',fw.example));host.append(footer);
+}
+
 function renderSystem(){
+ renderWeaponFramework();
  const rules=by('gear-rules');if(!rules)return;
  rules.replaceChildren();
  for(const r of data.principles){const card=em('article','gear-rule');card.append(em('h3','',r.title),em('p','',r.description));rules.append(card);}
