@@ -115,6 +115,7 @@ function markPartTwoDraft(){
 const m=location.pathname.match(/\/chapters\/volume-(1[1-9]|20)\/chapter-\d{3}\.html$/);
 if(!m)return;
 const lead=document.querySelector('main.page>.lead');
+if(lead&&lead.textContent.includes('正式正文（3000—3500字标准）'))return;
 if(lead)lead.textContent=lead.textContent.replace('正式正文','剧情草稿 · 待重写至3000—3500字');
 const article=document.querySelector('main.page>.article');if(!article)return;
 const note=el('div','zs-unlock-panel');
