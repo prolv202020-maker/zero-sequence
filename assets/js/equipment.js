@@ -2,7 +2,7 @@
 (()=>{'use strict';
 const root=document.getElementById('gear-catalog'),final=document.getElementById('zs-gear-final');
 if(!root&&!final)return;
-const KEY='zs:part-progress:v1',source='../assets/data/equipment.json?v=2';
+const KEY='zs:part-progress:v1',source='../assets/data/equipment.json?v=3';
 const iconFor={'武器':'⚔','盾与防具':'◇','机关构件':'⚙','工具与防护':'⌁','特殊辅助器具':'◈','特殊遗物':'✧','锻造材料':'◆','技术与制作':'✎'};
 const by=(id)=>document.getElementById(id);
 const em=(tag,cls,txt)=>{const a=document.createElement(tag);if(cls)a.className=cls;if(txt!==undefined)a.textContent=txt;return a;};
@@ -44,9 +44,22 @@ function renderWeaponFramework(){
  fw.tiers.forEach(t=>{const card=make('article','gear-tier');card.append(make('span','gear-tier-no',String(t.rank).padStart(2,'0')),make('h3','',t.name),make('p','',t.description));tiers.append(card);});
  host.append(tiers);
  const matrix=make('div','gear-framework-matrix');
- const sections=[['四大数据与状态',fw.identity],['成长潜力',fw.potentials],['六种成长方式',fw.growth],['材料来源',fw.materials],['武器变异',fw.mutations]];
+ const sections=[['武器八项数据',fw.identity],['三种损坏指标',fw.durability],['损伤后的修理条件',fw.repair],['成长潜力',fw.potentials],['六种成长方式',fw.growth],['常见武备类型',fw.weaponForms],['材料来源',fw.materials],['武器变异',fw.mutations],['武器意识的四个阶段',fw.weaponConsciousness],['封印、碎片与遗物',fw.specialCases]];
  sections.forEach(([name,items])=>{const panel=make('section','gear-framework-panel');panel.append(make('h3','',name));const list=make('dl','');items.forEach(item=>{const row=make('div','gear-framework-row');row.append(make('dt','',item.name),make('dd','',item.detail));list.append(row);});panel.append(list);matrix.append(panel);});host.append(matrix);
  const footer=make('div','gear-framework-footer');footer.append(make('h3','','平衡与连续性规则'));const ul=make('ul','');fw.principles.forEach(s=>ul.append(make('li','',s)));footer.append(ul,make('p','',fw.example));host.append(footer);
+ if(fw.enhancement){
+  const guide=make('section','gear-framework-footer');guide.append(make('h3','','强化阶段 · 示例范围（未定案）'),make('p','',fw.enhancement.range));
+  const band=make('div','gear-enhance-bands');for(const row of fw.enhancement.bands){const b=make('div','gear-enhance-band');b.append(make('b','',row.range),make('span','',row.name));band.append(b);}guide.append(band);
+  const ul2=make('ul','');for(const line of fw.enhancement.warnings)ul2.append(make('li','',line));guide.append(ul2);host.append(guide);
+ }
+ if(Array.isArray(fw.characterDirections)){
+  const wrap=make('section','gear-character-section'),title=make('h3','','七位核心人物 · 武器方向与连续性');
+  wrap.append(title,make('p','gear-framework-intro','以下仅为创作适配方向，不是已获得装备或未来神器的正式名称。点击角色查看，已出现的武器和职业不会被覆盖。'));
+  const grid=make('div','gear-character-grid');
+  for(const item of fw.characterDirections){const detail=make('details','gear-character-dossier');const summary=make('summary','',item.name+' · '+item.publicProfession);
+   detail.append(summary,make('p','',item.direction),make('p','gear-character-note',item.continuity));grid.append(detail);}
+  wrap.append(grid);if(fw.continuityRules){const box=make('div','gear-framework-footer');box.append(make('h3','','正文一致性提醒'));const ul3=make('ul','');for(const line of fw.continuityRules)ul3.append(make('li','',line));box.append(ul3);wrap.append(box);}host.append(wrap);
+ }
 }
 
 function renderSystem(){
