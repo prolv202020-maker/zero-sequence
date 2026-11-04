@@ -1,0 +1,1443 @@
+{
+  "version": "1.0",
+  "title": "第零序列 · 物资与产业联动数据库",
+  "asOf": "2026-11-05",
+  "labels": {
+    "chapter": "正文记录（按阅读进度显示）",
+    "design": "创作设计样例（未在正文确认）",
+    "model": "经营推演模型（不是官方市价）"
+  },
+  "materials": [
+    {
+      "id": "red-vein-ore",
+      "name": "赤纹矿",
+      "kind": "矿石",
+      "grade": "未鉴定",
+      "status": "chapter",
+      "source": "灰石路口附近采集；矿石与耐热剑柄工艺的关联在正文出现",
+      "usage": "耐热型握柄结构、常规锻造研究",
+      "origin": {
+        "chapter": 18,
+        "volume": 2,
+        "chapterInVolume": 8
+      },
+      "link": "red-vein-ore",
+      "note": "已确认需求上涨，但没有通用售价和固定掉率"
+    },
+    {
+      "id": "gray-crystal-sand",
+      "name": "灰晶砂",
+      "kind": "晶砂",
+      "grade": "未鉴定",
+      "status": "chapter",
+      "source": "与赤纹矿一起采集；遇到部分黑岩会出现排列现象",
+      "usage": "材料研究、结构记录与异常鉴定",
+      "origin": {
+        "chapter": 18,
+        "volume": 2,
+        "chapterInVolume": 8
+      },
+      "link": "gray-crystal-sand",
+      "note": "正文未公布可量产的特种配方"
+    },
+    {
+      "id": "black-hunter-shell",
+      "name": "黑甲猎虫壳",
+      "kind": "生物材料",
+      "grade": "未鉴定",
+      "status": "chapter",
+      "source": "工作室出售过从伐木营地取得的虫甲材料；旧采购账册亦有记录",
+      "usage": "壳甲维修、硬质护具研究（用途待验证）",
+      "origin": {
+        "chapter": 30,
+        "volume": 3,
+        "chapterInVolume": 10
+      },
+      "link": "black-hunter-shell",
+      "note": "材料存在已确认，但猎虫的确切战斗掉落率没有公布"
+    },
+    {
+      "id": "moon-silver-powder",
+      "name": "月银粉",
+      "kind": "特殊粉末",
+      "grade": "未鉴定",
+      "status": "chapter",
+      "source": "四百年前采购账册及市场合约记录；货源稀缺",
+      "usage": "铭纹材料兼容测试（候选用途）",
+      "origin": {
+        "chapter": 30,
+        "volume": 3,
+        "chapterInVolume": 10
+      },
+      "link": "moon-silver-powder",
+      "note": "有交易与账册记录，不代表主角已得到实物"
+    },
+    {
+      "id": "black-metal-fragment",
+      "name": "残缺黑色金属片",
+      "kind": "遗物残件",
+      "grade": "无法判定",
+      "status": "chapter",
+      "source": "马库斯曾展示的金属残件，接近旧碑发生震动",
+      "usage": "仅供文献、鉴定与遗迹关联，不开放公开配方",
+      "origin": {
+        "chapter": 20,
+        "volume": 2,
+        "chapterInVolume": 10
+      },
+      "link": "black-metal-fragment",
+      "note": "拥有者是马库斯，非主角团的可拆解通用材料"
+    },
+    {
+      "id": "iron-ore",
+      "name": "普通铁矿",
+      "kind": "基础矿石",
+      "grade": "凡品",
+      "status": "design",
+      "source": "山地矿脉、矿工采购、商会市场",
+      "usage": "锻造铁件、工具和维修",
+      "origin": null,
+      "link": null,
+      "note": ""
+    },
+    {
+      "id": "copper-ore",
+      "name": "普通铜矿",
+      "kind": "基础矿石",
+      "grade": "凡品",
+      "status": "design",
+      "source": "普通矿山与商会集市",
+      "usage": "结构配件、基础工程与导电工艺",
+      "origin": null,
+      "link": null,
+      "note": ""
+    },
+    {
+      "id": "timber",
+      "name": "普通木料",
+      "kind": "木材",
+      "grade": "凡品",
+      "status": "design",
+      "source": "林业、木匠与普通采购",
+      "usage": "握柄、箱板、修缮和建筑支架",
+      "origin": null,
+      "link": null,
+      "note": ""
+    },
+    {
+      "id": "toughwood",
+      "name": "坚韧木芯",
+      "kind": "木材",
+      "grade": "精良",
+      "status": "design",
+      "source": "精挑的树干芯材与木匠加工",
+      "usage": "长期受力的工具柄和工坊支撑",
+      "origin": null,
+      "link": null,
+      "note": ""
+    },
+    {
+      "id": "fiber-rope",
+      "name": "麻纤维绳",
+      "kind": "纤维",
+      "grade": "凡品",
+      "status": "design",
+      "source": "采集与纺织加工",
+      "usage": "防护固定、捆扎与运输",
+      "origin": null,
+      "link": null,
+      "note": ""
+    },
+    {
+      "id": "leather",
+      "name": "鞣制皮革",
+      "kind": "生物材料",
+      "grade": "凡品",
+      "status": "design",
+      "source": "畜牧、制皮工坊或合法收购",
+      "usage": "剑柄缠带、护具修补",
+      "origin": null,
+      "link": null,
+      "note": ""
+    },
+    {
+      "id": "cloth",
+      "name": "粗织布",
+      "kind": "纤维",
+      "grade": "凡品",
+      "status": "design",
+      "source": "织坊、交易市场",
+      "usage": "护具衬层、包装和包扎",
+      "origin": null,
+      "link": null,
+      "note": ""
+    },
+    {
+      "id": "clean-water",
+      "name": "净水",
+      "kind": "消耗材料",
+      "grade": "凡品",
+      "status": "design",
+      "source": "井水、净化设施、采购",
+      "usage": "药剂基础加工、清洗及生活供应",
+      "origin": "",
+      "link": null,
+      "note": "实际卫生安全必须单独检验；游戏名称不代表现实可饮"
+    },
+    {
+      "id": "basic-herb",
+      "name": "常见药草叶",
+      "kind": "草药",
+      "grade": "凡品",
+      "status": "design",
+      "source": "野外采集、药田和药剂商店",
+      "usage": "普通药剂试制与研究",
+      "origin": null,
+      "link": null,
+      "note": ""
+    },
+    {
+      "id": "healing-root",
+      "name": "止血草根",
+      "kind": "草药",
+      "grade": "精良",
+      "status": "design",
+      "source": "药田、草药商及特定野地（待写）",
+      "usage": "止血辅料、外伤药剂研究",
+      "origin": null,
+      "link": null,
+      "note": ""
+    },
+    {
+      "id": "resin",
+      "name": "基础固定树脂",
+      "kind": "化工材料",
+      "grade": "凡品",
+      "status": "design",
+      "source": "植物树脂与工坊加工",
+      "usage": "固定结构、工具维护和护具修补",
+      "origin": null,
+      "link": null,
+      "note": ""
+    },
+    {
+      "id": "grinding-sand",
+      "name": "研磨细砂",
+      "kind": "矿物",
+      "grade": "凡品",
+      "status": "design",
+      "source": "河岸砂矿、加工厂",
+      "usage": "精磨、研粉、外表清理",
+      "origin": null,
+      "link": null,
+      "note": ""
+    },
+    {
+      "id": "energy-grain",
+      "name": "低阶能源晶粒",
+      "kind": "能源材料",
+      "grade": "精良",
+      "status": "design",
+      "source": "低阶结晶提纯和能源商",
+      "usage": "基础能源测试、普通炼制调控",
+      "origin": null,
+      "link": null,
+      "note": ""
+    },
+    {
+      "id": "binding-ink",
+      "name": "基础符墨",
+      "kind": "铭文材料",
+      "grade": "精良",
+      "status": "design",
+      "source": "墨料、矿粉与铭文工坊",
+      "usage": "基础标记、维修与铭纹练习",
+      "origin": null,
+      "link": null,
+      "note": ""
+    },
+    {
+      "id": "hard-plate",
+      "name": "基础护甲片",
+      "kind": "构件",
+      "grade": "精良",
+      "status": "design",
+      "source": "普通锻造与拆修再利用",
+      "usage": "护甲及防具维修",
+      "origin": null,
+      "link": null,
+      "note": ""
+    },
+    {
+      "id": "spare-cog",
+      "name": "标准机关齿轮",
+      "kind": "构件",
+      "grade": "凡品",
+      "status": "design",
+      "source": "工程工坊、机械采购",
+      "usage": "工具修理与自动化设备保养",
+      "origin": null,
+      "link": null,
+      "note": ""
+    },
+    {
+      "id": "heat-crystal",
+      "name": "低阶火性晶粒",
+      "kind": "能源材料",
+      "grade": "精良",
+      "status": "design",
+      "source": "合法能源结晶渠道（未确定）",
+      "usage": "温控、炼药工艺热源辅助",
+      "origin": null,
+      "link": null,
+      "note": ""
+    },
+    {
+      "id": "cooling-oil",
+      "name": "冷却润滑油",
+      "kind": "工艺辅料",
+      "grade": "凡品",
+      "status": "design",
+      "source": "油料商、工坊加工",
+      "usage": "锻炉冷却与设备保养",
+      "origin": null,
+      "link": null,
+      "note": ""
+    },
+    {
+      "id": "frost-fiber",
+      "name": "保温织纤",
+      "kind": "纤维",
+      "grade": "精良",
+      "status": "design",
+      "source": "纺织技术与寒区采购（候选）",
+      "usage": "防寒装备内衬和保温层",
+      "origin": null,
+      "link": null,
+      "note": ""
+    },
+    {
+      "id": "anti-slip-grit",
+      "name": "防滑砂粒",
+      "kind": "矿物",
+      "grade": "凡品",
+      "status": "design",
+      "source": "砂石采集与加工",
+      "usage": "靴底与道路安全改造",
+      "origin": null,
+      "link": null,
+      "note": ""
+    },
+    {
+      "id": "padded-band",
+      "name": "软垫绑带",
+      "kind": "构件",
+      "grade": "凡品",
+      "status": "design",
+      "source": "皮革、布料与缝制工坊",
+      "usage": "护具调整、工具防震",
+      "origin": null,
+      "link": null,
+      "note": ""
+    },
+    {
+      "id": "herbal-salt",
+      "name": "药用粗盐",
+      "kind": "工艺辅料",
+      "grade": "凡品",
+      "status": "design",
+      "source": "普通贸易与调配加工",
+      "usage": "保存、基础配方和处理测试",
+      "origin": null,
+      "link": null,
+      "note": ""
+    },
+    {
+      "id": "glass-vial",
+      "name": "普通玻璃瓶",
+      "kind": "容器",
+      "grade": "凡品",
+      "status": "design",
+      "source": "玻璃工坊与市场",
+      "usage": "药剂封装、样品存储",
+      "origin": null,
+      "link": null,
+      "note": ""
+    },
+    {
+      "id": "rock-aggregate",
+      "name": "碎石骨料",
+      "kind": "建材",
+      "grade": "凡品",
+      "status": "design",
+      "source": "正规矿业和采石加工",
+      "usage": "道路修补、支架与基础建造",
+      "origin": null,
+      "link": null,
+      "note": ""
+    }
+  ],
+  "drops": [
+    {
+      "monsterId": "grass-rabbit",
+      "monster": "草牙兔",
+      "first": 7,
+      "region": "晨星镇",
+      "possibleMaterials": [
+        "leather"
+      ],
+      "evidence": "无确认击杀掉落",
+      "notes": "正文尚无掉落记录，生态取材仅为泛化设想。",
+      "dropRate": null,
+      "policy": "采集与猎取仍取决于生态、地区与实际剧情；不得将推演当作固定掉落。"
+    },
+    {
+      "monsterId": "grayback-wolf",
+      "monster": "灰背狼",
+      "first": 7,
+      "region": "晨星镇",
+      "possibleMaterials": [
+        "leather"
+      ],
+      "evidence": "无确认击杀掉落",
+      "notes": "没有公布可反复刷取的固定材料。",
+      "dropRate": null,
+      "policy": "采集与猎取仍取决于生态、地区与实际剧情；不得将推演当作固定掉落。"
+    },
+    {
+      "monsterId": "nameless-entity",
+      "monster": "未知生物（商队男子形态）",
+      "first": 8,
+      "region": "晨星镇",
+      "possibleMaterials": [],
+      "evidence": "无确认击杀掉落",
+      "notes": "身份未知，不应推演任何可收集战利品。",
+      "dropRate": null,
+      "policy": "采集与猎取仍取决于生态、地区与实际剧情；不得将推演当作固定掉落。"
+    },
+    {
+      "monsterId": "tusk-boar",
+      "monster": "獠牙猪",
+      "first": 9,
+      "region": "晨星镇",
+      "possibleMaterials": [
+        "leather"
+      ],
+      "evidence": "无确认击杀掉落",
+      "notes": "仅取材方向示例，正文无掉落表。",
+      "dropRate": null,
+      "policy": "采集与猎取仍取决于生态、地区与实际剧情；不得将推演当作固定掉落。"
+    },
+    {
+      "monsterId": "black-mane",
+      "monster": "黑鬃兽",
+      "first": 9,
+      "region": "晨星镇",
+      "possibleMaterials": [
+        "leather"
+      ],
+      "evidence": "无确认击杀掉落",
+      "notes": "兽角是否能用于锻造尚需验证。",
+      "dropRate": null,
+      "policy": "采集与猎取仍取决于生态、地区与实际剧情；不得将推演当作固定掉落。"
+    },
+    {
+      "monsterId": "vine-wolf",
+      "monster": "藤狼",
+      "first": 15,
+      "region": "青叶森林",
+      "possibleMaterials": [],
+      "evidence": "无确认击杀掉落",
+      "notes": "藤蔓技能及材料来源都未证实。",
+      "dropRate": null,
+      "policy": "采集与猎取仍取决于生态、地区与实际剧情；不得将推演当作固定掉落。"
+    },
+    {
+      "monsterId": "graytail-monkey",
+      "monster": "灰尾猴",
+      "first": 15,
+      "region": "青叶森林",
+      "possibleMaterials": [],
+      "evidence": "无确认击杀掉落",
+      "notes": "野生生物观察记录，不设固定打怪掉落。",
+      "dropRate": null,
+      "policy": "采集与猎取仍取决于生态、地区与实际剧情；不得将推演当作固定掉落。"
+    },
+    {
+      "monsterId": "blueback-boar",
+      "monster": "青背獠猪",
+      "first": 15,
+      "region": "青叶森林",
+      "possibleMaterials": [
+        "leather"
+      ],
+      "evidence": "无确认击杀掉落",
+      "notes": "皮革用途只是一般取材示范。",
+      "dropRate": null,
+      "policy": "采集与猎取仍取决于生态、地区与实际剧情；不得将推演当作固定掉落。"
+    },
+    {
+      "monsterId": "blackcarapace-hunter",
+      "monster": "黑甲猎虫",
+      "first": 16,
+      "region": "灰石矿道",
+      "possibleMaterials": [
+        "black-hunter-shell"
+      ],
+      "evidence": "相关材料有正文记录，来源机制未确认",
+      "notes": "正文确证市场出现黑甲猎虫壳；不是某只虫击杀后必掉材料的证据。",
+      "dropRate": null,
+      "policy": "采集与猎取仍取决于生态、地区与实际剧情；不得将推演当作固定掉落。"
+    },
+    {
+      "monsterId": "ashfeather-moth",
+      "monster": "灰翎蜕蛾",
+      "first": 35,
+      "region": "北线林地",
+      "possibleMaterials": [],
+      "evidence": "无确认击杀掉落",
+      "notes": "涉及繁殖巢群，前期更应关注避免生态扰动。",
+      "dropRate": null,
+      "policy": "采集与猎取仍取决于生态、地区与实际剧情；不得将推演当作固定掉落。"
+    },
+    {
+      "monsterId": "stoneback-variant",
+      "monster": "石甲裂背兽亚种",
+      "first": 48,
+      "region": "灰石矿道",
+      "possibleMaterials": [],
+      "evidence": "无确认击杀掉落",
+      "notes": "受伤个体具有独特情况，不设稳定甲片掉落。",
+      "dropRate": null,
+      "policy": "采集与猎取仍取决于生态、地区与实际剧情；不得将推演当作固定掉落。"
+    },
+    {
+      "monsterId": "foghoof-deer",
+      "monster": "雾蹄巨鹿",
+      "first": 59,
+      "region": "西境商路",
+      "possibleMaterials": [],
+      "evidence": "无确认击杀掉落",
+      "notes": "正文为非致命救援，禁止误写为已击杀并获得战利品。",
+      "dropRate": null,
+      "policy": "采集与猎取仍取决于生态、地区与实际剧情；不得将推演当作固定掉落。"
+    },
+    {
+      "monsterId": "icevein-insect",
+      "monster": "冰脉虫",
+      "first": 62,
+      "region": "白霜边境",
+      "possibleMaterials": [],
+      "evidence": "无确认击杀掉落",
+      "notes": "冰茧破坏有生态风险，没有确定掉落。",
+      "dropRate": null,
+      "policy": "采集与猎取仍取决于生态、地区与实际剧情；不得将推演当作固定掉落。"
+    },
+    {
+      "monsterId": "snowclaw-wolf",
+      "monster": "雪爪狼",
+      "first": 63,
+      "region": "白霜边境",
+      "possibleMaterials": [
+        "leather"
+      ],
+      "evidence": "无确认击杀掉落",
+      "notes": "毛皮材料仅为条件性研究方向；正文偏重兽群迁徙而非刷材料。",
+      "dropRate": null,
+      "policy": "采集与猎取仍取决于生态、地区与实际剧情；不得将推演当作固定掉落。"
+    },
+    {
+      "monsterId": "snowfox",
+      "monster": "雪狐",
+      "first": 66,
+      "region": "白霜边境",
+      "possibleMaterials": [],
+      "evidence": "无确认击杀掉落",
+      "notes": "与伊诺同行的雪狐，不当作狩猎素材。",
+      "dropRate": null,
+      "policy": "采集与猎取仍取决于生态、地区与实际剧情；不得将推演当作固定掉落。"
+    },
+    {
+      "monsterId": "rockwing-bird",
+      "monster": "岩翼鸟",
+      "first": 66,
+      "region": "白霜边境",
+      "possibleMaterials": [],
+      "evidence": "无确认击杀掉落",
+      "notes": "已记录左翅旧伤，不应制造战利品。",
+      "dropRate": null,
+      "policy": "采集与猎取仍取决于生态、地区与实际剧情；不得将推演当作固定掉落。"
+    },
+    {
+      "monsterId": "grayburrow-worm",
+      "monster": "灰甲钻地虫",
+      "first": 82,
+      "region": "黑风峡谷",
+      "possibleMaterials": [],
+      "evidence": "无确认击杀掉落",
+      "notes": "受异常地形影响，尚无取材记录。",
+      "dropRate": null,
+      "policy": "采集与猎取仍取决于生态、地区与实际剧情；不得将推演当作固定掉落。"
+    },
+    {
+      "monsterId": "blackwind-claw",
+      "monster": "黑风铁爪兽",
+      "first": 84,
+      "region": "黑风峡谷",
+      "possibleMaterials": [],
+      "evidence": "无确认击杀掉落",
+      "notes": "已确认关节可被短刃攻击，不代表可获得稀有爪材料。",
+      "dropRate": null,
+      "policy": "采集与猎取仍取决于生态、地区与实际剧情；不得将推演当作固定掉落。"
+    },
+    {
+      "monsterId": "windthroat-colossus",
+      "monster": "风喉兽",
+      "first": 88,
+      "region": "黑风峡谷",
+      "possibleMaterials": [],
+      "evidence": "无确认击杀掉落",
+      "notes": "该个体受伤后撤离，正文未被击杀，因此没有战利品。",
+      "dropRate": null,
+      "policy": "采集与猎取仍取决于生态、地区与实际剧情；不得将推演当作固定掉落。"
+    }
+  ],
+  "recipes": [
+    {
+      "id": "r-grip",
+      "name": "基础握柄维修",
+      "career": "锻造师",
+      "lv": 1,
+      "facility": 1,
+      "ingredients": [
+        {
+          "id": "timber",
+          "qty": 2
+        },
+        {
+          "id": "leather",
+          "qty": 1
+        },
+        {
+          "id": "resin",
+          "qty": 1
+        }
+      ],
+      "output": "修复常用武器的握柄平衡与稳固，不默认提高品质",
+      "limits": "需检查受力结构；失误可能使武器操控变差",
+      "kind": "制作",
+      "scenario": "设计示例",
+      "status": "design"
+    },
+    {
+      "id": "r-heat-grip",
+      "name": "耐热握柄调校试作",
+      "career": "锻造师",
+      "lv": 3,
+      "facility": 3,
+      "ingredients": [
+        {
+          "id": "red-vein-ore",
+          "qty": 1
+        },
+        {
+          "id": "toughwood",
+          "qty": 1
+        },
+        {
+          "id": "resin",
+          "qty": 1
+        }
+      ],
+      "output": "研究耐热型握柄，可能改善特定工况的持握稳定",
+      "limits": "这是根据赤纹矿用途延伸的配方草案，不是已确认生产成功",
+      "kind": "制作",
+      "scenario": "设计示例",
+      "status": "design"
+    },
+    {
+      "id": "r-armor",
+      "name": "旧甲拼接补强",
+      "career": "锻造师",
+      "lv": 2,
+      "facility": 2,
+      "ingredients": [
+        {
+          "id": "hard-plate",
+          "qty": 2
+        },
+        {
+          "id": "leather",
+          "qty": 1
+        },
+        {
+          "id": "fiber-rope",
+          "qty": 1
+        }
+      ],
+      "output": "恢复常规防具的结构完整度",
+      "limits": "不保证旧甲完全恢复原貌",
+      "kind": "制作",
+      "scenario": "设计示例",
+      "status": "design"
+    },
+    {
+      "id": "r-shell-patch",
+      "name": "虫甲轻护片试作",
+      "career": "锻造师",
+      "lv": 4,
+      "facility": 4,
+      "ingredients": [
+        {
+          "id": "black-hunter-shell",
+          "qty": 2
+        },
+        {
+          "id": "leather",
+          "qty": 1
+        },
+        {
+          "id": "resin",
+          "qty": 1
+        }
+      ],
+      "output": "探索轻护片、护臂的耐磨潜力",
+      "limits": "黑甲猎虫壳的详细加工性质待正文验证",
+      "kind": "制作",
+      "scenario": "设计示例",
+      "status": "design"
+    },
+    {
+      "id": "r-rope",
+      "name": "矿道安全固定包",
+      "career": "工程师",
+      "lv": 2,
+      "facility": 2,
+      "ingredients": [
+        {
+          "id": "fiber-rope",
+          "qty": 3
+        },
+        {
+          "id": "spare-cog",
+          "qty": 1
+        },
+        {
+          "id": "padded-band",
+          "qty": 1
+        }
+      ],
+      "output": "用于矿道临时固绳与救援前置准备",
+      "limits": "现场地质核验和专业队伍不可省略",
+      "kind": "制作",
+      "scenario": "设计示例",
+      "status": "design"
+    },
+    {
+      "id": "r-boots",
+      "name": "防滑靴底修补",
+      "career": "锻造师",
+      "lv": 2,
+      "facility": 2,
+      "ingredients": [
+        {
+          "id": "leather",
+          "qty": 1
+        },
+        {
+          "id": "anti-slip-grit",
+          "qty": 2
+        },
+        {
+          "id": "resin",
+          "qty": 1
+        }
+      ],
+      "output": "改善普通靴具的摩擦与磨损",
+      "limits": "冰面与雪坡表现不同，不能保证百分之百防滑",
+      "kind": "制作",
+      "scenario": "设计示例",
+      "status": "design"
+    },
+    {
+      "id": "r-warm",
+      "name": "保温内衬修补",
+      "career": "工程师",
+      "lv": 2,
+      "facility": 2,
+      "ingredients": [
+        {
+          "id": "frost-fiber",
+          "qty": 2
+        },
+        {
+          "id": "cloth",
+          "qty": 2
+        },
+        {
+          "id": "padded-band",
+          "qty": 1
+        }
+      ],
+      "output": "维护寒区装备的保温和贴合",
+      "limits": "冰寒环境仍需物资轮换和身体保护",
+      "kind": "制作",
+      "scenario": "设计示例",
+      "status": "design"
+    },
+    {
+      "id": "r-elixir",
+      "name": "基础恢复药剂试制",
+      "career": "炼药师",
+      "lv": 2,
+      "facility": 2,
+      "ingredients": [
+        {
+          "id": "clean-water",
+          "qty": 1
+        },
+        {
+          "id": "basic-herb",
+          "qty": 2
+        },
+        {
+          "id": "glass-vial",
+          "qty": 1
+        }
+      ],
+      "output": "普通游戏药剂研究用样本，效果未定案",
+      "limits": "不具备现实医疗效果的保证",
+      "kind": "制作",
+      "scenario": "设计示例",
+      "status": "design"
+    },
+    {
+      "id": "r-herb",
+      "name": "止血辅剂研制",
+      "career": "炼药师",
+      "lv": 4,
+      "facility": 4,
+      "ingredients": [
+        {
+          "id": "healing-root",
+          "qty": 2
+        },
+        {
+          "id": "clean-water",
+          "qty": 1
+        },
+        {
+          "id": "herbal-salt",
+          "qty": 1
+        },
+        {
+          "id": "glass-vial",
+          "qty": 1
+        }
+      ],
+      "output": "研究外伤处置的辅助制剂",
+      "limits": "现实医学不能以游戏药剂代替，功效与安全须验证",
+      "kind": "制作",
+      "scenario": "设计示例",
+      "status": "design"
+    },
+    {
+      "id": "r-ink",
+      "name": "基础铭纹标记片",
+      "career": "铭文师",
+      "lv": 3,
+      "facility": 3,
+      "ingredients": [
+        {
+          "id": "binding-ink",
+          "qty": 1
+        },
+        {
+          "id": "hard-plate",
+          "qty": 1
+        },
+        {
+          "id": "energy-grain",
+          "qty": 1
+        }
+      ],
+      "output": "可供铭文师练习记录能量结构",
+      "limits": "不等于获得法则能力或特殊战斗词条",
+      "kind": "制作",
+      "scenario": "设计示例",
+      "status": "design"
+    },
+    {
+      "id": "r-mapping",
+      "name": "简易测绘标记包",
+      "career": "制图师",
+      "lv": 1,
+      "facility": 1,
+      "ingredients": [
+        {
+          "id": "cloth",
+          "qty": 1
+        },
+        {
+          "id": "binding-ink",
+          "qty": 1
+        },
+        {
+          "id": "fiber-rope",
+          "qty": 1
+        }
+      ],
+      "output": "普通地形标记与路线记录",
+      "limits": "地图精度依赖实测，不会自动显示全部隐藏路径",
+      "kind": "制作",
+      "scenario": "设计示例",
+      "status": "design"
+    },
+    {
+      "id": "r-crystal",
+      "name": "灰晶砂异常结构实验",
+      "career": "研究员",
+      "lv": 4,
+      "facility": 4,
+      "ingredients": [
+        {
+          "id": "gray-crystal-sand",
+          "qty": 1
+        },
+        {
+          "id": "grinding-sand",
+          "qty": 1
+        },
+        {
+          "id": "glass-vial",
+          "qty": 1
+        }
+      ],
+      "output": "检测材料是否对某些矿石纹理产生反应",
+      "limits": "仅为实验方案，不宣布已经揭示旧文明真相",
+      "kind": "研究",
+      "scenario": "设计示例",
+      "status": "design"
+    },
+    {
+      "id": "r-moon",
+      "name": "月银粉兼容性小样",
+      "career": "铭文师",
+      "lv": 6,
+      "facility": 6,
+      "ingredients": [
+        {
+          "id": "moon-silver-powder",
+          "qty": 1
+        },
+        {
+          "id": "binding-ink",
+          "qty": 1
+        },
+        {
+          "id": "energy-grain",
+          "qty": 2
+        }
+      ],
+      "output": "研究古账册材料之间的潜在适配",
+      "limits": "材料极稀少、现货来源未证实；不是正文配方",
+      "kind": "研究",
+      "scenario": "设计示例",
+      "status": "design"
+    },
+    {
+      "id": "r-cog",
+      "name": "标准机关齿轮更换",
+      "career": "工程师",
+      "lv": 2,
+      "facility": 2,
+      "ingredients": [
+        {
+          "id": "spare-cog",
+          "qty": 2
+        },
+        {
+          "id": "cooling-oil",
+          "qty": 1
+        },
+        {
+          "id": "iron-ore",
+          "qty": 1
+        }
+      ],
+      "output": "修复低阶传动机构的运行状态",
+      "limits": "自动化机械维修仍需专业检查",
+      "kind": "维修",
+      "scenario": "设计示例",
+      "status": "design"
+    },
+    {
+      "id": "r-storage",
+      "name": "仓储基础箱体制作",
+      "career": "建筑师",
+      "lv": 2,
+      "facility": 2,
+      "ingredients": [
+        {
+          "id": "timber",
+          "qty": 4
+        },
+        {
+          "id": "fiber-rope",
+          "qty": 2
+        },
+        {
+          "id": "resin",
+          "qty": 1
+        }
+      ],
+      "output": "常规物资箱体与搬运管理",
+      "limits": "不提供无限储物和空间收纳",
+      "kind": "设施",
+      "scenario": "设计示例",
+      "status": "design"
+    },
+    {
+      "id": "r-road",
+      "name": "道路碎石维护",
+      "career": "建筑师",
+      "lv": 2,
+      "facility": 2,
+      "ingredients": [
+        {
+          "id": "rock-aggregate",
+          "qty": 5
+        },
+        {
+          "id": "fiber-rope",
+          "qty": 1
+        },
+        {
+          "id": "timber",
+          "qty": 1
+        }
+      ],
+      "output": "维护矿道与商路的基层通行条件",
+      "limits": "需要实际工程审批和劳工，不能凭一张蓝图立即建成",
+      "kind": "工程",
+      "scenario": "设计示例",
+      "status": "design"
+    }
+  ],
+  "orders": [
+    {
+      "id": "o-01",
+      "name": "巡逻队的磨损握柄",
+      "cityId": "morning-star",
+      "client": "镇内守卫后勤",
+      "recipeId": "r-grip",
+      "qty": 8,
+      "deadline": "三日（示例）",
+      "contract": "逐件检验握柄与重心；以修复合格件计价",
+      "trade": "材料、人工与工时议价结算",
+      "conflict": "若修复赶工导致握柄松动，城防有权拒收",
+      "status": "design"
+    },
+    {
+      "id": "o-02",
+      "name": "守门护甲维修",
+      "cityId": "morning-star",
+      "client": "镇内护具商",
+      "recipeId": "r-armor",
+      "qty": 6,
+      "deadline": "四日（示例）",
+      "contract": "明确旧甲完整度、修复上限",
+      "trade": "可接受分批验收",
+      "conflict": "低价修补与可靠性之间存在冲突",
+      "status": "design"
+    },
+    {
+      "id": "o-03",
+      "name": "灰石矿井的固绳采购",
+      "cityId": "graystone",
+      "client": "矿道经营者",
+      "recipeId": "r-rope",
+      "qty": 12,
+      "deadline": "五日（示例）",
+      "contract": "须由熟悉矿道的人员现场验收",
+      "trade": "工钱和材料损耗分别报价",
+      "conflict": "工期延误可能影响矿工安全",
+      "status": "design"
+    },
+    {
+      "id": "o-04",
+      "name": "耐热柄小批量验证",
+      "cityId": "graystone",
+      "client": "锻造研究商",
+      "recipeId": "r-heat-grip",
+      "qty": 4,
+      "deadline": "七日（示例）",
+      "contract": "先验证材料结构，再决定是否追加",
+      "trade": "实验品不保证高额溢价",
+      "conflict": "材料价格上涨，试错成本难以分摊",
+      "status": "design"
+    },
+    {
+      "id": "o-05",
+      "name": "市集药剂瓶补货",
+      "cityId": "viland",
+      "client": "药剂商会采购员",
+      "recipeId": "r-elixir",
+      "qty": 15,
+      "deadline": "五日（示例）",
+      "contract": "批次记录、容器完整与药剂检测",
+      "trade": "依合格批次结算",
+      "conflict": "需要水源检测与稳定物流",
+      "status": "design"
+    },
+    {
+      "id": "o-06",
+      "name": "仓库木箱标准化",
+      "cityId": "viland",
+      "client": "仓储承包商",
+      "recipeId": "r-storage",
+      "qty": 20,
+      "deadline": "六日（示例）",
+      "contract": "规定箱体承重与安全尺寸",
+      "trade": "定期结算，违约需赔偿",
+      "conflict": "产量提高不代表运输能力跟得上",
+      "status": "design"
+    },
+    {
+      "id": "o-07",
+      "name": "寒区靴底应急维护",
+      "cityId": "frost-town",
+      "client": "霜栖镇防卫后勤",
+      "recipeId": "r-boots",
+      "qty": 18,
+      "deadline": "四日（示例）",
+      "contract": "靴底逐双检验防滑结构",
+      "trade": "材料可由委托人承担一部分",
+      "conflict": "寒潮可能导致运输与接单条件变化",
+      "status": "design"
+    },
+    {
+      "id": "o-08",
+      "name": "雪坡防寒内衬维护",
+      "cityId": "frost-town",
+      "client": "北境旅店与商队",
+      "recipeId": "r-warm",
+      "qty": 10,
+      "deadline": "三日（示例）",
+      "contract": "按人员尺码与温度环境提供维护",
+      "trade": "可以约定分段付款",
+      "conflict": "错误的保温措施可能影响行动安全",
+      "status": "design"
+    },
+    {
+      "id": "o-09",
+      "name": "商队路线记录更新",
+      "cityId": "west-route",
+      "client": "商队与制图协作者",
+      "recipeId": "r-mapping",
+      "qty": 6,
+      "deadline": "七日（示例）",
+      "contract": "须标明记录时间与未勘察区域",
+      "trade": "情报按有效区域结算",
+      "conflict": "旧地图和虚假情报会导致路线争议",
+      "status": "design"
+    },
+    {
+      "id": "o-10",
+      "name": "商路维修补给箱",
+      "cityId": "west-route",
+      "client": "商队后勤",
+      "recipeId": "r-storage",
+      "qty": 10,
+      "deadline": "五日（示例）",
+      "contract": "强调箱体稳固与定期检查",
+      "trade": "按照完整交付批次计费",
+      "conflict": "运输成本取决于路况与护送",
+      "status": "design"
+    },
+    {
+      "id": "o-11",
+      "name": "黑风防护靴维护",
+      "cityId": "blackwind",
+      "client": "峡谷探索后勤",
+      "recipeId": "r-boots",
+      "qty": 12,
+      "deadline": "两日（示例）",
+      "contract": "黑砂与峭壁地形需要单独耐磨测试",
+      "trade": "风险津贴与保险费用协商",
+      "conflict": "快速交货不能替代现场安全方案",
+      "status": "design"
+    },
+    {
+      "id": "o-12",
+      "name": "峡谷固定绳备品",
+      "cityId": "blackwind",
+      "client": "联合探索队物资员",
+      "recipeId": "r-rope",
+      "qty": 15,
+      "deadline": "四日（示例）",
+      "contract": "禁止使用无法承重的装饰性绑点",
+      "trade": "专项救援预算",
+      "conflict": "错用固定点会导致严重后果",
+      "status": "design"
+    },
+    {
+      "id": "o-13",
+      "name": "矿道机关齿轮维修",
+      "cityId": "graystone",
+      "client": "矿井维护班",
+      "recipeId": "r-cog",
+      "qty": 9,
+      "deadline": "五日（示例）",
+      "contract": "现场测量规格并记录磨损",
+      "trade": "可提供长期维护合同",
+      "conflict": "能源波动和粉尘会增加故障率",
+      "status": "design"
+    },
+    {
+      "id": "o-14",
+      "name": "维兰德防护铭纹测试",
+      "cityId": "viland",
+      "client": "铭文技术研究者",
+      "recipeId": "r-ink",
+      "qty": 5,
+      "deadline": "六日（示例）",
+      "contract": "研究成果与量产许可分开签订",
+      "trade": "成果分成须保留知识产权条款",
+      "conflict": "技术价值不等于当前已有稳定量产",
+      "status": "design"
+    }
+  ],
+  "cities": [
+    {
+      "id": "morning-star",
+      "name": "晨星镇",
+      "type": "初期城镇",
+      "first": 6,
+      "production": "木作、常规锻造、新手补给及守卫维护（产业模型）",
+      "imports": [
+        "工具、甲片、基础药剂"
+      ],
+      "exports": [
+        "基础工艺服务、区域采集品"
+      ],
+      "risks": [
+        "兽群袭扰、守卫费用、储备不足"
+      ],
+      "signals": [
+        "边防受扰→护具与修理需求升高",
+        "民生平稳→常规服务与药草需求恢复"
+      ],
+      "connections": [
+        "青叶森林",
+        "维兰德城"
+      ],
+      "status": "model",
+      "description": "地点已在正文出现；下列产业结构与供需关系属于基于已知活动的经营建模，不等于小说已公布统计数据。"
+    },
+    {
+      "id": "viland",
+      "name": "维兰德城",
+      "type": "区域中心城市",
+      "first": 21,
+      "production": "商会、研究、药剂与多专业工坊（产业模型）",
+      "imports": [
+        "矿石、晶砂、虫甲、农产与包装材料"
+      ],
+      "exports": [
+        "交易服务、研究合同、加工制品"
+      ],
+      "risks": [
+        "物流、投机、信息不对称和仓储成本"
+      ],
+      "signals": [
+        "赤纹矿出现新锻造用途→采购增加",
+        "月银粉远期交易增加→现货与合同可能脱节"
+      ],
+      "connections": [
+        "晨星镇",
+        "灰石矿道",
+        "西境商路"
+      ],
+      "status": "model",
+      "description": "地点已在正文出现；下列产业结构与供需关系属于基于已知活动的经营建模，不等于小说已公布统计数据。"
+    },
+    {
+      "id": "graystone",
+      "name": "灰石矿道及山脉",
+      "type": "矿业资源区",
+      "first": 16,
+      "production": "采矿、矿道修护、矿工生活补给、工艺原料（产业模型）",
+      "imports": [
+        "食品、医护、安全绳、木材、维修件"
+      ],
+      "exports": [
+        "赤纹矿、灰晶砂及其他矿石"
+      ],
+      "risks": [
+        "虫群侵扰、坍塌、粉尘、运输限制"
+      ],
+      "signals": [
+        "矿道危险→产量下降与运输成本上升",
+        "矿道修复→矿工复工但仍有维护费用"
+      ],
+      "connections": [
+        "晨星镇",
+        "维兰德城"
+      ],
+      "status": "model",
+      "description": "地点已在正文出现；下列产业结构与供需关系属于基于已知活动的经营建模，不等于小说已公布统计数据。"
+    },
+    {
+      "id": "frost-town",
+      "name": "霜栖镇",
+      "type": "北境边境聚落",
+      "first": 61,
+      "production": "防寒服、城防保养、药草运输与过境住宿（产业模型）",
+      "imports": [
+        "保温纤维、食物、燃料、药材"
+      ],
+      "exports": [
+        "保温工艺与边境通行服务"
+      ],
+      "risks": [
+        "寒潮、兽群迁徙、路线封锁"
+      ],
+      "signals": [
+        "兽群南迁→道路调整与防御物资增购",
+        "寒潮持续→燃料、靴具与食物供应承压"
+      ],
+      "connections": [
+        "白霜边境",
+        "南方商路"
+      ],
+      "status": "model",
+      "description": "地点已在正文出现；下列产业结构与供需关系属于基于已知活动的经营建模，不等于小说已公布统计数据。"
+    },
+    {
+      "id": "west-route",
+      "name": "西境商路",
+      "type": "跨区运输网络",
+      "first": 51,
+      "production": "物流、旅店、转运、情报与护送服务（产业模型）",
+      "imports": [
+        "维修品、食品、地图与燃料"
+      ],
+      "exports": [
+        "地区商品、运输劳务、路线情报"
+      ],
+      "risks": [
+        "欺诈、绕路、失联记录与通行风险"
+      ],
+      "signals": [
+        "道路传闻→保价与护送费浮动",
+        "准确地图增加→商队选择更分散"
+      ],
+      "connections": [
+        "维兰德城",
+        "西境聚落"
+      ],
+      "status": "model",
+      "description": "地点已在正文出现；下列产业结构与供需关系属于基于已知活动的经营建模，不等于小说已公布统计数据。"
+    },
+    {
+      "id": "blackwind",
+      "name": "黑风峡谷",
+      "type": "高危探索区",
+      "first": 81,
+      "production": "救援补给、野外维护、科研观测和有限临时交易（产业模型）",
+      "imports": [
+        "固定绳、护目镜、医疗品、防滑靴"
+      ],
+      "exports": [
+        "经合法核实的勘测数据与有限样本"
+      ],
+      "risks": [
+        "峭壁坠石、魔物袭击、撤退路径断裂"
+      ],
+      "signals": [
+        "地形危险加剧→安全器具与救援消耗增加",
+        "违规滥采→生态扰动与通行管制"
+      ],
+      "connections": [
+        "边境补给营",
+        "黑风试炼入口"
+      ],
+      "status": "model",
+      "description": "地点已在正文出现；下列产业结构与供需关系属于基于已知活动的经营建模，不等于小说已公布统计数据。"
+    }
+  ],
+  "exchanges": [
+    {
+      "trigger": "矿道虫群活动增强",
+      "source": "graystone",
+      "impacts": [
+        "采矿工时与产量受限",
+        "铁匠获得材料的成本可能上升",
+        "商队运输风险与护送需求上升",
+        "城防与修复订单增加"
+      ],
+      "quality": "机制演算",
+      "not": "不是已发生的全部市场结局"
+    },
+    {
+      "trigger": "赤纹矿锻造用途受到关注",
+      "source": "graystone",
+      "impacts": [
+        "材料需求增加",
+        "囤货与合约风险加大",
+        "探索队与普通矿工竞争采购",
+        "新工艺仍需要配方与工匠"
+      ],
+      "quality": "正文已有价格上涨线索",
+      "not": "仅方向确证，未确认统一行情曲线"
+    },
+    {
+      "trigger": "月银粉远期交易多而现货不足",
+      "source": "viland",
+      "impacts": [
+        "市场价格可能失真",
+        "合同违约风险增加",
+        "商会和玩家须查验现货",
+        "虚假情报可能引发经济纠纷"
+      ],
+      "quality": "正文已有市场线索",
+      "not": "禁止将合约数量当作已发掘矿藏"
+    },
+    {
+      "trigger": "北境寒潮与兽群迁徙",
+      "source": "frost-town",
+      "impacts": [
+        "防寒装备与燃料优先级上升",
+        "边境运输速度降低",
+        "医疗与避难成本提高",
+        "驱离及非致命应对可能降低长期损失"
+      ],
+      "quality": "基于正文事件的经营模型",
+      "not": "不代表所有雪狼都已被猎杀"
+    },
+    {
+      "trigger": "商路地图被篡改",
+      "source": "west-route",
+      "impacts": [
+        "运输路径与交货期改变",
+        "货损与护送成本上升",
+        "企业信誉和保险合同受损",
+        "地方守卫与制图师调查"
+      ],
+      "quality": "剧情方向的因果模型",
+      "not": "具体合同案例为编写示例"
+    }
+  ],
+  "designNotes": [
+    "怪物战利品严格区分「正文明确出现的材料」和「可能取材」；没有确认数据就不发布固定掉率。",
+    "材料、掉落、配方、订单和城市之间通过ID关联，改一处需同步检查关联对象。",
+    "除真实正文的特别交易外，不为所有地区填入虚假的固定市价；货币固定兑换和商品浮动价格分开。",
+    "工匠副职业等级上限Lv10，设施Lv1—10独立，两者不能互代。",
+    "配方均为系统设计样例，实际投入次数、效果、品质、成功率尚未由正文确认。",
+    "城镇、资源区和运输网分别建模；黑风峡谷不是一座城市，西境商路也不是一个国家。",
+    "现有剧情登场地点采用首章进度解锁；新颖的设计例子不意味着角色当前已获得。",
+    "货物生产需人工、能源、材料、物流与监管；自动化、运之法则不能制造无成本供给。",
+    "禁止把被救助的雾蹄巨鹿、已撤离的风喉兽或有主人的雪狐写成掉落素材来源。"
+  ]
+}
