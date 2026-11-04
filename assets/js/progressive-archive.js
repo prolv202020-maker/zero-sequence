@@ -68,7 +68,7 @@ function partCard(p){const box=el('div','zs-unlock-panel zs-part-card');
 const title=el('h2','', '第'+p+'篇 · '+nameOf(p));box.append(title,el('p','',summary(p)),meter(p));
 const actions=el('div','zs-unlock-actions');
 actions.append(aLink(BASE+'archive/unlocks.html?part='+p,'查看本篇已解锁档案'));
-if(p===1)actions.append(aLink(BASE+'chapters/volume-01/prologue.html','从序章开始'));
+if(p===1)actions.append(aLink(BASE+'chapters/volume-01/prologue.html','从序章开始'));if(p===2)actions.append(aLink(BASE+'chapters/volume-11/chapter-001.html','从第101章开始'));
 actions.append(aLink(BASE+'parts/final-archive.html','查看总档案'));box.append(actions);return box;}
 function homepage(){if(!document.body.classList.contains('home-page'))return;
 const container=document.getElementById('volumes');if(!container)return;
@@ -78,7 +78,7 @@ const grid=el('div','zs-unlock-grid');
 [1,2].forEach(p=>{const card=el('div','zs-unlock-card');card.append(el('small','',p===1?'PART 01 · 已发布':'PART 02 · 已发布'),el('h3','','第'+p+'篇 · '+nameOf(p)),el('p','',summary(p)));card.append(meter(p));card.append(aLink(BASE+'parts/part-0'+p+'.html','阅读本篇 →'),aLink(BASE+'archive/unlocks.html?part='+p,'查看解锁状态 →'));grid.append(card);});
 const total=el('div','zs-unlock-card');total.append(el('small','','ALL PARTS'),el('h3','','最终篇 · 全部总结'),el('p','','只整合目前已经解锁的信息；未公开的真相仍然封存。'),aLink(BASE+'parts/final-archive.html','打开总档案 →'));grid.append(total);sec.append(grid);container.insertAdjacentElement('afterend',sec);
 }
-function partPage(){if(!/\/parts\/part-0\d\.html$/.test(location.pathname))return;const p=Number((location.pathname.match(/part-(\d+)\.html/)||[])[1]||1);const hero=document.querySelector('.part-hero');if(hero)hero.insertAdjacentElement('afterend',partCard(p));
+function partPage(){if(!/\/parts\/part-0\d\.html$/.test(location.pathname))return;const p=Number((location.pathname.match(/part-(\d+)\.html/)||[])[1]||1);const hero=document.querySelector('.part-hero, .part2-hero');if(hero)hero.insertAdjacentElement('afterend',partCard(p));
 if(p!==1&&p!==2)return;
 document.querySelectorAll('a[href*="/volumes/volume-"]').forEach(link=>{const found=link.getAttribute('href').match(/volume-(\d+)\.html/);if(!found)return;const vol=Number(found[1]);const need=(vol-(p===1?1:11))*10;if(need<=get(p).max){link.classList.add('zs-cover-unlocked');return;}const image=link.querySelector('img.zs-cover-thumb');if(image)image.alt='未解锁的第'+vol+'卷封面';const heading=link.querySelector('h3');if(heading)heading.textContent='🔒 第'+vol+'卷 · 尚未解锁';const detail=link.querySelector('p');if(detail)detail.textContent='本卷标题与简介将在阅读至前一卷结束后解锁。';});
 const lead=hero&&hero.querySelector('.lead');if(p===1&&lead&&get(1).max<90)lead.textContent='从重生的起点出发。随着阅读推进，第一篇的地图、人物、势力与谜团将逐步揭晓。';
