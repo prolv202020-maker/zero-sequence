@@ -19,7 +19,7 @@ const progress=(()=>{try{return JSON.parse(localStorage.getItem('zs:part-progres
 const publicItem=(item)=>{
  if(item.type==='chapter'){const m=(item.url||'').match(/volume-(\d+)\/chapter-(\d+)/);if(m){const v=Number(m[1]),n=Number(m[2]);return v<=10&&((v-1)*10+n)<=Math.max(1,progress)}}
  if(item.type==='volume'){const m=(item.url||'').match(/volume-(\d+)/);if(m)return Number(m[1])<=10&&(Number(m[1])-1)*10<=progress}
- if(item.type==='archive')return item.url==='archive/bestiary.html'||item.url==='archive/unlocks.html'||progress>=100;
+ if(item.type==='archive')return item.url==='archive/bestiary.html'||item.url==='archive/equipment.html'||item.url==='archive/unlocks.html'||progress>=100;
  return item.type!=='chapter'&&item.type!=='archive';
 };
 const all=data.filter(item=>publicItem(item)&&(kind==='all'||item.type===kind)&&(!query||(item.title+' '+item.desc).toLowerCase().replace(/\s+/g,'').includes(query)));
