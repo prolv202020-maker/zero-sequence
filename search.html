@@ -12,14 +12,14 @@
 <script>
 (async()=>{
 const input=document.getElementById('s-input'),type=document.getElementById('s-type'),out=document.getElementById('s-results'),status=document.getElementById('s-count');
-let data=[];try{const response=await fetch('assets/data/search-index.json?v=2',{cache:'no-cache'});if(!response.ok)throw Error('index');data=await response.json();}catch{status.textContent='搜索索引暂时无法加载，请使用第一篇目录。';return}
+let data=[];try{const response=await fetch('assets/data/search-index.json?v=3',{cache:'no-cache'});if(!response.ok)throw Error('index');data=await response.json();}catch{status.textContent='搜索索引暂时无法加载，请使用第一篇目录。';return}
 const qparam=new URLSearchParams(location.search).get('q');if(qparam)input.value=qparam.slice(0,80);
 function render(){const query=input.value.toLowerCase().replace(/\s+/g,'').trim(),kind=type.value;
 const progress=(()=>{try{return JSON.parse(localStorage.getItem('zs:part-progress:v1')||'{}')['p01']?.max||0}catch{return 0}})();
 const publicItem=(item)=>{
  if(item.type==='chapter'){const m=(item.url||'').match(/volume-(\d+)\/chapter-(\d+)/);if(m){const v=Number(m[1]),n=Number(m[2]);return v<=10&&((v-1)*10+n)<=Math.max(1,progress)}}
  if(item.type==='volume'){const m=(item.url||'').match(/volume-(\d+)/);if(m)return Number(m[1])<=10&&(Number(m[1])-1)*10<=progress}
- if(item.type==='archive')return ['archive/bestiary.html','archive/equipment.html','archive/unlocks.html','archive/items.html','archive/production.html','archive/ecology.html','archive/classes.html','archive/economy.html','archive/laws.html','archive/world.html'].includes(item.url)||progress>=100;
+ if(item.type==='archive')return ['archive/bestiary.html','archive/equipment.html','archive/unlocks.html','archive/items.html','archive/production.html','archive/ecology.html','archive/classes.html','archive/economy.html','archive/laws.html','archive/world.html','archive/materials.html','archive/drops.html','archive/recipes.html','archive/orders.html','archive/city-economy.html'].includes(item.url)||progress>=100;
  return item.type!=='chapter'&&item.type!=='archive';
 };
 const all=data.filter(item=>publicItem(item)&&(kind==='all'||item.type===kind)&&(!query||(item.title+' '+item.desc).toLowerCase().replace(/\s+/g,'').includes(query)));
