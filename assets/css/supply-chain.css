@@ -1,0 +1,64 @@
+/* 第零序列 物资与城市经济 · 延续万界档案视觉 */
+.supply-page{max-width:1180px}
+.supply-page .sa-hero{min-height:320px;background:radial-gradient(circle at 70% 20%,rgba(122,97,191,.25),transparent 54%),linear-gradient(115deg,#3a365f,#19223f)}
+.supply-page .sa-hero:before{background-image:linear-gradient(90deg,#181c35f7 0%,#1a1f38ed 39%,#1b2441a4 72%,#131a3372 100%),var(--sa-art);background-size:cover;background-position:center}
+.supply-page .sa-hero-inner{padding:45px 50px}
+.supply-page .sa-hero h1{font-size:clamp(36px,5.6vw,59px);letter-spacing:.04em}
+.supply-page .sa-hero h1 span{color:#f2d59a}
+.supply-summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px;margin:22px 0}
+.supply-summary article{background:linear-gradient(135deg,#373d68ad,#2b304fe6);border:1px solid #f1dbad33;border-radius:14px;padding:18px}
+.supply-summary b{display:block;font:29px Georgia,serif;color:#f2d99d}
+.supply-summary small{font:11px sans-serif;color:#d2d4e3;margin-top:6px;display:block}
+.supply-tabs{display:flex;align-items:center;gap:9px;flex-wrap:wrap;padding:12px;border-radius:17px;background:#222941f5;border:1px solid #f1dfae36;margin:26px 0}
+.supply-tabs a{flex:1;min-width:120px;text-align:center;padding:12px 9px;border:1px solid transparent;border-radius:10px;font-size:13px;color:#dedcec;transition:background .22s ease}
+.supply-tabs a:hover{background:#ffffff13;color:#fff5db}
+.supply-tabs a[aria-current=page]{background:linear-gradient(125deg,#e4cca0,#bda979);color:#252039;font-weight:700}
+.supply-headline{margin:28px 0 18px}
+.supply-headline h2{font-size:clamp(26px,4vw,38px);margin:6px 0}
+.supply-headline p{font-size:13px;color:#d5d4e5;line-height:1.85}
+.supply-control{display:grid;grid-template-columns:1fr minmax(150px,220px) minmax(160px,210px);gap:10px;align-items:end;background:linear-gradient(135deg,#373b62d8,#282e4de8);border-radius:15px;border:1px solid #e5d29d39;padding:15px}
+.supply-control label{color:#e9d8b6;font-size:11px;font-weight:600;display:grid;gap:8px}
+.supply-control input,.supply-control select{background:#181d38;border:1px solid #e1d1a15f;border-radius:9px;min-width:0;padding:12px;color:#f5f3f2;font-size:13px;font-family:inherit;width:100%}
+.supply-control input:focus,.supply-control select:focus{outline:2px solid #e6c987;outline-offset:2px}
+.supply-count{font:12px sans-serif;color:#e0d8cb;margin:15px 2px}
+.supply-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin:17px 0}
+.supply-card{position:relative;min-height:200px}
+.supply-card h3{margin:11px 0 10px;font-size:21px;line-height:1.5}
+.supply-card p{font-size:12px}
+.supply-card .supply-card-head{display:flex;gap:8px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.supply-card .sa-num{color:#e7d3a9;letter-spacing:.08em}
+.supply-meta{display:flex;gap:7px;flex-wrap:wrap;margin:7px 0 15px}
+.supply-status{font:11px sans-serif;padding:5px 10px;border-radius:99px;border:1px solid #c4b6a061;background:#c6b18a12;color:#e8dac4}
+.supply-status.fact{border-color:#8fb8a86b;background:#448b7030;color:#b8f2d5}
+.supply-status.draft{border-color:#e6c58470;background:#b48a2b23;color:#f8dda8}
+.supply-status.model{border-color:#8da9e375;background:#6175c62b;color:#c8d4ff}
+.supply-status.warning{border-color:#f0b7a177;background:#ac5d4830;color:#ffd0bb}
+.supply-status.neutral{border-color:#aeb2d23c;background:#aab0cf13;color:#daddea}
+.supply-detail{margin:12px 0;line-height:1.75}
+.supply-detail b{font-size:12px;color:#efd5a3;display:block;margin-bottom:5px}
+.supply-detail p{margin:0!important}
+.supply-detail ul{margin-top:5px!important}
+.supply-details{margin:15px 0;padding:12px 13px;border:1px solid #f2deac38;border-radius:12px;background:#151d3652}
+.supply-details summary{cursor:pointer;color:#f1dcba;font-size:12px}
+.supply-details ul{margin:12px 0 0;padding-left:18px;font-size:12px;line-height:1.95;color:#d5d7e5}
+.supply-card-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:17px;padding-top:14px;border-top:1px solid #e8d7b324}
+.supply-read-link{font:11px sans-serif;color:#f0d59b;border:1px solid #dbc99358;border-radius:9px;padding:8px 10px;background:#12192b38}
+.supply-read-link:hover,.supply-inline-link:hover{color:#fff;border-color:#f0d59b}
+.supply-linked{padding-left:20px;font-size:12px;line-height:1.85;color:#d6d8e7}
+.supply-linked li{margin:4px 0}
+.supply-inline-link{color:#f1d39b;border-bottom:1px dashed #b99c68}
+.supply-locked{grid-column:1/-1;padding:22px;border:1px dashed #b5badb66;border-radius:14px;background:#292d4b9e}
+.supply-locked b{color:#e9d2a7}
+.supply-locked p{font-size:12px;margin-bottom:0;color:#c6c7d5}
+.supply-city-sides{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.supply-econ-stages{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:21px 0}
+.supply-econ-stages div{padding:17px 14px;border:1px solid #d3c29248;border-radius:14px;background:#2d3250}
+.supply-econ-stages strong{display:block;font-size:14px;color:#f5dcaa}
+.supply-econ-stages small{display:block;color:#c5c8d8;font-size:11px;line-height:1.75;margin-top:8px}
+.supply-steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px;margin:18px 0}
+.supply-steps span{background:#333a5df0;border:1px solid #dac68e5b;border-radius:11px;display:grid;place-items:center;text-align:center;padding:15px 8px;font-size:12px;color:#f1dbb5}
+.supply-legend{display:flex;gap:10px;flex-wrap:wrap;margin-top:13px;color:#ddd3c6}
+.supply-legend span{font-size:12px}
+.supply-page .sa-section h2{letter-spacing:.01em}
+@media(max-width:900px){.supply-summary{grid-template-columns:repeat(2,minmax(0,1fr))}.supply-control{grid-template-columns:1fr 1fr}.supply-control label:first-child{grid-column:1/-1}.supply-econ-stages{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.supply-page .sa-hero-inner{padding:29px 23px}.supply-list{grid-template-columns:1fr}.supply-control{grid-template-columns:1fr}.supply-control label:first-child{grid-column:auto}.supply-tabs a{min-width:calc(50% - 8px)}.supply-city-sides{grid-template-columns:1fr}.supply-econ-stages{grid-template-columns:1fr}.supply-steps{grid-template-columns:1fr 1fr}.supply-summary article{padding:14px}.supply-summary b{font-size:24px}}
