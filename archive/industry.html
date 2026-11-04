@@ -1,0 +1,33 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>万界产业链 · 材料掉落、配方、工坊订单与城市经济 · 第零序列</title><meta name="description" content="第零序列产业链交互数据库：可检索材料、怪物取材、10种示例工艺配方、NPC工坊订单、跨城物流与经济事件。">
+<link rel="stylesheet" href="../assets/css/style.css"><link rel="stylesheet" href="../assets/css/system-archive.css?v=1">
+<style>
+.industry-dashboard{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:23px 0}
+.industry-stat{padding:19px 12px;text-align:center;background:linear-gradient(140deg,#404363,#262b48);border:1px solid #edcf9a53;border-radius:15px}
+.industry-stat strong{display:block;font:30px Georgia;color:#f4d8a4}.industry-stat small{display:block;margin-top:6px;font-size:12px;color:#d4d2df}
+.industry-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:17px 0 21px}.industry-tabs button{cursor:pointer;appearance:none;border:1px solid #ecd7a75c;border-radius:11px;background:#303656;color:#efe4d1;padding:12px 16px;font:13px sans-serif}.industry-tabs button[aria-pressed=true]{background:linear-gradient(120deg,#ead5a5,#d4b87e);color:#23263d;font-weight:700;border-color:#ffe6b4}.industry-tabs button:hover{border-color:#ffebbe}
+.industry-entry h3{font-size:19px}.industry-entry .industry-detail{font-size:12px;margin:7px 0}.industry-entry .industry-detail b{color:#f2dcaa}.industry-entry h4{font-size:13px;color:#f0d8a7;margin:15px 0 7px}.industry-entry ul,.industry-entry ol{font-size:12px;line-height:1.8;color:#ddddeb;padding-left:20px;margin:7px 0}
+.industry-entry details{border-top:1px solid #e8d1a43b;margin-top:13px;padding-top:12px;color:#f0d8aa;font-size:12px}.industry-entry details summary{cursor:pointer}.industry-entry details div{color:#e3deec}
+.industry-rules{padding:0 0 0 25px;color:#d8d9e7;line-height:1.95;font-size:13px}.industry-rules li{margin:9px 0}
+.industry-archive-note{border:1px dashed #e8d2a263;border-radius:17px;padding:21px 24px;background:#292e4ac2;font-size:13px;line-height:1.9;color:#e6decd}
+.industry-archive-note strong{color:#ffe2a4}.industry-result-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:18px}
+@media(max-width:700px){.industry-dashboard{grid-template-columns:repeat(3,1fr)}.industry-tabs button{padding:10px 12px;font-size:12px}}
+@media(max-width:390px){.industry-dashboard{grid-template-columns:repeat(2,1fr)}}
+</style></head><body>
+<header><a class="brand" href="../index.html">☾ <span>第零序列<small>THE ZERO SEQUENCE</small></span></a><nav aria-label="主导航"><a href="../index.html">首页</a><a href="items.html">道具</a><a href="equipment.html">武器</a><a href="production.html">工坊</a><a href="ecology.html">生态</a><a href="economy.html">经济</a></nav></header>
+<main class="page sa-page"><div class="crumb"><a href="../index.html">首页</a> / 世界档案 / 产业链图鉴</div>
+<section class="sa-hero" style="--sa-art:url('../assets/images/illustrations/scene-graystone-trade.webp')"><div class="sa-hero-inner"><p class="eyebrow">THE LIVING ECONOMY · CROSS-SYSTEM DATABASE</p><h1>万界产业链<br><span>百业共生</span></h1><p class="lead">一份矿石走过采集、加工、锻造、护送、订单与城市交易。玩家不只靠击败魔物成长；工匠、商人、调查员、护卫和居民同样推动世界前进。</p><div class="sa-kickers"><span>材料图鉴</span><span>魔物取材</span><span>工艺配方</span><span>NPC订单</span><span>城市经济</span></div></div></section>
+<div class="sa-strip"><strong>资料可信度：</strong>「正文已提及」只代表人物、魔物或材料在原文真实出现，不代表所有制造方式都被确认；「机制候选」「生态推演」「工坊订单示例」是用于后续小说和系统设计的开放数据，不代表任务已经发生、玩家已经获得，也不是锁定的掉率或商品价格。</div>
+<div class="industry-dashboard" id="industry-overview" aria-label="五大产业资料数量"><p>正在读取数据……</p></div>
+<section class="sa-section" id="industry-browser"><div class="sa-section-head"><div><small>CONNECTED REFERENCE · SEARCHABLE</small><h2>可查询的产业资料库</h2></div><span id="industry-result-count" class="sa-count" aria-live="polite">正在读取记录……</span></div>
+<p class="sa-section-sub">点击类别切换不同数据，搜索名称、区域、魔物或材料。配方显示制作步骤与消耗示例，工坊委托可查所需工艺与地域风险。</p>
+<div class="industry-tabs" role="group" aria-label="产业档案分类"><button type="button" data-industrial-type="materials" aria-pressed="true">材料图鉴</button><button type="button" data-industrial-type="drops" aria-pressed="false">怪物取材</button><button type="button" data-industrial-type="recipes" aria-pressed="false">锻造配方</button><button type="button" data-industrial-type="orders" aria-pressed="false">工坊订单</button><button type="button" data-industrial-type="cities" aria-pressed="false">城市经济</button></div>
+<div class="sa-archive-search"><label for="industry-search" class="sa-label">搜索当前类别</label><input id="industry-search" type="search" autocomplete="off" placeholder="例如：赤纹矿、黑甲猎虫、盾、药剂、灰石……"></div>
+<div id="industry-results" class="sa-cards" aria-live="polite"><p class="sa-empty">正在载入对应记录……</p></div></section>
+<section class="sa-section" id="industry-flow"><div class="sa-section-head"><div><small>RESOURCE FLOWS · NO FREE MATERIALS</small><h2>一条订单如何改变一座城市</h2></div></div>
+<div class="sa-flow"><div class="sa-flow-item"><b>自然与魔物</b><small>资源有生态与采集条件</small></div><div class="sa-flow-item"><b>材料供应</b><small>采集、分拣、仓储与运输</small></div><div class="sa-flow-item"><b>工坊制作</b><small>职业、配方、工具及设施</small></div><div class="sa-flow-item"><b>交付与结算</b><small>验收、税费、合同和信誉</small></div><div class="sa-flow-item"><b>地区影响</b><small>价格、就业、城防与事件</small></div></div>
+<div class="sa-two"><div class="sa-panel"><h3>例：矿道遇袭</h3><p>矿队暂停开采，货物无法按时到城，工坊等待原料，城防维修延期。商会可能调运库存、提高运价或雇佣护卫；居民生活成本与就业因此变化。</p></div>
+<div class="sa-panel"><h3>例：冬季保冷订单</h3><p>边境并非越冷越容易存货。货物需要稳固包装、可靠冷源、运输人员与损耗检验。需求增加会改变仓储、制衣、药剂与运输工坊之间的合作。</p></div></div></section>
+<section class="sa-section" id="industry-contracts"><div class="sa-section-head"><div><small>CONSISTENCY RULES</small><h2>经济、产能与剧情的八项限制</h2></div></div><div class="sa-panel" id="industry-rules">正在读取规则……</div></section>
+<div class="industry-archive-note"><strong>档案范围提醒：</strong>这是一份能够继续扩写的<strong>关联设计资料库</strong>，还不是已经经过作者逐条确认的数值运营表。正文里已经发生的物品取得、怪物掉落、物价、NPC委托与城镇事件，仍应回到原章节核对。没有确认的掉落率和价格故意保持空缺。</div>
+<div class="sa-footer"><a href="items.html">道具分类 →</a><a href="equipment.html">武器成长 →</a><a href="production.html">工坊等级与产能 →</a><a href="ecology.html">魔物生态与城市 →</a><a href="economy.html">统一十阶货币 →</a></div>
+</main><footer>© 第零序列 · INDUSTRY ARCHIVE V1.0 · 正文确证与设计示例分开</footer><script src="../assets/js/industry.js?v=1" defer></script><script src="../assets/js/progressive-archive.js?v=3" defer></script></body></html>
