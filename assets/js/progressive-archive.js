@@ -74,7 +74,7 @@ function recapGate(){if(!/\/parts\/recap-01\.html$/.test(location.pathname))retu
 document.querySelectorAll('.r-list details').forEach((node,i)=>{const need=(i+1)*10;if(get(1).max>=need)return;const title=node.querySelector('summary')?.textContent||'本卷';node.replaceChildren(el('summary','',title+' · 🔒 读完第'+(i+1)+'卷后解锁'));node.classList.add('zs-locked-summary');node.addEventListener('toggle',()=>{if(node.open)node.open=false;});});
 const intro=document.querySelector('main>.lead');if(intro)intro.textContent='每卷回顾按阅读进度开放，未读卷的剧情继续封存。';
 }
-function archiveGate(){if(!/\/archive\//.test(location.pathname)||/\/archive\/unlocks\.html$/.test(location.pathname))return;
+function archiveGate(){if(!/\/archive\//.test(location.pathname)||/\/archive\/(?:unlocks|bestiary)\.html$/.test(location.pathname))return;
 const main=document.querySelector('main');if(!main||get(1).max>=100||isAuthorPreview())return;
 main.classList.add('zs-gated-main');const wall=el('div','zs-spoiler-wall');
 wall.append(el('h2','','🔒 完整设定档案暂未解锁'),el('p','','此页可能包含第一篇后续章节的信息。为了避免剧透，先展示与你已读章节对应的渐进档案。完成第一篇100章后，可浏览现有的完整公开资料。'));
