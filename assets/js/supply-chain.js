@@ -38,7 +38,7 @@ function makeMaterials(query,mode,kind){
   c.append(group('supply-detail',node('b','','来源与取得'),para(m.source)));
   c.append(group('supply-detail',node('b','','用途或研究方向'),para(m.usage)));
   if(m.note)c.append(para('注意：'+m.note));
-  const related=db.recipes.filter(r=>r.ingredients.some(i=>i.id===m.id));
+  const related=db.recipes.filter(r=>recipeReady(r)&&r.ingredients.some(i=>i.id===m.id));
   const links=[];if(m.origin)links.push(factLink(m.origin.chapter));if(m.link)links.push(link('equipment.html','已登场装备资料 ↗','supply-read-link'));
   if(related.length)links.push(link('recipes.html?material='+esc(m.id),'关联配方样例 '+related.length+' 项 ↗','supply-read-link'));
   if(links.length)c.append(group('supply-card-links',...links));f.append(c);
