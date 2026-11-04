@@ -44,7 +44,7 @@ function articleUnlock(){const m=location.pathname.match(/\/chapters\/volume-(\d
 const vol=Number(m[1]),local=Number(m[3]||0),p=partOf(vol),n=((vol-1)%10)*10+local,pro=!!(m[2]==='prologue');
 const article=document.querySelector('.article');if(!article)return;
 const card=el('div','zs-chapter-complete'),label=el('strong','', '分篇档案解锁'),status=el('p',''),btn=el('button','zs-unlock-button','✓ 标记本章已读');
-card.append(label,status,btn);const pager=article.querySelector('.pager');if(pager)article.insertBefore(card,pager);else article.append(card);
+card.append(label,status,btn);const archiveLinks=el('div','zs-unlock-actions');archiveLinks.append(aLink(BASE+'archive/equipment.html','查看已解锁武器与装备'),aLink(BASE+'archive/bestiary.html','查看怪物图鉴'));card.append(archiveLinks);const pager=article.querySelector('.pager');if(pager)article.insertBefore(card,pager);else article.append(card);
 function update(){const s=get(p);const done=pro?s.prologue:s.max>=n;status.textContent=done?'此章已计入第'+p+'篇进度 · '+summary(p):'读完本章后即可解锁对应的世界档案。';btn.disabled=done;btn.textContent=done?'✓ 已解锁':'✓ 标记本章已读';}
 function mark(){set(p,n,pro);update();}
 btn.addEventListener('click',mark);update();
