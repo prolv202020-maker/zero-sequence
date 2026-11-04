@@ -72,7 +72,7 @@ function renderFinal(){
  final.append(b);
 }
 async function init(){
- try{const r=await fetch(source,{cache:'no-cache'});if(!r.ok)throw Error('missing');data=await r.json();if(!Array.isArray(data.entries)||!data.lifecycle)throw Error('schema');
+ try{const r=await fetch(source,{cache:'no-cache'});if(!r.ok)throw Error('missing');data=await r.json();if(!Array.isArray(data.entries)||!data.lifecycle)throw Error('schema');data.entries.sort((a,b)=>a.discover.part-b.discover.part||a.discover.chapter-b.discover.chapter||a.name.localeCompare(b.name,'zh-CN'));
  if(root){const types=by('gear-type');for(const cat of data.categories){const o=new Option(cat,cat);types.append(o);}
  const term=new URLSearchParams(location.search).get('q');if(term)by('gear-search').value=term.slice(0,70);
  by('gear-search').addEventListener('input',renderCatalog);types.addEventListener('change',renderCatalog);by('gear-status').addEventListener('change',renderCatalog);
