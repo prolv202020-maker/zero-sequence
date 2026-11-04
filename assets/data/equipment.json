@@ -1,0 +1,943 @@
+{
+  "version": "1.0",
+  "title": "第零序列 · 武器与装备全生命周期体系",
+  "partStructure": "每10卷组成一篇；第一篇第1—10卷",
+  "status": "已确认规则＋不改写剧情的长期架构",
+  "verification": "具体道具仅收录第一篇正文出现的物品。品级名称、装备部位格数、精确强化概率、数值上限等未定案项目留空，不虚构。",
+  "principles": [
+    {
+      "title": "职业独立成长",
+      "description": "装备是战斗与生存工具，不能直接替代职业熟练、本源属性、法则领悟或团队配合。"
+    },
+    {
+      "title": "混合成长，非全员必升",
+      "description": "普通装备可修复、调整、强化、重新锻造；特定装备还可能依赖装备潜力、源能、特殊核心、铭文、法则适配等条件。不是每件装备都拥有全部路线。"
+    },
+    {
+      "title": "早期价值可延续",
+      "description": "同一装备的平衡、用料、工艺、适配、情感与传承可长期产生价值；提升需付出时间、材料、工匠技艺与代价，不能无条件跟随角色升级。"
+    },
+    {
+      "title": "多种归属与交易",
+      "description": "存在可交易、绑定、部分绑定、特殊传承类物品。普通材料和装备可参与市场，主线特殊物品、传承资格与法则领悟不能靠金钱直接取得。具体条目仅写已证实的交易状态。"
+    },
+    {
+      "title": "装备有风险与损耗",
+      "description": "高强度攻击、严寒、地形与源能负荷会造成磨损或失效。修复与更换可以延续使用，但不意味着不可损坏。"
+    },
+    {
+      "title": "职业和法则适配",
+      "description": "剑士、狂战士、刺客、盾卫、治疗师、雷电术士等按各自战斗方式选装；装备掉落不保证适配。高阶武备还需考虑身体、精神与世界法则承受能力。"
+    },
+    {
+      "title": "后期体系可扩展",
+      "description": "从万界装备扩展到现实中的源能武器、强化装甲、法则弹药与特殊防御系统时，仍沿用材料、制造、兼容与代价的同一框架。具体能力和剧情按新篇逐步公开。"
+    },
+    {
+      "title": "特殊武备保持稀缺",
+      "description": "少数传承、成长型与极特殊高阶武器可呈现特殊反应甚至意识，但前期不能普遍化，不允许以此把新手装备直接写成无敌神器。"
+    }
+  ],
+  "lifecycle": [
+    {
+      "order": 1,
+      "title": "获得与鉴定",
+      "caption": "新手至各阶持续",
+      "detail": "来源包含委托、制作、交易、探索和偶然获得；分清普通装备、材料、特殊遗物、封闭物品。装备获得不等于可用。"
+    },
+    {
+      "order": 2,
+      "title": "职业适配与调校",
+      "caption": "贯穿全部战斗",
+      "detail": "使用者的职业、动作、重心、武器类型与法则兼容性比纯面板更重要。"
+    },
+    {
+      "order": 3,
+      "title": "维护与修复",
+      "caption": "可重复",
+      "detail": "检查材质疲劳、锻造缺陷、零件、附魔承受与环境损伤。维修需要可获得的材料、费用与时间。"
+    },
+    {
+      "order": 4,
+      "title": "强化或重铸",
+      "caption": "按潜力和工艺",
+      "detail": "允许普通装备继续使用，但强化与重铸不得无成本保留原有全部效果。若材料或结构不兼容应更换装备。"
+    },
+    {
+      "order": 5,
+      "title": "铭文、源能与法则适配",
+      "caption": "高阶成长接口",
+      "detail": "仅当相应技艺、材料与使用者承受条件成立时开放；不等于通用数值倍率或时间能力自动附着。"
+    },
+    {
+      "order": 6,
+      "title": "特殊核心与传承",
+      "caption": "极稀有，剧情限定",
+      "detail": "少量特殊物品可能具独立成长与传承机制；能否解封、绑定、进化均须以后续正文为准，不由图鉴提前决定。"
+    }
+  ],
+  "futureStages": [
+    {
+      "stage": "新手与城市",
+      "release": "第一篇已涉及",
+      "detail": "基础木剑、普通铁剑、重剑、盾牌、工具与基础锻造，强调操作手感、维修和经营成本。"
+    },
+    {
+      "stage": "区域与高级探索",
+      "release": "第一篇已涉及",
+      "detail": "环境适配、防寒装备、复杂材料供应、机关构件与特殊辅助器具。"
+    },
+    {
+      "stage": "更高层装备成长",
+      "release": "后续篇章预留",
+      "detail": "更高级工艺、铭文、源能、潜力和法则兼容的具体路线需逐章确认。"
+    },
+    {
+      "stage": "现实与跨界武备",
+      "release": "后续篇章预留",
+      "detail": "保留源能武器、法则弹药、强化装甲及特殊防御设备的接口；不提前公布正式规格与数值。"
+    },
+    {
+      "stage": "终局级特殊传承",
+      "release": "终章阶段预留",
+      "detail": "特殊核心、武器意识及传承只作为极少数物品的可能路线；不提前锁定装备名单或结局。"
+    }
+  ],
+  "qualityScheme": {
+    "confirmed": [
+      "普通铁剑（已知为普通，具体稀有度未公布）",
+      "无名旧剑·残（品质无法判定，状态封闭）"
+    ],
+    "notFinalized": [
+      "统一品质颜色与等级顺序",
+      "强化上限与成功率",
+      "装备槽位数量和固定词条上限",
+      "跨世界装备的数值曲线",
+      "特殊武器最终觉醒名"
+    ],
+    "policy": "不建立未经用户确认的白／绿／蓝／紫／橙等正式品质阶梯。"
+  },
+  "ownership": [
+    "可交易",
+    "绑定",
+    "部分绑定",
+    "特殊传承或受限"
+  ],
+  "categories": [
+    "武器",
+    "盾与防具",
+    "机关构件",
+    "工具与防护",
+    "特殊辅助器具",
+    "特殊遗物",
+    "锻造材料",
+    "技术与制作"
+  ],
+  "entries": [
+    {
+      "id": "starter-wood-sword",
+      "name": "新手木剑",
+      "category": "武器",
+      "discover": {
+        "part": 1,
+        "chapter": 6,
+        "volume": 1,
+        "chapterInVolume": 6
+      },
+      "owner": "顾长渊",
+      "summary": "封测剑士的基础武器；熟练动作比夸张数值更重要。",
+      "rarity": null,
+      "trade": "未明确",
+      "route": "普通 / 可替换",
+      "facts": [
+        {
+          "part": 1,
+          "chapter": 6,
+          "volume": 1,
+          "chapterInVolume": 6,
+          "text": "确认剑士职业后进入装备栏，配合「基础斩击」「格挡」进行训练。"
+        },
+        {
+          "part": 1,
+          "chapter": 7,
+          "volume": 1,
+          "chapterInVolume": 7,
+          "text": "与灰背狼交战时可以格挡、斩击，但实际反震明显，未出现高额加成。"
+        }
+      ],
+      "notes": [
+        "普通基础武器，不具备已确认的隐藏神技或专属成长属性。"
+      ]
+    },
+    {
+      "id": "sealed-old-sword",
+      "name": "无名旧剑·残",
+      "category": "特殊遗物",
+      "discover": {
+        "part": 1,
+        "chapter": 7,
+        "volume": 1,
+        "chapterInVolume": 7
+      },
+      "owner": "顾长渊（持有）",
+      "summary": "一截锈蚀断剑，系统将其识别为特殊物品，不等同于可自由挥用的战斗武器。",
+      "rarity": "无法判定",
+      "trade": "未确认",
+      "route": "封闭 / 未确认能否成长",
+      "facts": [
+        {
+          "part": 1,
+          "chapter": 7,
+          "volume": 1,
+          "chapterInVolume": 7,
+          "text": "系统显示：【获得特殊物品：无名旧剑·残】【品质：无法判定】【状态：封闭】。"
+        },
+        {
+          "part": 1,
+          "chapter": 9,
+          "volume": 1,
+          "chapterInVolume": 9,
+          "text": "晨星镇守卫战后，背包中的旧剑发热，出现一道新的微光纹路。"
+        }
+      ],
+      "notes": [
+        "确切来历、最终功能及能否解封尚未公开；不预设神器品级或终局归属。"
+      ]
+    },
+    {
+      "id": "rogue-shortblade",
+      "name": "罗烬的短刃",
+      "category": "武器",
+      "discover": {
+        "part": 1,
+        "chapter": 9,
+        "volume": 1,
+        "chapterInVolume": 9
+      },
+      "owner": "罗烬",
+      "summary": "近身刺击与掩护撤离时使用的短刃。",
+      "rarity": null,
+      "trade": "未明确",
+      "route": "常规 / 可修复",
+      "facts": [
+        {
+          "part": 1,
+          "chapter": 9,
+          "volume": 1,
+          "chapterInVolume": 9,
+          "text": "从黑鬃兽眼侧切入，配合拒马改变冲撞路线。"
+        },
+        {
+          "part": 1,
+          "chapter": 16,
+          "volume": 2,
+          "chapterInVolume": 6,
+          "text": "以短刃攻击黑甲猎虫后足与甲片缝隙。"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "marcus-iron-sword",
+      "name": "马库斯锻造的普通铁剑",
+      "category": "武器",
+      "discover": {
+        "part": 1,
+        "chapter": 14,
+        "volume": 2,
+        "chapterInVolume": 4
+      },
+      "owner": "顾长渊",
+      "summary": "面板属性并不出众，但重心与动作反馈更适合有经验的剑士。",
+      "rarity": "正文描述为普通铁剑，未给出品阶",
+      "trade": "以12铜币购买（第二卷第四章）",
+      "route": "常规 / 技术适配",
+      "facts": [
+        {
+          "part": 1,
+          "chapter": 14,
+          "volume": 2,
+          "chapterInVolume": 4,
+          "text": "由马库斯·铁岩出售，价格为十二铜币；属性甚至略逊于武器店同级装备。"
+        },
+        {
+          "part": 1,
+          "chapter": 14,
+          "volume": 2,
+          "chapterInVolume": 4,
+          "text": "与普通商店剑不同之处在平衡与重心，适合动作映射准确的使用者。"
+        }
+      ],
+      "notes": [
+        "不能因匠人身份就推定它是成长神器；重心优点属于已确认的实战手感。"
+      ]
+    },
+    {
+      "id": "guardian-shield",
+      "name": "戴玄岳的常用盾牌",
+      "category": "盾与防具",
+      "discover": {
+        "part": 1,
+        "chapter": 14,
+        "volume": 2,
+        "chapterInVolume": 4
+      },
+      "owner": "戴玄岳",
+      "summary": "盾卫的核心防守工具，用于格挡、换位及保护队友。",
+      "rarity": null,
+      "trade": "未明确",
+      "route": "常规 / 维修与替换",
+      "facts": [
+        {
+          "part": 1,
+          "chapter": 14,
+          "volume": 2,
+          "chapterInVolume": 4,
+          "text": "职业前排的稳固与盾牌配合，让队伍第一次形成可靠的正面防线。"
+        },
+        {
+          "part": 1,
+          "chapter": 48,
+          "volume": 5,
+          "chapterInVolume": 8,
+          "text": "矿道防守中既要拦截魔物，又要避免无序冲撞损害周边工人。"
+        },
+        {
+          "part": 1,
+          "chapter": 86,
+          "volume": 9,
+          "chapterInVolume": 6,
+          "text": "经历黑风袭击后，盾面承压点出现变形，需要复查与轮换。"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "berserker-greatsword",
+      "name": "林烈的惯用重剑",
+      "category": "武器",
+      "discover": {
+        "part": 1,
+        "chapter": 15,
+        "volume": 2,
+        "chapterInVolume": 5
+      },
+      "owner": "林烈",
+      "summary": "偏重压制与重击的双手武器，实际战斗中也需要控制出力与站位。",
+      "rarity": null,
+      "trade": "未明确",
+      "route": "常规 / 维修与重铸可能",
+      "facts": [
+        {
+          "part": 1,
+          "chapter": 15,
+          "volume": 2,
+          "chapterInVolume": 5,
+          "text": "与队友协同攻破青背獠猪的正面压力。"
+        },
+        {
+          "part": 1,
+          "chapter": 48,
+          "volume": 5,
+          "chapterInVolume": 8,
+          "text": "斩击石甲裂背兽的岩甲后剑锋出现细小缺口。"
+        },
+        {
+          "part": 1,
+          "chapter": 88,
+          "volume": 9,
+          "chapterInVolume": 8,
+          "text": "面对风喉兽的坚硬喉甲，多次配合后只撬开细小缝隙，战后剑上出现裂纹。"
+        }
+      ],
+      "notes": [
+        "武器因高强度使用会磨损，不能靠武器威力跨越所有能力差距。"
+      ]
+    },
+    {
+      "id": "lightning-short-staff",
+      "name": "凌天曜的初期短杖",
+      "category": "武器",
+      "discover": {
+        "part": 1,
+        "chapter": 14,
+        "volume": 2,
+        "chapterInVolume": 4
+      },
+      "owner": "凌天曜",
+      "summary": "转职前甚至被当作临时近战工具的法杖。",
+      "rarity": null,
+      "trade": "未明确",
+      "route": "基础 / 职业适配",
+      "facts": [
+        {
+          "part": 1,
+          "chapter": 14,
+          "volume": 2,
+          "chapterInVolume": 4,
+          "text": "职业技能尚未成形时，只能用短杖敲击近身目标。"
+        },
+        {
+          "part": 1,
+          "chapter": 15,
+          "volume": 2,
+          "chapterInVolume": 5,
+          "text": "成为雷电术士后改用法杖引导细雷，战斗方式发生变化。"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "wanderer-longbow",
+      "name": "艾莉西亚的长弓",
+      "category": "武器",
+      "discover": {
+        "part": 1,
+        "chapter": 15,
+        "volume": 2,
+        "chapterInVolume": 5
+      },
+      "owner": "艾莉西亚·月枝",
+      "summary": "游侠随身的长弓，曾用警告箭阻止队伍深入异常林地。",
+      "rarity": null,
+      "trade": "未明确",
+      "route": "常规 / 具体属性未公开",
+      "facts": [
+        {
+          "part": 1,
+          "chapter": 15,
+          "volume": 2,
+          "chapterInVolume": 5,
+          "text": "她在青叶森林以长弓放出带警告字样的箭矢，未发生直接交战。"
+        },
+        {
+          "part": 1,
+          "chapter": 20,
+          "volume": 2,
+          "chapterInVolume": 10,
+          "text": "在驿站路碑旁再次携带长弓出现。"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "red-vein-ore",
+      "name": "赤纹矿",
+      "category": "锻造材料",
+      "discover": {
+        "part": 1,
+        "chapter": 18,
+        "volume": 2,
+        "chapterInVolume": 8
+      },
+      "owner": "矿工、工作室及交易市场",
+      "summary": "第一篇最早建立实际价值的战略性锻造素材之一。",
+      "rarity": null,
+      "trade": "已有正常交易与市场报价",
+      "route": "材料 / 可交易",
+      "facts": [
+        {
+          "part": 1,
+          "chapter": 18,
+          "volume": 2,
+          "chapterInVolume": 8,
+          "text": "灰石路口附近可采集；锻造师发现它可用于制造耐热武器握柄。"
+        },
+        {
+          "part": 1,
+          "chapter": 18,
+          "volume": 2,
+          "chapterInVolume": 8,
+          "text": "队伍采集三百多份并出售部分，随后价格上涨。"
+        },
+        {
+          "part": 1,
+          "chapter": 72,
+          "volume": 8,
+          "chapterInVolume": 2,
+          "text": "矿价上涨影响盾牌加固与修理工坊的交货成本。"
+        }
+      ],
+      "notes": [
+        "不预设可直接锻成神器，也不保证长期市场价格单向上涨。"
+      ]
+    },
+    {
+      "id": "gray-crystal-sand",
+      "name": "灰晶砂",
+      "category": "锻造材料",
+      "discover": {
+        "part": 1,
+        "chapter": 18,
+        "volume": 2,
+        "chapterInVolume": 8
+      },
+      "owner": "矿工、工作室及研究者",
+      "summary": "与赤纹矿伴生，后续出现特殊纹理排列现象。",
+      "rarity": null,
+      "trade": "未明确",
+      "route": "材料 / 后续用途待证",
+      "facts": [
+        {
+          "part": 1,
+          "chapter": 18,
+          "volume": 2,
+          "chapterInVolume": 8,
+          "text": "与赤纹矿一起被采集。"
+        },
+        {
+          "part": 1,
+          "chapter": 83,
+          "volume": 9,
+          "chapterInVolume": 3,
+          "text": "碰到某些黑岩或纹理接近的岩片时，颗粒有自行排列成弧形的现象。"
+        }
+      ],
+      "notes": [
+        "古代结构关联只是研究线索，未确认其最终用途与法则品质。"
+      ]
+    },
+    {
+      "id": "black-metal-fragment",
+      "name": "残缺黑色金属片",
+      "category": "特殊遗物",
+      "discover": {
+        "part": 1,
+        "chapter": 20,
+        "volume": 2,
+        "chapterInVolume": 10
+      },
+      "owner": "马库斯持有，顾长渊曾观察",
+      "summary": "表面带断裂环状纹路的古物，未被系统识别为普通装备。",
+      "rarity": null,
+      "trade": "未明确",
+      "route": "线索 / 非可用装备",
+      "facts": [
+        {
+          "part": 1,
+          "chapter": 20,
+          "volume": 2,
+          "chapterInVolume": 10,
+          "text": "马库斯展示半掌大的黑色金属残片，系统没有弹出装备信息。"
+        },
+        {
+          "part": 1,
+          "chapter": 28,
+          "volume": 3,
+          "chapterInVolume": 8,
+          "text": "靠近被抹去铭文的石碑时产生震动。"
+        }
+      ],
+      "notes": [
+        "物品的实际归属、来源及用途不能凭外形确认。"
+      ]
+    },
+    {
+      "id": "silvermoon-armor",
+      "name": "银月的关节装甲",
+      "category": "机关构件",
+      "discover": {
+        "part": 1,
+        "chapter": 28,
+        "volume": 3,
+        "chapterInVolume": 8
+      },
+      "owner": "银月（古言澈维护）",
+      "summary": "银月身体的重要防护和运动构件，涉及修理、材料与承受上限。",
+      "rarity": null,
+      "trade": "未明确",
+      "route": "机关构件 / 可维护",
+      "facts": [
+        {
+          "part": 1,
+          "chapter": 28,
+          "volume": 3,
+          "chapterInVolume": 8,
+          "text": "以黑银色关节装甲出现。"
+        },
+        {
+          "part": 1,
+          "chapter": 38,
+          "volume": 4,
+          "chapterInVolume": 8,
+          "text": "救援时肩部护甲崩裂，后续需修复。"
+        },
+        {
+          "part": 1,
+          "chapter": 87,
+          "volume": 9,
+          "chapterInVolume": 7,
+          "text": "更换肩甲缓冲片并重设撤退安全动作；承伤不能无限累积。"
+        }
+      ],
+      "notes": [
+        "银月是剧情人物，不能因为构件可维护就把她作为可随意交易或消耗的装备。"
+      ]
+    },
+    {
+      "id": "black-hunter-shell",
+      "name": "黑甲猎虫壳",
+      "category": "锻造材料",
+      "discover": {
+        "part": 1,
+        "chapter": 30,
+        "volume": 3,
+        "chapterInVolume": 10
+      },
+      "owner": "工匠与交易者",
+      "summary": "出现在古老采购清单中的虫甲材料，也曾作为交易对象。",
+      "rarity": null,
+      "trade": "未明确",
+      "route": "材料 / 用途待核实",
+      "facts": [
+        {
+          "part": 1,
+          "chapter": 23,
+          "volume": 3,
+          "chapterInVolume": 3,
+          "text": "工作室出售从伐木营地取得的低级虫甲材料。"
+        },
+        {
+          "part": 1,
+          "chapter": 30,
+          "volume": 3,
+          "chapterInVolume": 10,
+          "text": "与赤纹矿、灰晶砂、月银粉一同出现在四百年前的采购账册。"
+        },
+        {
+          "part": 1,
+          "chapter": 44,
+          "volume": 5,
+          "chapterInVolume": 4,
+          "text": "猎虫外壳坚硬，但其所有加工用途并未确认。"
+        }
+      ],
+      "notes": [
+        "不是通用的必掉道具；掉率、改造配方与完整装备属性未公开。"
+      ]
+    },
+    {
+      "id": "moon-silver-powder",
+      "name": "月银粉",
+      "category": "锻造材料",
+      "discover": {
+        "part": 1,
+        "chapter": 30,
+        "volume": 3,
+        "chapterInVolume": 10
+      },
+      "owner": "工匠与贸易商",
+      "summary": "出现在跨时代采购记录中的珍稀材料名，市场出现了大量未来交割约定。",
+      "rarity": null,
+      "trade": "未明确",
+      "route": "材料 / 实物需核验",
+      "facts": [
+        {
+          "part": 1,
+          "chapter": 30,
+          "volume": 3,
+          "chapterInVolume": 10,
+          "text": "与其他三种材料同列于四百年前账册。"
+        },
+        {
+          "part": 1,
+          "chapter": 55,
+          "volume": 6,
+          "chapterInVolume": 5,
+          "text": "价格异常上涨但实体货源不足，多数为未来交割合同。"
+        }
+      ],
+      "notes": [
+        "不将价格波动或可疑采购解释成已经确认的神器合成配方。"
+      ]
+    },
+    {
+      "id": "crafting-pattern",
+      "name": "基础锻造配方",
+      "category": "技术与制作",
+      "discover": {
+        "part": 1,
+        "chapter": 18,
+        "volume": 2,
+        "chapterInVolume": 8
+      },
+      "owner": "锻造师与工坊",
+      "summary": "基础制造必须先有配方、材料与合适的加工条件。",
+      "rarity": null,
+      "trade": "未明确",
+      "route": "制作 / 可研究",
+      "facts": [
+        {
+          "part": 1,
+          "chapter": 18,
+          "volume": 2,
+          "chapterInVolume": 8,
+          "text": "天穹交易中心出现第一批锻造配方成交记录，带动赤纹矿需求。"
+        },
+        {
+          "part": 1,
+          "chapter": 30,
+          "volume": 3,
+          "chapterInVolume": 10,
+          "text": "已知普通锻造、炼金、铭文配方均未确认同时消耗四种旧账册材料。"
+        }
+      ],
+      "notes": [
+        "暂无已确认的统一数值强化百分比或必成规则。"
+      ]
+    },
+    {
+      "id": "stone-marker",
+      "name": "界碑师的方形石牌",
+      "category": "工具与防护",
+      "discover": {
+        "part": 1,
+        "chapter": 43,
+        "volume": 5,
+        "chapterInVolume": 3
+      },
+      "owner": "霍恩",
+      "summary": "界碑师携带的磨损石牌，常参与道路和结构稳定工作。",
+      "rarity": null,
+      "trade": "未明确",
+      "route": "专用工具 / 职业操作",
+      "facts": [
+        {
+          "part": 1,
+          "chapter": 43,
+          "volume": 5,
+          "chapterInVolume": 3,
+          "text": "霍恩携带磨损的方形石牌来到灰石工程现场。"
+        },
+        {
+          "part": 1,
+          "chapter": 48,
+          "volume": 5,
+          "chapterInVolume": 8,
+          "text": "界碑与支架用于临时稳住危险矿道，使用有资源与承受限制。"
+        }
+      ],
+      "notes": [
+        "不能直接把所有石牌都标注为战斗护盾或神器。"
+      ]
+    },
+    {
+      "id": "fog-mirror",
+      "name": "闻镜的薄镜",
+      "category": "特殊辅助器具",
+      "discover": {
+        "part": 1,
+        "chapter": 57,
+        "volume": 6,
+        "chapterInVolume": 7
+      },
+      "owner": "闻镜",
+      "summary": "用于镜像与路面异常观察的辅助器具；使用与修复存在负担。",
+      "rarity": null,
+      "trade": "未明确",
+      "route": "特殊辅助 / 损耗与修理",
+      "facts": [
+        {
+          "part": 1,
+          "chapter": 57,
+          "volume": 6,
+          "chapterInVolume": 7,
+          "text": "闻镜以一片薄镜折叠异常映像。"
+        },
+        {
+          "part": 1,
+          "chapter": 93,
+          "volume": 10,
+          "chapterInVolume": 3,
+          "text": "长时间观测后镜片可能出现裂纹，继续使用会加剧负担。"
+        }
+      ],
+      "notes": [
+        "与她的特殊力量有关，不能据此将镜片出售为可复制职业能力的商品。"
+      ]
+    },
+    {
+      "id": "northern-warmwear",
+      "name": "雪原防寒装备与靴具",
+      "category": "盾与防具",
+      "discover": {
+        "part": 1,
+        "chapter": 61,
+        "volume": 7,
+        "chapterInVolume": 1
+      },
+      "owner": "前往霜栖镇的队伍",
+      "summary": "远行雪原的重要生存装备，不是单纯的数值加成。",
+      "rarity": null,
+      "trade": "未明确",
+      "route": "环境适配 / 维护",
+      "facts": [
+        {
+          "part": 1,
+          "chapter": 61,
+          "volume": 7,
+          "chapterInVolume": 1,
+          "text": "前往白霜边境前成员准备防寒装备，工作室区分个人采购与公共费用。"
+        },
+        {
+          "part": 1,
+          "chapter": 62,
+          "volume": 7,
+          "chapterInVolume": 2,
+          "text": "城防队专门检查靴底、绑带与防滑能力；器材材质和实际损耗影响安全。"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "ina-patched-armor",
+      "name": "伊娜多次修补的旧护甲",
+      "category": "盾与防具",
+      "discover": {
+        "part": 1,
+        "chapter": 63,
+        "volume": 7,
+        "chapterInVolume": 3
+      },
+      "owner": "伊娜",
+      "summary": "并非昂贵神器，但经反复维修与习惯调校，成为常年守城的可靠护甲。",
+      "rarity": null,
+      "trade": "未明确",
+      "route": "维护 / 个人适配",
+      "facts": [
+        {
+          "part": 1,
+          "chapter": 63,
+          "volume": 7,
+          "chapterInVolume": 3,
+          "text": "肩甲上布满修补痕迹，因使用者的习惯持续调整。"
+        },
+        {
+          "part": 1,
+          "chapter": 68,
+          "volume": 7,
+          "chapterInVolume": 8,
+          "text": "面对兽潮仍依赖旧甲与队伍协作，重点不是装备外观与稀有度。"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "ancient-ring",
+      "name": "古代指环（交易区陈列）",
+      "category": "特殊遗物",
+      "discover": {
+        "part": 1,
+        "chapter": 74,
+        "volume": 8,
+        "chapterInVolume": 4
+      },
+      "owner": "展出卖家（非主角团持有）",
+      "summary": "与古旧碑纹路相似的陈列古物，来历和风险仍待核实。",
+      "rarity": null,
+      "trade": "未明确",
+      "route": "遗物 / 未确认属性",
+      "facts": [
+        {
+          "part": 1,
+          "chapter": 74,
+          "volume": 8,
+          "chapterInVolume": 4,
+          "text": "百城遗物交易清单出现一枚古代指环，纹路与旧碑相似；没有可靠能力属性记录。"
+        }
+      ],
+      "notes": [
+        "名称仅按正文描述；不能直接写成顾长渊获得的戒指或终极遗物。"
+      ]
+    },
+    {
+      "id": "safety-kit",
+      "name": "峡谷固定绳与护目镜",
+      "category": "工具与防护",
+      "discover": {
+        "part": 1,
+        "chapter": 82,
+        "volume": 9,
+        "chapterInVolume": 2
+      },
+      "owner": "黑风探索联合队",
+      "summary": "没有显赫品质的装备，在强风崖壁救援中却决定队伍生存。",
+      "rarity": null,
+      "trade": "未明确",
+      "route": "环境适配 / 消耗更换",
+      "facts": [
+        {
+          "part": 1,
+          "chapter": 82,
+          "volume": 9,
+          "chapterInVolume": 2,
+          "text": "要求双重固定绳、独立照明和防黑砂的护目镜。"
+        },
+        {
+          "part": 1,
+          "chapter": 82,
+          "volume": 9,
+          "chapterInVolume": 2,
+          "text": "绳结不能系在松动的护甲装饰上，必须固定于真正的承力位置。"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "aruo-knife",
+      "name": "阿洛的斥候短刃",
+      "category": "武器",
+      "discover": {
+        "part": 1,
+        "chapter": 84,
+        "volume": 9,
+        "chapterInVolume": 4
+      },
+      "owner": "阿洛",
+      "summary": "普通斥候用于伤害魔物关节和争取撤离时间的武器。",
+      "rarity": null,
+      "trade": "未明确",
+      "route": "常规 / 职业技巧",
+      "facts": [
+        {
+          "part": 1,
+          "chapter": 84,
+          "volume": 9,
+          "chapterInVolume": 4,
+          "text": "短刃刺向黑风铁爪兽前爪关节，使其短暂停顿。"
+        }
+      ],
+      "notes": [
+        "使用者被重伤说明战斗结果不只由装备与技巧决定。"
+      ]
+    },
+    {
+      "id": "abel-shield",
+      "name": "亚伯的旧盾",
+      "category": "盾与防具",
+      "discover": {
+        "part": 1,
+        "chapter": 90,
+        "volume": 9,
+        "chapterInVolume": 10
+      },
+      "owner": "亚伯家属保管",
+      "summary": "一面经历过危险战斗、具有重要私人纪念意义的旧盾。",
+      "rarity": null,
+      "trade": "未明确",
+      "route": "遗留装备 / 不可强行升级",
+      "facts": [
+        {
+          "part": 1,
+          "chapter": 90,
+          "volume": 9,
+          "chapterInVolume": 10,
+          "text": "盾沿变形、皮带染上黑砂；家属选择暂不修复，保留其真实痕迹。"
+        }
+      ],
+      "notes": [
+        "历史与人的选择重要于道具价值；未获家属许可不应视为公共战利品。"
+      ]
+    }
+  ]
+}
