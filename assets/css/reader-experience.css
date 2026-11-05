@@ -31,9 +31,22 @@ body[data-zs-reader-theme="light"] .article p{color:#252e42}
 @media(max-width:600px){.zs-reader-fab{left:10px;bottom:76px;padding:10px 12px}.zs-reader-panel{left:10px;bottom:128px;width:min(310px,calc(100vw - 20px))}.zs-continue{align-items:flex-start;flex-direction:column}.zs-continue a{width:100%;text-align:center}.zs-resume{margin:18px 0 10px}.article{line-height:var(--zs-reader-leading)}}
 @media(prefers-reduced-motion:reduce){.zs-progress,.article{transition:none}}
 
-/* 手机端导航采用横向滚动，保持可点触面积。 */
-@media(max-width:680px){
- header{align-items:flex-start;flex-direction:column;gap:7px;padding:14px 10px 10px;overflow:visible}
- header nav{display:flex;max-width:100%;width:100%;overflow-x:auto;flex-wrap:nowrap;justify-content:flex-start;gap:6px;padding-bottom:6px;scrollbar-width:thin}
- header nav a{flex:0 0 auto;padding:7px 9px;min-height:32px;white-space:nowrap;font-size:12px}
+
+/* V2 · reader usability; the site's shared menu handles mobile navigation. */
+.zs-chapter-tools{display:flex;align-items:center;justify-content:center;gap:9px;flex-wrap:wrap;margin:14px auto 28px;padding:7px 0}
+.zs-chapter-tools a{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:10px 13px;border:1px solid #d7c18c73;border-radius:10px;color:#f2d5a1;background:#292f4bb8;font:13px var(--zs-font-ui,sans-serif)}
+.zs-chapter-tools a:hover,.zs-chapter-tools a:focus-visible{background:#3c4266;color:#ffe7ae;border-color:#efd39c}
+.article{width:min(100%,var(--zs-reader-width));overflow-wrap:anywhere;hyphens:auto}
+.article p{line-height:inherit;margin:0 0 1.12em}
+.zs-reader-panel{max-height:min(73vh,570px);overflow-y:auto;overscroll-behavior:contain}
+.zs-reader-fab{min-height:44px;min-width:104px}
+.zs-reader-panel button{min-height:40px}
+.zs-reader-panel .zs-controls span{font:13px var(--zs-font-ui,sans-serif);color:#efd7ae;padding:0 6px}
+@media(max-width:600px){
+ .article{width:100%;padding:clamp(18px,5vw,24px);border-radius:14px}
+ .zs-chapter-tools{justify-content:center;gap:7px}
+ .zs-chapter-tools a{flex:1 1 42%;font-size:12px}
+ .zs-reader-fab{bottom:76px;left:10px}
+ .zs-reader-panel{bottom:128px;left:10px;max-height:65vh}
 }
+@media(prefers-reduced-motion:reduce){.zs-reader-fab,.zs-reader-panel,.zs-chapter-tools a{transition:none!important}}
