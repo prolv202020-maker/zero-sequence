@@ -1,0 +1,36 @@
+/* 第零序列 · 人物与职业渐进式图鉴 V2 · 默认防剧透 */
+body[data-zs-atlas] .zs-atlas-protected{display:none!important}
+body[data-zs-atlas].zs-atlas-full .zs-atlas-protected{display:block!important}
+body[data-zs-atlas].zs-atlas-full section.zs-atlas-protected{display:block!important}
+.zs-atlas-public{margin:25px 0 38px;border:1px solid #d7c08973;border-radius:22px;background:linear-gradient(145deg,#33395bde,#1c2541e8);box-shadow:0 18px 50px #0a0d242c;padding:clamp(19px,3vw,30px);position:relative}
+.zs-atlas-public .zs-atlas-kicker{font:11px Georgia,serif;letter-spacing:.16em;color:#eed6a1}
+.zs-atlas-public h2{font-size:clamp(24px,3.5vw,34px);margin:10px 0}
+.zs-atlas-intro{font-size:14px;line-height:1.9;color:#d9d8e7;margin:8px 0 16px}
+.zs-atlas-status{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:15px}
+.zs-atlas-status span{font:12px var(--zs-font-ui,sans-serif);padding:8px 12px;background:#1c2344;border:1px solid #d9bd846b;color:#efd49f;border-radius:40px}
+.zs-atlas-actions{display:flex;gap:9px;flex-wrap:wrap;margin:17px 0}
+.zs-atlas-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:42px;font:13px var(--zs-font-ui,sans-serif);padding:9px 13px;color:#ffe3ac;background:#343c5b;border:1px solid #dbc18a69;border-radius:9px}
+.zs-atlas-actions a:hover{background:#494972}
+.zs-atlas-controls{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:23px 0}
+.zs-atlas-controls input,.zs-atlas-controls select{background:#151d38;color:#fff3d7;border:1px solid #e3ca9477;border-radius:10px;padding:12px 13px;font:14px var(--zs-font-ui,sans-serif);min-height:45px}
+.zs-atlas-controls input{flex:1 1 240px;min-width:0}
+.zs-atlas-controls input:focus-visible,.zs-atlas-controls select:focus-visible{outline:2px solid #ecd399;outline-offset:2px}
+.zs-atlas-count{font:12px var(--zs-font-ui,sans-serif);color:#d8d8e3}
+.zs-atlas-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.zs-atlas-entry{min-width:0;padding:17px 18px;border:1px solid #e2ca9148;border-radius:14px;background:linear-gradient(140deg,#343d60c4,#222b48d4);display:flex;flex-direction:column;gap:8px}
+.zs-atlas-entry h3{font-size:20px;margin:2px 0;color:#f5deb0}
+.zs-atlas-entry p{font-size:13px;line-height:1.75;color:#d4d6e5;margin:0;flex:1}
+.zs-atlas-entry small{font:11px var(--zs-font-ui,sans-serif);color:#e7c890}
+.zs-atlas-entry .zs-atlas-tag{align-self:flex-start;padding:6px 8px;background:#1e2542;border:1px solid #c4ac7d66;border-radius:6px;font:11px var(--zs-font-ui,sans-serif);color:#ebd6b4}
+.zs-atlas-entry.zs-atlas-locked{border-style:dashed;background:#252b46b3}
+.zs-atlas-entry.zs-atlas-locked h3{color:#c8c2cb}
+.zs-atlas-entry a{display:inline-block;color:#f2d9a2;font:12px var(--zs-font-ui,sans-serif);margin-top:5px;text-decoration:underline;text-underline-offset:4px}
+.zs-atlas-entry[hidden]{display:none!important}
+.zs-atlas-empty{padding:22px;background:#222a46;border:1px dashed #e3c98969;border-radius:12px;color:#e1d6c5}
+.zs-atlas-notice{font-size:12px;line-height:1.85;color:#d2d2e0;margin:15px 0 0}
+.zs-atlas-legacy-notice{margin:22px 0 0;padding:14px 16px;border-left:3px solid #d9bd84;background:#242b4d;color:#ded9e3;font-size:13px;line-height:1.8}
+.zs-atlas-public .zs-atlas-progress{height:6px;background:#171d37;border-radius:20px;overflow:hidden;margin:7px 0 15px}
+.zs-atlas-progress>i{display:block;height:100%;width:0;background:linear-gradient(90deg,#ad9eef,#e5c489);border-radius:20px;transition:width .2s}
+@media(max-width:900px){.zs-atlas-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:580px){.zs-atlas-grid{grid-template-columns:1fr}.zs-atlas-controls{flex-direction:column;align-items:stretch}.zs-atlas-controls input{flex:0 1 auto;width:100%}.zs-atlas-controls select{width:100%}}
+@media(prefers-reduced-motion:reduce){.zs-atlas-progress>i{transition:none}}
