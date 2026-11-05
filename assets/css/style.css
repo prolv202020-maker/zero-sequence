@@ -31,8 +31,8 @@ header.zs-header .zs-global-nav{display:flex;align-items:center;justify-content:
 .zs-header-search:hover,.zs-mobile-toggle:hover{background:#565076}
 .zs-mobile-toggle{display:none;cursor:pointer}
 .zs-header a:focus-visible,.zs-header summary:focus-visible,.zs-header button:focus-visible,.zs-hero-actions a:focus-visible{outline:2px solid #f0d397;outline-offset:3px}
-.zs-reveal{opacity:0;transform:translateY(12px);transition:opacity .5s ease,transform .5s ease}
-.zs-reveal.zs-visible{opacity:1;transform:none}
+.zs-animations-ready .zs-reveal{opacity:0;transform:translateY(12px);transition:opacity .5s ease,transform .5s ease}
+.zs-animations-ready .zs-reveal.zs-visible{opacity:1;transform:none}
 .home-page .image-card:hover:before{transform:scale(1.04)}
 @keyframes zsSoftGlow{0%,100%{opacity:.28}50%{opacity:.48}}
 .home-page .hero:before{animation:zsSoftGlow 16s ease-in-out infinite}
