@@ -12,10 +12,10 @@
   const options=Object.assign({font:(window.matchMedia('(max-width:600px)').matches?17:18),leading:2.25,width:820,theme:'night'},get(OPT)||{});
   function loadCSS(){
     if($('link[data-zs-reader]'))return;
-    const l=document.createElement('link');l.rel='stylesheet';l.href=ROOT+'assets/css/reader-experience.css?v=1';l.dataset.zsReader='1';document.head.appendChild(l);
+    const l=document.createElement('link');l.rel='stylesheet';l.href=ROOT+'assets/css/reader-experience.css?v=2';l.dataset.zsReader='1';document.head.appendChild(l);
   }
   function apply(){
-    options.font=Math.min(24,Math.max(15,Number(options.font)||18));
+    options.font=Math.min(24,Math.max(16,Number(options.font)||18));
     options.leading=Math.min(2.7,Math.max(1.7,Number(options.leading)||2.25));
     options.width=Math.min(1000,Math.max(660,Number(options.width)||820));
     if(!['night','paper','light'].includes(options.theme))options.theme='night';
@@ -26,7 +26,7 @@
     put(OPT,options);
   }
   function addSearchNav(){
-    const nav=$('header nav');if(!nav||nav.querySelector('.zs-search-nav')||[...nav.querySelectorAll('a')].some(a=>a.getAttribute('href')?.endsWith('search.html')))return;
+    const nav=$('header nav');if(!nav||nav.classList.contains('zs-global-nav')||nav.querySelector('.zs-search-nav')||[...nav.querySelectorAll('a')].some(a=>a.getAttribute('href')?.endsWith('search.html')))return;
     const a=document.createElement('a');a.href=ROOT+'search.html';a.textContent='搜索';a.className='zs-search-nav';nav.appendChild(a);
   }
   function addContinue(){
@@ -92,7 +92,7 @@
       shrink.type=grow.type=reset.type='button';shrink.textContent='A−';grow.textContent='A+';reset.textContent='恢复默认';
       shrink.onclick=()=>{options.font-=1;apply();size.textContent=options.font+'px';};
       grow.onclick=()=>{options.font+=1;apply();size.textContent=options.font+'px';};
-      reset.onclick=()=>{Object.assign(options,{font:18,leading:2.25,width:820,theme:'night'});apply();size.textContent=options.font+'px';theme.value=options.theme;leading.value=String(options.leading);width.value=String(options.width);};
+      reset.onclick=()=>{Object.assign(options,{font:(window.matchMedia('(max-width:600px)').matches?17:18),leading:2.25,width:820,theme:'night'});apply();size.textContent=options.font+'px';theme.value=options.theme;leading.value=String(options.leading);width.value=String(options.width);};
       const size=document.createElement('span');size.style.alignSelf='center';size.textContent=options.font+'px';row1.append(shrink,grow,size,reset);panel.append(row1);
       const themeLabel=document.createElement('label');themeLabel.textContent='阅读背景';panel.append(themeLabel);
       const theme=document.createElement('select');theme.setAttribute('aria-label','阅读背景');
@@ -107,13 +107,29 @@
       [['660','窄'],['820','标准'],['1000','宽']].forEach(([value,text])=>width.add(new Option(text,value)));width.value=String(options.width);
       width.onchange=()=>{options.width=Number(width.value);apply();};panel.append(width);
       const note=document.createElement('p');note.className='zs-help';note.textContent='字号、背景与阅读进度仅保存在当前设备浏览器。';panel.append(note);
-      open.onclick=()=>{panel.hidden=!panel.hidden;open.setAttribute('aria-expanded',String(!panel.hidden));};document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!panel.hidden){panel.hidden=true;open.setAttribute('aria-expanded','false');}});
+      panel.id='zs-reader-options';open.setAttribute('aria-controls',panel.id);open.setAttribute('aria-label','打开阅读设置');
+      open.onclick=()=>{panel.hidden=!panel.hidden;open.setAttribute('aria-expanded',String(!panel.hidden));open.setAttribute('aria-label',panel.hidden?'打开阅读设置':'关闭阅读设置');};
+      document.addEventListener('click',e=>{if(!panel.hidden&&!panel.contains(e.target)&&e.target!==open){panel.hidden=true;open.setAttribute('aria-expanded','false');open.setAttribute('aria-label','打开阅读设置');}});
+      document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!panel.hidden){panel.hidden=true;open.setAttribute('aria-expanded','false');open.setAttribute('aria-label','打开阅读设置');open.focus();}});
       document.body.append(open,panel);
     }
     settingPanel();
-    const tools=document.createElement('div');tools.className='zs-chapter-tools';
-    const back=document.createElement('a');back.href=ROOT+'search.html';back.textContent='⌕ 搜索章节';
-    const index=document.createElement('a');index.href=ROOT+'parts/part-01.html';index.textContent='第一篇目录';tools.append(back,index);
+    const tools=document.createElement('nav');tools.className='zs-chapter-tools';
+    tools.setAttribute('aria-label','章节快速导航');
+    const match=path.match(/\/chapters\/volume-(\d{2})\/(chapter-(\d{3})|prologue)\.html$/);
+    const vol=match?Number(match[1]):1;
+    const num=match&&match[3]?Number(match[3]):0;
+    const volLink=v=>ROOT+'volumes/volume-'+String(v).padStart(2,'0')+'.html';
+    const chapLink=(v,n)=>ROOT+'chapters/volume-'+String(v).padStart(2,'0')+'/chapter-'+String(n).padStart(3,'0')+'.html';
+    const navLink=(href,label,cls)=>{const a=document.createElement('a');a.href=href;a.textContent=label;if(cls)a.className=cls;return a;};
+    if(num>1)tools.append(navLink(chapLink(vol,num-1),'← 上一章'));
+    else if(num===1&&vol===1)tools.append(navLink(ROOT+'chapters/volume-01/prologue.html','← 序章'));
+    else if(num===1&&vol>1)tools.append(navLink(chapLink(vol-1,10),'← 上一章'));
+    const part=Math.floor((vol-1)/10)+1;
+    tools.append(navLink(volLink(vol),'本卷目录'),navLink(ROOT+'parts/part-0'+part+'.html','第'+part+'篇目录'));
+    if(num===0)tools.append(navLink(chapLink(vol,1),'下一章 →'));
+    else if(num<10)tools.append(navLink(chapLink(vol,num+1),'下一章 →'));
+    else if(vol<20)tools.append(navLink(chapLink(vol+1,1),'下一章 →'));
     const crumb=$('.crumb');if(crumb)crumb.insertAdjacentElement('afterend',tools);
     requestAnimationFrame(save);
   }
