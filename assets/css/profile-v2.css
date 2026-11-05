@@ -1,0 +1,31 @@
+/* 第零序列 · 七位人物独立档案统一样式 / 防剧透优先 */
+body.zs-profile-page:not(.zs-profile-full) main.page > :not(.crumb):not(.zs-profile-summary){display:none!important}
+body.zs-profile-page .zs-profile-summary{position:relative;margin:25px auto 32px;padding:clamp(19px,3vw,34px);border:1px solid #e0c78a70;border-radius:22px;background:radial-gradient(circle at 89% 12%,#9277be37,transparent 42%),linear-gradient(145deg,#303755,#1c233e);box-shadow:0 20px 55px #090c244f;max-width:1150px}
+.zs-profile-summary .zs-profile-kicker{color:#f0d69e;letter-spacing:.16em;font:11px Georgia,serif}
+.zs-profile-summary h1{font-size:clamp(32px,4.5vw,52px);margin:8px 0 15px;color:#f7e6c5}
+.zs-profile-summary .zs-profile-opening{max-width:810px;color:#d7d9e8;font-size:15px;line-height:1.9}
+.zs-profile-progress{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin:20px 0}
+.zs-profile-progress span{font:12px var(--zs-font-ui,sans-serif);padding:7px 12px;border:1px solid #dec49270;border-radius:24px;background:#1d2646;color:#eddaa9}
+.zs-profile-progress .zs-profile-meter{width:min(260px,100%);height:6px;background:#1b2036;border-radius:16px;overflow:hidden;padding:0}
+.zs-profile-progress .zs-profile-meter i{display:block;width:0;height:100%;background:linear-gradient(90deg,#a89be6,#f1d398);transition:width .25s}
+.zs-profile-tabs{display:flex;gap:9px;flex-wrap:wrap;margin:23px 0 15px}
+.zs-profile-tabs button{border:1px solid #ddc38c70;border-radius:10px;background:#283251;color:#f5dfb6;font:13px var(--zs-font-ui,sans-serif);padding:11px 16px;cursor:pointer;min-height:44px}
+.zs-profile-tabs button[aria-selected=true]{background:#ead09a;color:#252439}
+.zs-profile-section{display:grid;gap:12px;margin:12px 0 18px}
+.zs-profile-section[hidden]{display:none!important}
+.zs-profile-card{background:#252d4dc9;border:1px solid #d9bf9157;border-radius:15px;padding:18px 19px}
+.zs-profile-card small{color:#ebce94;font:11px var(--zs-font-ui,sans-serif)}
+.zs-profile-card h3{font-size:19px;margin:9px 0;color:#f0dfba}
+.zs-profile-card p{font-size:13px;line-height:1.85;color:#d4d7e5;margin:0}
+.zs-profile-card.zs-profile-locked{border-style:dashed;background:#2129428c}
+.zs-profile-card.zs-profile-locked h3{color:#bbbccd}
+.zs-profile-links{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0 10px}
+.zs-profile-links a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 14px;border:1px solid #dbc18984;border-radius:9px;color:#f1dcac;background:#303856;font:13px var(--zs-font-ui,sans-serif)}
+.zs-profile-links a:hover{background:#4a476c;border-color:#f1d398}
+.zs-profile-footnote{font-size:12px;color:#c8cbdc;line-height:1.85;margin:16px 0 2px}
+.zs-profile-placeholder{font-size:14px;color:#efdfbc;line-height:1.8;margin:12px 0}
+.zs-profile-profile-art{display:block;max-width:215px;max-height:310px;object-fit:contain;float:right;margin:0 0 10px 22px;border:1px solid #d9c0895c;border-radius:12px;background:#1e2544}
+.zs-profile-summary:after{content:"";display:table;clear:both}
+.zs-profile-full-content{margin:32px 0 10px;border-left:3px solid #e7cf99;background:#292c4b;padding:16px 18px;color:#ded8e5;line-height:1.85;font-size:13px}
+@media(max-width:650px){.zs-profile-profile-art{float:none;margin:0 auto 20px;max-width:175px;max-height:240px}.zs-profile-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.zs-profile-tabs button{padding:9px}.zs-profile-links a{flex:1 1 46%}}
+@media(prefers-reduced-motion:reduce){.zs-profile-progress .zs-profile-meter i{transition:none}}
