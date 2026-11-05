@@ -106,7 +106,7 @@
       const width=document.createElement('select');width.setAttribute('aria-label','阅读版心');
       [['660','窄'],['820','标准'],['1000','宽']].forEach(([value,text])=>width.add(new Option(text,value)));width.value=String(options.width);
       width.onchange=()=>{options.width=Number(width.value);apply();};panel.append(width);
-      const note=document.createElement('p');note.className='zs-help';note.textContent='字号、背景与进度保存在此设备浏览器；朗读可使用正文上方的听书功能。';panel.append(note);
+      const note=document.createElement('p');note.className='zs-help';note.textContent='字号、背景与阅读进度仅保存在当前设备浏览器。';panel.append(note);
       open.onclick=()=>{panel.hidden=!panel.hidden;open.setAttribute('aria-expanded',String(!panel.hidden));};document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!panel.hidden){panel.hidden=true;open.setAttribute('aria-expanded','false');}});
       document.body.append(open,panel);
     }
