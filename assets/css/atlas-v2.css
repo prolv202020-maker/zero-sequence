@@ -1,5 +1,6 @@
 /* 第零序列 · 人物与职业渐进式图鉴 V2 · 默认防剧透 */
 body[data-zs-atlas] .zs-atlas-protected{display:none!important}
+body[data-zs-atlas]:not(.zs-atlas-full) main.page > :not(.crumb):not(.eyebrow):not(h1):not(.zs-atlas-public){display:none!important}
 body[data-zs-atlas].zs-atlas-full .zs-atlas-protected{display:block!important}
 body[data-zs-atlas].zs-atlas-full section.zs-atlas-protected{display:block!important}
 .zs-atlas-public{margin:25px 0 38px;border:1px solid #d7c08973;border-radius:22px;background:linear-gradient(145deg,#33395bde,#1c2541e8);box-shadow:0 18px 50px #0a0d242c;padding:clamp(19px,3vw,30px);position:relative}
