@@ -1,4 +1,4 @@
-/* 第零序列 · 动漫风原创配乐 + 听书系统 */
+/* 第零序列 · 原创背景配乐（不含朗读/说书功能） */
 (() => {
   'use strict';
 
@@ -15,8 +15,6 @@
 
   const KEY_ENABLED='zs_audio_enabled';
   const KEY_VOLUME='zs_audio_volume';
-  const KEY_RATE='zs_narration_rate';
-  const KEY_READ_PREFIX='zs_read_progress:';
   let ctx=null, master=null, ambience=null;
   let persistent=[], timers=[], playing=false;
   let volume=Math.max(0,Math.min(1,parseFloat(localStorage.getItem(KEY_VOLUME)||'0.18')));
@@ -34,11 +32,7 @@
       .zs-audio input[type=range]{width:64px;accent-color:#e8c979;opacity:.85}.zs-audio .zs-vol{font-size:10px;color:#aaa5b8;display:flex;align-items:center;gap:4px}
       @keyframes zsWave{from{height:3px;opacity:.4}to{height:13px;opacity:1}}
 
-      .zs-narrator{margin:24px auto 30px;max-width:820px;border:1px solid rgba(232,201,121,.35);border-radius:18px;padding:16px 18px;background:linear-gradient(135deg,rgba(35,30,57,.72),rgba(15,18,30,.86));box-shadow:0 12px 32px rgba(0,0,0,.22);backdrop-filter:blur(12px)}
-      .zs-narrator-head{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:12px}.zs-narrator-title{font-size:14px;font-weight:700;letter-spacing:.05em}.zs-narrator-status{font-size:11px;color:#aaa5b8;white-space:nowrap}
-      .zs-narrator-controls{display:flex;align-items:center;flex-wrap:wrap;gap:8px}.zs-narrator button,.zs-narrator select{border:1px solid rgba(232,201,121,.42);background:rgba(16,18,30,.82);color:#f5efe4;border-radius:999px;padding:8px 12px;font:inherit;font-size:12px;cursor:pointer}.zs-narrator button:hover,.zs-narrator select:hover{border-color:rgba(232,201,121,.8)}.zs-narrator .zs-read-main{background:linear-gradient(135deg,rgba(118,83,196,.9),rgba(68,89,190,.9));border-color:rgba(214,202,255,.65);font-weight:700}.zs-narrator-note{margin-top:10px;font-size:10px;color:#8f8a9c;line-height:1.6}
-      .article>p.zs-reading{position:relative;background:linear-gradient(90deg,rgba(126,93,211,.18),rgba(232,201,121,.10),transparent);border-radius:8px;box-shadow:-4px 0 0 rgba(232,201,121,.75);padding-left:12px!important;transition:.25s ease}.article>p.zs-read-done{opacity:.72}
-      @media(max-width:560px){.zs-audio{right:10px;bottom:10px;width:calc(100vw - 20px)}.zs-audio input[type=range]{width:52px}.zs-narrator{margin:18px 0 26px;padding:14px}.zs-narrator-head{align-items:flex-start;flex-direction:column;gap:5px}.zs-narrator-controls{gap:7px}.zs-narrator button,.zs-narrator select{padding:8px 10px}}
+      @media(max-width:560px){.zs-audio{right:10px;bottom:10px;width:calc(100vw - 20px)}.zs-audio input[type=range]{width:52px}}
     `;
     document.head.appendChild(s);
   }
@@ -97,76 +91,6 @@
   function stopMusic(userAction){playing=false;timers.forEach(clearInterval);timers=[];persistent.forEach(n=>{try{if(n.stop)n.stop();}catch(e){}try{n.disconnect();}catch(e){}});persistent=[];if(userAction)localStorage.setItem(KEY_ENABLED,'0');setAudioUI(false);}
   function duckBGM(on){if(!master||!ctx||!playing)return;master.gain.setTargetAtTime(on?Math.min(volume,.045):volume,ctx.currentTime,on?.18:.35);}
 
-  // ---------- Audiobook / narration ----------
-  let synth=window.speechSynthesis||null;
-  let paras=[],readIndex=0,reading=false,readPaused=false,currentUtterance=null;
-  const readKey=KEY_READ_PREFIX+location.pathname;
-  let readRate=parseFloat(localStorage.getItem(KEY_RATE)||'1');
-  if(![0.8,1,1.2,1.5].includes(readRate)) readRate=1;
-
-  function chooseVoice(){
-    if(!synth)return null;
-    const vs=synth.getVoices();
-    return vs.find(v=>/zh[-_](CN|Hans)/i.test(v.lang)&&/xiaoxiao|yunxi|natural|premium|tingting|meijia/i.test(v.name)) ||
-           vs.find(v=>/zh[-_](CN|Hans)/i.test(v.lang)) ||
-           vs.find(v=>/^zh/i.test(v.lang)) || null;
-  }
-  function cleanText(t){return (t||'').replace(/\s+/g,' ').replace(/【/g,'“').replace(/】/g,'”').trim();}
-  function updateReadStatus(text){const el=document.querySelector('.zs-narrator-status');if(el)el.textContent=text;}
-  function updateReadButton(){const b=document.querySelector('.zs-read-main');if(!b)return;b.textContent=reading&&!readPaused?'⏸ 暂停':readPaused?'▶ 继续':'🎧 听本章';}
-  function clearHighlight(){paras.forEach(p=>p.classList.remove('zs-reading'));}
-  function highlight(i){clearHighlight();paras.forEach((p,n)=>p.classList.toggle('zs-read-done',n<i));const p=paras[i];if(!p)return;p.classList.add('zs-reading');p.scrollIntoView({behavior:'smooth',block:'center'});}
-  function saveProgress(){localStorage.setItem(readKey,String(readIndex));}
-
-  function speakParagraph(i){
-    if(!synth||!paras.length)return;
-    if(i<0)i=0;
-    if(i>=paras.length){finishReading();return;}
-    readIndex=i;saveProgress();highlight(i);
-    const text=cleanText(paras[i].innerText);
-    if(!text){speakParagraph(i+1);return;}
-    const u=new SpeechSynthesisUtterance(text);currentUtterance=u;u.lang='zh-CN';u.rate=readRate;u.pitch=1.03;u.volume=1;
-    const v=chooseVoice();if(v)u.voice=v;
-    u.onstart=()=>{reading=true;readPaused=false;duckBGM(true);updateReadButton();updateReadStatus(`正在朗读 · ${i+1}/${paras.length}`);};
-    u.onend=()=>{if(!reading||readPaused)return;speakParagraph(readIndex+1);};
-    u.onerror=(e)=>{if(e.error==='canceled'||e.error==='interrupted')return;reading=false;duckBGM(false);updateReadButton();updateReadStatus('朗读暂时中断，点击继续');};
-    synth.speak(u);
-  }
-
-  function startReading(){
-    if(!synth){updateReadStatus('此浏览器暂不支持语音朗读');return;}
-    if(readPaused){synth.resume();readPaused=false;reading=true;duckBGM(true);updateReadButton();updateReadStatus(`继续朗读 · ${readIndex+1}/${paras.length}`);return;}
-    if(reading){synth.pause();readPaused=true;duckBGM(false);updateReadButton();updateReadStatus(`已暂停 · ${readIndex+1}/${paras.length}`);return;}
-    const saved=parseInt(localStorage.getItem(readKey)||'0',10);readIndex=Number.isFinite(saved)&&saved>=0&&saved<paras.length?saved:0;
-    synth.cancel();reading=true;speakParagraph(readIndex);
-  }
-  function stopReading(reset=false){if(!synth)return;synth.cancel();reading=false;readPaused=false;currentUtterance=null;duckBGM(false);clearHighlight();if(reset){readIndex=0;localStorage.removeItem(readKey);}updateReadButton();updateReadStatus(reset?'已回到本章开头':'已停止');}
-  function moveReading(delta){if(!paras.length)return;const was=reading||readPaused;if(synth)synth.cancel();readPaused=false;reading=was;readIndex=Math.max(0,Math.min(paras.length-1,readIndex+delta));saveProgress();highlight(readIndex);if(was)speakParagraph(readIndex);else updateReadStatus(`定位到 ${readIndex+1}/${paras.length}`);}
-  function finishReading(){if(synth)synth.cancel();reading=false;readPaused=false;readIndex=paras.length-1;saveProgress();duckBGM(false);updateReadButton();updateReadStatus('本章朗读完成 ✓');clearHighlight();}
-  function changeRate(v){readRate=parseFloat(v);localStorage.setItem(KEY_RATE,String(readRate));const was=reading||readPaused;if(was){if(synth)synth.cancel();readPaused=false;reading=true;speakParagraph(readIndex);}updateReadStatus(`语速 ${readRate.toFixed(1)}×`);}
-
-  function buildNarrator(){
-    const article=document.querySelector('.article');
-    if(!article||!synth||document.getElementById('zs-narrator'))return;
-    paras=[...article.querySelectorAll(':scope > p')].filter(p=>cleanText(p.innerText).length>0);
-    if(!paras.length)return;
-    styleUI();
-    const saved=parseInt(localStorage.getItem(readKey)||'0',10);if(Number.isFinite(saved)&&saved>=0&&saved<paras.length)readIndex=saved;
-    const box=document.createElement('section');box.id='zs-narrator';box.className='zs-narrator';
-    box.innerHTML=`<div class="zs-narrator-head"><div class="zs-narrator-title">🎧 听书模式 · 本章说书</div><div class="zs-narrator-status">${readIndex>0?`上次听到 ${readIndex+1}/${paras.length}`:`共 ${paras.length} 段`}</div></div><div class="zs-narrator-controls"><button type="button" class="zs-read-main">🎧 听本章</button><button type="button" class="zs-read-prev">← 上一段</button><button type="button" class="zs-read-next">下一段 →</button><select class="zs-rate" aria-label="朗读语速"><option value="0.8">0.8×</option><option value="1">1.0×</option><option value="1.2">1.2×</option><option value="1.5">1.5×</option></select><button type="button" class="zs-read-reset">↺ 从头听</button></div><div class="zs-narrator-note">使用设备自带中文语音朗读。朗读时背景音乐会自动降低，正在朗读的段落会高亮。</div>`;
-    article.parentNode.insertBefore(box,article);
-    box.querySelector('.zs-rate').value=String(readRate);
-    box.querySelector('.zs-read-main').addEventListener('click',startReading);
-    box.querySelector('.zs-read-prev').addEventListener('click',()=>moveReading(-1));
-    box.querySelector('.zs-read-next').addEventListener('click',()=>moveReading(1));
-    box.querySelector('.zs-read-reset').addEventListener('click',()=>{stopReading(true);highlight(0);});
-    box.querySelector('.zs-rate').addEventListener('change',e=>changeRate(e.target.value));
-    if(synth.onvoiceschanged!==undefined)synth.addEventListener?.('voiceschanged',()=>{}, {once:true});
-  }
-
-  window.addEventListener('pagehide',()=>{try{synth&&synth.cancel();}catch(e){}});
-  document.addEventListener('visibilitychange',()=>{if(document.hidden&&synth&&reading&&!readPaused){/* allow lock-screen/device TTS where supported */}});
-
   function init(){
     buildAudioUI();
     if(!document.querySelector('script[src*="progressive-archive.js"]')){
@@ -174,12 +98,6 @@
     }
     if(!document.querySelector('script[src*="reader-experience.js"]')){
       const reader=document.createElement('script');reader.src='/zero-sequence/assets/js/reader-experience.js?v=1';document.body.appendChild(reader);
-    }
-    // 单一情绪朗读界面由 narrator-pro.js 提供，避免先显示旧版播放器再替换
-    if(document.querySelector('.article') && !document.querySelector('script[src*="narrator-pro.js"]')){
-      const script=document.createElement('script');
-      script.src='/zero-sequence/assets/js/narrator-pro.js?v=2';
-      document.body.appendChild(script);
     }
     if('serviceWorker' in navigator){
       navigator.serviceWorker.register('/zero-sequence/sw.js').catch(()=>{});
