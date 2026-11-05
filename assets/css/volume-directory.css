@@ -40,3 +40,10 @@
 @media(max-width:800px){.zs-cover-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.part-hero{margin-top:28px}}
 @media(max-width:600px){.zs-cover-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.zs-cover-grid>.zs-cover-card .zs-cover-copy{padding:11px;min-height:85px;gap:6px}.zs-cover-grid>.zs-cover-card .zs-cover-copy h3{font-size:15px;min-height:0}.zs-cover-grid>.zs-cover-card .zs-cover-copy p{display:none}.zs-cover-grid>.zs-cover-card .zs-cover-copy small{font-size:9px}.zs-cover-grid>.zs-cover-card .zs-card-link{font-size:11px}.part-hero{padding:24px 20px}.part-links a{font-size:12px}.zs-cover-grid>.zs-cover-card .zs-volume-state{font-size:10px;padding:5px 7px}.zs-cover-grid>.zs-cover-card .zs-cover-number{font-size:9px}}
 @media(prefers-reduced-motion:reduce){.zs-cover-grid>.zs-cover-card,.zs-cover-grid>.zs-cover-card .zs-cover-thumb,.part-links a{transition:none!important}.zs-cover-grid>.zs-cover-card:hover,.zs-cover-grid>.zs-cover-card:hover .zs-cover-thumb{transform:none!important}}
+
+
+/* 未解锁卷卡默认隐藏真实卷名和简介；已读进度确认后再展示。 */
+.zs-cover-grid>.zs-cover-card:not(.zs-cover-unlocked) .zs-cover-copy h3,
+.zs-cover-grid>.zs-cover-card:not(.zs-cover-unlocked) .zs-cover-copy p{visibility:hidden!important}
+.zs-cover-grid>.zs-cover-card:not(.zs-cover-unlocked) .zs-cover-copy:after{content:"🔒 本卷资料尚未解锁";display:block;font:12px var(--zs-font-ui,sans-serif);color:#ead3a2}
+.zs-cover-grid>.zs-cover-card.zs-cover-unlocked .zs-cover-copy:after{content:none}
