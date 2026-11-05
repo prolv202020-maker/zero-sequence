@@ -27,7 +27,7 @@ function start(){const host=document.getElementById('zq-results');if(!host)retur
  function render(){const one=progress(1),two=progress(2),query=search.value.trim().toLowerCase(),p=Number(part.value||0),category=cat.value;let count=0;host.replaceChildren();
  for(const [arc,n,k,name,description,...refs] of records){
   if((arc===1?one:two)<n||(p&&arc!==p)||(category&&category!==k))continue;
-  if(query&&![name,description,k,...refs].join(' ').toLowerCase().indexOf(query)<0)continue;
+  if(query&&![name,description,k,...refs].join(' ').toLowerCase().includes(query))continue;
   const card=el('article','zq-card');card.append(el('small','',('第'+arc+'篇 · 第'+n+'章后 · '+k)),el('h2','',name),el('p','',description));
   const links=el('div','zq-links');links.append(link(chapter(arc,n),'阅读相关章节 →'));
   refs.forEach(ref=>{const cut=ref.indexOf(':');links.append(link('archive/'+ref.slice(cut+1),ref.slice(0,cut)));});
