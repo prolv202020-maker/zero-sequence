@@ -9,7 +9,7 @@
   const get=k=>{try{return JSON.parse(localStorage.getItem(k)||'null');}catch{return null;}};
   const put=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v));}catch{}};
   const clean=s=>(s||'').replace(/\s+/g,' ').trim();
-  const options=Object.assign({font:18,leading:2.25,width:820,theme:'night'},get(OPT)||{});
+  const options=Object.assign({font:(window.matchMedia('(max-width:600px)').matches?17:18),leading:2.25,width:820,theme:'night'},get(OPT)||{});
   function loadCSS(){
     if($('link[data-zs-reader]'))return;
     const l=document.createElement('link');l.rel='stylesheet';l.href=ROOT+'assets/css/reader-experience.css?v=1';l.dataset.zsReader='1';document.head.appendChild(l);
@@ -31,16 +31,29 @@
   }
   function addContinue(){
     if(!document.body.classList.contains('home-page'))return;
-    const last=get(LAST), hero=$('.hero');
-    if(!last||!hero||!last.url||!last.url.startsWith(ROOT+'chapters/'))return;
+    const last=get(LAST), box=$('#zs-home-resume');
+    const valid=last&&typeof last.url==='string'&&last.url.startsWith(ROOT+'chapters/');
+    if(box){
+      const title=$('#zs-resume-title'),detail=$('#zs-resume-description');
+      const link=$('#zs-resume-link'),bar=$('#zs-resume-bar');
+      if(valid){
+        if(title)title.textContent=last.title||'继续上次的章节';
+        const percent=Math.max(0,Math.min(100,Math.round(Number(last.percent)||0)));
+        if(detail)detail.textContent='上次阅读 · 已阅读约 '+percent+'% · 进度仅保存在当前设备';
+        if(link){link.href=last.url;link.textContent='继续阅读 →';}
+        if(bar)bar.style.width=percent+'%';
+      }
+      return;
+    }
+    const hero=$('.hero');if(!valid||!hero)return;
     const div=document.createElement('section');div.className='zs-continue';div.setAttribute('aria-label','继续阅读');
     const info=document.createElement('div');
     const eyebrow=document.createElement('small');eyebrow.textContent='上次阅读 · 仅此设备';
     const title=document.createElement('h2');title.textContent=last.title||'继续上次的章节';
     const detail=document.createElement('p');detail.textContent='已阅读约 '+Math.round(last.percent||0)+'% · 点击后可选择接着读';
     info.append(eyebrow,title,detail);
-    const a=document.createElement('a');a.href=last.url;a.textContent='继续阅读 →';
-    div.append(info,a);hero.insertAdjacentElement('afterend',div);
+    const link=document.createElement('a');link.href=last.url;link.textContent='继续阅读 →';
+    div.append(info,link);hero.insertAdjacentElement('afterend',div);
   }
   function setupChapter(){
     const article=$('.article');if(!article)return;
