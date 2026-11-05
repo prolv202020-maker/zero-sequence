@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>职业体系 · 第零序列</title>
-<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/style.css?v=3">
+<link rel="stylesheet" href="../assets/css/atlas-v2.css?v=2">
 <style>
 :root{--fighter:#ef8f73;--caster:#9eb8ff;--ranger:#a9d9cb;--guardian:#e4c37d;--support:#d0a9ff}
 .class-page{max-width:1180px}
@@ -184,7 +185,7 @@
 
 </style>
 </head>
-<body>
+<body data-zs-atlas="classes">
 <header><a class="brand" href="../index.html">☾ <span>第零序列<small>THE ZERO SEQUENCE</small></span></a><nav><a href="../index.html">首页</a><a href="characters.html">人物</a><a href="world.html">地图</a><a href="factions.html">势力</a><a href="equipment.html">武器与装备</a><a href="production.html">生活职业与工坊</a></nav></header>
 <main class="page class-page">
 <div class="crumb"><a href="../index.html">首页</a> / 职业体系</div>
@@ -242,5 +243,7 @@
 </main>
 <footer>© 第零序列 · CLASS ARCHIVE · 职业体系公开档案 V1.0</footer>
 <script>document.querySelectorAll('.profession').forEach(d=>d.addEventListener('toggle',()=>{if(d.open)d.querySelector('.open-label').textContent='收起职业档案 －';else d.querySelector('.open-label').textContent='展开职业档案 ＋';}));</script>
-<script src="../assets/js/progressive-archive.js?v=1" defer></script></body>
+<script src="../assets/js/progressive-archive.js?v=5" defer></script><script src="../assets/js/atlas-v2.js?v=1" defer></script>
+<script src="../assets/js/site-ui.js?v=1" defer></script>
+</body>
 </html>
