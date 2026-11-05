@@ -43,7 +43,7 @@ host.append(make('p','zs-atlas-intro',kind==='characters'?'按照本设备已读
 const status=make('div','zs-atlas-status'),meter=make('div','zs-atlas-progress'),fill=make('i');
 meter.append(fill);host.append(status,meter);
 const actions=make('div','zs-atlas-actions');
-actions.append(link(ROOT+'parts/part-01.html','第一篇 · 轮回启幕'),link(ROOT+'parts/part-02.html','第二篇 · 百城星火'),link(ROOT+'archive/unlocks.html','查看逐章解锁记录'),link(ROOT+(kind==='characters'?'archive/classes.html':'archive/characters.html'),kind==='characters'?'进入职业图鉴':'进入人物图鉴'));
+actions.append(link(ROOT+'parts/part-01.html','第一篇 · 轮回启幕'),link(ROOT+'parts/part-02.html','第二篇 · 百城星火'),link(ROOT+'archive/unlocks.html','查看逐章解锁记录'),link(ROOT+'archive/quests.html','剧情事件关联'),link(ROOT+(kind==='characters'?'archive/classes.html':'archive/characters.html'),kind==='characters'?'进入职业图鉴':'进入人物图鉴'));
 host.append(actions);
 const controls=make('div','zs-atlas-controls');
 const input=make('input');input.type='search';input.placeholder=kind==='characters'?'搜索已解锁的人物或职业':'搜索已解锁的基础职业';input.setAttribute('aria-label','搜索已解锁图鉴');
