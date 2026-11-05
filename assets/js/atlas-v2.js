@@ -77,6 +77,10 @@ function render(){
    total++;
    const card=make('article','zs-atlas-entry');
    card.append(make('small','',entry.type+' · 第'+entry.p+'篇已揭晓'),make('h3','',entry.name),make('span','zs-atlas-tag',entry.role),make('p','',entry.note));
+   if(kind==='characters'){
+     const slug={'顾长渊':'gu-changyuan','苏紫璃':'su-zili','林烈':'lin-lie','罗烬':'luo-jin','凌天曜':'ling-tianyao','戴玄岳':'dai-xuanyue','古言澈':'gu-yanche'}[entry.name];
+     if(slug)card.append(link(ROOT+'archive/characters/'+slug+'.html','进入独立档案 →'));
+   }
    if(full&&kind==='classes')card.append(link('#'+entry.group,'前往职业详细介绍'));
    grid.append(card);
  });
