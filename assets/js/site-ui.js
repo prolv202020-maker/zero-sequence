@@ -16,6 +16,7 @@
     ]},
     {label:'万界档案',url:ROOT+'archive/unlocks.html',children:[
       ['逐章解锁档案','archive/unlocks.html'],
+      ['剧情任务与事件','archive/quests.html'],
       ['人物与势力','archive/characters.html'],
       ['职业与技能','archive/classes.html'],
       ['武器装备','archive/equipment.html'],
