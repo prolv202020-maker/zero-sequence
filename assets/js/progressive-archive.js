@@ -113,7 +113,7 @@ host.append(el('p','zs-footer-notice','这里是当前阅读进度的阶段总�
 render();document.addEventListener('zs:part-progress-changed',render);
 }
 function init(){css();articleUnlock();homepage();partPage();recapGate();archiveGate();catalogPage();finalPage();
-if(!document.querySelector('script[src*="site-ui.js"]')){const shell=document.createElement('script');shell.src=BASE+'assets/js/site-ui.js?v=1';document.body.appendChild(shell);}
+if(!document.querySelector('script[src*="site-ui.js"]')){const shell=document.createElement('script');shell.src=BASE+'assets/js/site-ui.js?v=2';document.body.appendChild(shell);}
 }
 window.ZSUnlock={get,set,entries,partOf};
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
