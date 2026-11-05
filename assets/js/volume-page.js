@@ -14,6 +14,7 @@
   const title=main.querySelector('h1'),intro=main.querySelector('p.lead'),eyebrow=main.querySelector('p.eyebrow');
   const existingFigure=main.querySelector('figure');
   const existingComplete=main.querySelector('.complete');
+  // All chapters are public; only the additional archive data is progress gated.
   const heading=main.querySelector('.crumb');
   if(!title||!intro||!eyebrow)return;
   const el=(tag,cls,text)=>{const node=document.createElement(tag);if(cls)node.className=cls;if(text!==undefined)node.textContent=text;return node;};
@@ -86,12 +87,25 @@
     a.dataset.chapterIndex=String(n);
     if(prologue)a.dataset.prologue='1';
   }
-  // Add a consistent footer while leaving every original chapter and volume link in place.
+  // The existing volume URLs stay unchanged; normalize the navigation order.
   const pager=main.querySelector('.pager');
-  if(pager)pager.classList.add('zs-volume-bottom');
-  if(pager&&!pager.querySelector('a[href*="parts/part-"]')){
-    const link=el('a','', '返回第'+part+'篇目录');
-    link.href=ROOT+'parts/part-0'+part+'.html';pager.append(link);
+  if(pager){
+    pager.classList.add('zs-volume-bottom');
+    const nav=[];
+    if(vol>1){
+      const previous=el('a','','← 上一卷');
+      previous.href=ROOT+'volumes/volume-'+String(vol-1).padStart(2,'0')+'.html';
+      nav.push(previous);
+    }
+    const directory=el('a','','返回第'+part+'篇目录');
+    directory.href=ROOT+'parts/part-0'+part+'.html';nav.push(directory);
+    if(vol<20){
+      const next=el('a','',vol===10?'进入第二篇 →':'下一卷 →');
+      next.href=ROOT+'volumes/volume-'+String(vol+1).padStart(2,'0')+'.html';
+      nav.push(next);
+    }
+    pager.replaceChildren(...nav);
+    pager.setAttribute('aria-label','卷目导航');
   }
   const hint=el('p','zs-volume-hint','阅读状态依据当前浏览器保存的记录显示。访问未解锁的卷目录不会影响进度；点击章节仍可直接阅读。');
   chapters.insertAdjacentElement('afterend',hint);
@@ -132,6 +146,9 @@
     meterFill.style.width=(read*10)+'%';
     meter.setAttribute('aria-valuenow',String(read));
     if(read===10)resume.textContent='重温本卷章节 →';
+    if(currentLink&&last&&Number(last.percent)>0&&Number(last.percent)<100){
+      resume.title='上次读到约 '+Math.round(Number(last.percent))+'%，进入章节后可继续阅读';
+    }else resume.removeAttribute('title');
   }
   update();
   document.addEventListener('zs:part-progress-changed',update);
