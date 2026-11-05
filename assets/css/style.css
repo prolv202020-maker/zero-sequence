@@ -63,3 +63,9 @@ header.zs-header .zs-global-nav{display:flex;align-items:center;justify-content:
  .card,.image-card:before,.book,.zs-cover-card,header.zs-header{transition:none!important}
  .card:hover,.zs-cover-card:hover{transform:none!important}
 }
+
+
+/* 剧情专题页面：在脚本完成阅读进度校验前默认不呈现完整资料。 */
+body.zs-sensitive-archive:not(.zs-archive-approved) main > :not(.crumb):not(.zs-spoiler-wall){display:none!important}
+body.zs-sensitive-archive:not(.zs-archive-approved) main .zs-spoiler-wall{display:block!important}
+body.zs-recap-page:not(.zs-recap-ready) .r-list{visibility:hidden}
