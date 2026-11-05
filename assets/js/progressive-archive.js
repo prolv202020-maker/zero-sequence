@@ -92,7 +92,7 @@ function archiveGate(){if(!/\/archive\//.test(location.pathname)||/\/archive\/(?
 const main=document.querySelector('main');if(!main||get(1).max>=100||isAuthorPreview())return;
 main.classList.add('zs-gated-main');const wall=el('div','zs-spoiler-wall');
 wall.append(el('h2','','🔒 完整设定档案暂未解锁'),el('p','','此页可能包含第一篇后续章节的信息。为了避免剧透，先展示与你已读章节对应的渐进档案。完成第一篇100章后，可浏览现有的完整公开资料。'));
-const actions=el('div','zs-unlock-actions');actions.append(aLink(BASE+'archive/unlocks.html','查看已解锁档案 →'),aLink(BASE+'parts/part-01.html','返回第一篇目录 →'));wall.append(actions);main.append(wall);
+const actions=el('div','zs-unlock-actions');actions.append(aLink(BASE+'archive/unlocks.html','查看已解锁档案 →'),aLink(BASE+'parts/part-01.html','返回第一篇目录 →'),aLink(BASE+'archive/quests.html','查看已解锁剧情事件 →'));wall.append(actions);main.append(wall);
 }
 function catalogPage(){if(!/\/archive\/unlocks\.html$/.test(location.pathname))return;const host=document.getElementById('zs-dynamic-catalog');if(!host)return;const params=new URLSearchParams(location.search),sel=Number(params.get('part'))||1;
 function render(){host.replaceChildren();const top=el('div','zs-unlock-panel');
