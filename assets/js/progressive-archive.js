@@ -81,17 +81,20 @@ const total=el('div','zs-unlock-card');total.append(el('small','','ALL PARTS'),e
 }
 function partPage(){if(!/\/parts\/part-0\d\.html$/.test(location.pathname))return;const p=Number((location.pathname.match(/part-(\d+)\.html/)||[])[1]||1);const hero=document.querySelector('.part-hero, .part2-hero');if(hero)hero.insertAdjacentElement('afterend',partCard(p));
 if(p!==1&&p!==2)return;
-document.querySelectorAll('a[href*="/volumes/volume-"]').forEach(link=>{const found=link.getAttribute('href').match(/volume-(\d+)\.html/);if(!found)return;const vol=Number(found[1]);const need=(vol-(p===1?1:11))*10;if(need<=get(p).max){link.classList.add('zs-cover-unlocked');return;}const image=link.querySelector('img.zs-cover-thumb');if(image)image.alt='未解锁的第'+vol+'卷封面';const heading=link.querySelector('h3');if(heading)heading.textContent='🔒 第'+vol+'卷 · 尚未解锁';const detail=link.querySelector('p');if(detail)detail.textContent='本卷标题与简介将在阅读至前一卷结束后解锁。';});
+// 只同步卡片状态，不篡改原始卷名和简介；避免读者解锁后文字无法恢复。
+function updateCovers(){document.querySelectorAll('a[href*="/volumes/volume-"]').forEach(link=>{const found=link.getAttribute('href')?.match(/volume-(\d+)\.html/);if(!found)return;const vol=Number(found[1]);const need=(vol-(p===1?1:11))*10;link.classList.toggle('zs-cover-unlocked',need<=get(p).max);});}
+updateCovers();document.addEventListener('zs:part-progress-changed',updateCovers);
 const lead=hero&&hero.querySelector('.lead');if(p===1&&lead&&get(1).max<90)lead.textContent='从重生的起点出发。随着阅读推进，第一篇的地图、人物、势力与谜团将逐步揭晓。';
 }
 function recapGate(){const m=location.pathname.match(/\/parts\/recap-0([12])\.html$/);if(!m)return;const p=Number(m[1]);
-document.querySelectorAll('.r-list details').forEach((node,i)=>{const need=(i+1)*10;if(get(p).max>=need)return;const title=node.querySelector('summary')?.textContent||'本卷';node.replaceChildren(el('summary','',title+' · 🔒 读完第'+(i+1)+'卷后解锁'));node.classList.add('zs-locked-summary');node.addEventListener('toggle',()=>{if(node.open)node.open=false;});});
-const intro=document.querySelector('main>.lead');if(intro)intro.textContent='每卷回顾按阅读进度开放，未读卷的剧情继续封存。';
+document.querySelectorAll('.r-list details').forEach((node,i)=>{const need=(i+1)*10;if(get(p).max>=need)return;node.replaceChildren(el('summary','','第'+(i+1+(p-1)*10)+'卷 · 🔒 读完本卷后解锁'));node.classList.add('zs-locked-summary');node.addEventListener('toggle',()=>{if(node.open)node.open=false;});});
+const intro=document.querySelector('main>.lead');if(intro)intro.textContent='每卷回顾按阅读进度开放，未读卷的剧情继续封存。';document.body.classList.add('zs-recap-ready');
 }
 function archiveGate(){if(!/\/archive\//.test(location.pathname)||/\/archive\/(?:unlocks|quests|bestiary|equipment|characters|classes)\.html$/.test(location.pathname)||/\/archive\/characters\//.test(location.pathname))return;
-const main=document.querySelector('main');if(!main||get(1).max>=100||isAuthorPreview())return;
+const main=document.querySelector('main');if(!main)return;
+if((get(1).max>=100&&get(2).max>=100)||isAuthorPreview()){document.body.classList.add('zs-archive-approved');return;}
 main.classList.add('zs-gated-main');const wall=el('div','zs-spoiler-wall');
-wall.append(el('h2','','🔒 完整设定档案暂未解锁'),el('p','','此页可能包含第一篇后续章节的信息。为了避免剧透，先展示与你已读章节对应的渐进档案。完成第一篇100章后，可浏览现有的完整公开资料。'));
+wall.append(el('h2','','🔒 完整设定档案暂未解锁'),el('p','','此页可能包含第一篇后续章节的信息。为了避免剧透，先展示与你已读章节对应的渐进档案。为了防止第二篇和后期资料提前泄露，需完成第一篇与第二篇各100章，才开放原有的完整专题资料。'));
 const actions=el('div','zs-unlock-actions');actions.append(aLink(BASE+'archive/unlocks.html','查看已解锁档案 →'),aLink(BASE+'parts/part-01.html','返回第一篇目录 →'),aLink(BASE+'archive/quests.html','查看已解锁剧情事件 →'));wall.append(actions);main.append(wall);
 }
 function catalogPage(){if(!/\/archive\/unlocks\.html$/.test(location.pathname))return;const host=document.getElementById('zs-dynamic-catalog');if(!host)return;const params=new URLSearchParams(location.search),sel=Number(params.get('part'))||1;
