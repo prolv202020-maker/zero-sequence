@@ -40,3 +40,12 @@
 @media(max-width:760px){.zs-volume-page .zs-volume-hero{grid-template-columns:170px minmax(0,1fr);gap:24px}.zs-volume-hero h1{font-size:32px}.zs-volume-hero .lead{font-size:14px}}
 @media(max-width:600px){.zs-volume-page .zs-volume-hero{display:flex;flex-direction:column;padding:19px;gap:20px;align-items:center}.zs-volume-page .zs-volume-hero figure{width:min(62%,235px)}.zs-volume-hero .zs-volume-info{width:100%;align-items:stretch;gap:12px}.zs-volume-hero h1{text-align:center;font-size:30px}.zs-volume-hero .eyebrow{text-align:center}.zs-volume-tags,.zs-volume-actions{justify-content:center}.zs-volume-actions a{flex:1 1 135px}.zs-volume-page .list.zs-volume-chapters{padding:5px 10px}.zs-volume-page .zs-volume-chapters a{min-height:60px;padding:12px 6px;gap:8px}.zs-volume-page .zs-volume-chapters .zs-chapter-name{font-size:14px}.zs-volume-page .zs-volume-chapters .zs-chapter-state{font-size:11px;padding:5px 7px}.zs-volume-bottom a{flex:1 1 42%}}
 @media(prefers-reduced-motion:reduce){.zs-volume-meter>i,.zs-volume-page .zs-volume-chapters a{transition:none!important}}
+
+/* Even without JavaScript, officially uploaded covers remain readable and properly sized. */
+body:not(.zs-volume-page) .zs-volume-cover-figure{max-width:270px;margin:24px 0 28px}
+body:not(.zs-volume-page) .zs-volume-official-cover{display:block;width:100%;height:auto;border:1px solid #d8bb82;border-radius:12px;box-shadow:0 18px 50px #0a0e26}
+body:not(.zs-volume-page) .zs-volume-cover-figure figcaption{font-size:11px;color:#c9c3d0;margin-top:11px;line-height:1.7}
+.zs-volume-page .zs-volume-chapters .zs-chapter-current .zs-chapter-state{color:#ffe6b1;border-color:#f0d69a}
+.zs-volume-page .zs-volume-hero .zs-volume-actions a{transition:background .2s,border-color .2s}
+@media(max-width:600px){.zs-volume-page .zs-volume-chapter-head{align-items:flex-start}.zs-volume-page .zs-volume-chapters .zs-chapter-name{overflow-wrap:anywhere}}
+@media(prefers-reduced-motion:reduce){.zs-volume-page .zs-volume-hero .zs-volume-actions a{transition:none!important}}
