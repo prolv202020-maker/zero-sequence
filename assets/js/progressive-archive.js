@@ -112,19 +112,7 @@ if(!shown.length)host.append(el('p','lead','尚未解锁正文档案。阅读第
 host.append(el('p','zs-footer-notice','这里是当前阅读进度的阶段总结，并非全书已完结。最终真相只会在相应正文公开后进入档案。'));const acts=el('div','zs-unlock-actions');acts.append(aLink(BASE+'archive/unlocks.html','进入分篇档案'),aLink(BASE+'parts/part-01.html','返回第一篇'));host.append(acts);}
 render();document.addEventListener('zs:part-progress-changed',render);
 }
-function markPartTwoDraft(){
-const m=location.pathname.match(/\/chapters\/volume-(1[1-9]|20)\/chapter-\d{3}\.html$/);
-if(!m)return;
-const lead=document.querySelector('main.page>.lead');
-if(lead&&lead.textContent.includes('正式正文（3000—3500字标准）'))return;
-if(lead)lead.textContent=lead.textContent.replace('正式正文','剧情草稿 · 待重写至3000—3500字');
-const article=document.querySelector('main.page>.article');if(!article)return;
-const note=el('div','zs-unlock-panel');
-note.setAttribute('role','note');
-note.append(el('strong','','本章为情节草稿，尚非正式小说正文'),el('p','','本章需要按每章3000—3500字标准重新创作场景、对话、战斗、人物心理与细节后，才视为完成。当前内容仅供查看第二篇剧情结构。'));
-article.parentNode.insertBefore(note,article);
-}
-function init(){css();markPartTwoDraft();articleUnlock();homepage();partPage();recapGate();archiveGate();catalogPage();finalPage();
+function init(){css();articleUnlock();homepage();partPage();recapGate();archiveGate();catalogPage();finalPage();
 if(!document.querySelector('script[src*="site-ui.js"]')){const shell=document.createElement('script');shell.src=BASE+'assets/js/site-ui.js?v=1';document.body.appendChild(shell);}
 }
 window.ZSUnlock={get,set,entries,partOf};
