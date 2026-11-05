@@ -3,47 +3,123 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>第零序列 · 典藏书库</title>
-<link rel="stylesheet" href="assets/css/style.css">
-<style>
-.book.cover-art{width:300px;height:450px;padding:0;position:relative;overflow:hidden;border:1px solid #ead09a;background:linear-gradient(145deg,#31375f,#202547);box-shadow:22px 30px 55px #10142a88,0 0 55px #9385e455;transform:rotate(-3deg);transition:transform .35s ease,box-shadow .35s ease}
-.book.cover-art:hover{transform:rotate(-1deg) translateY(-9px) scale(1.015);box-shadow:28px 38px 68px #10142aaa,0 0 68px #ad9dff66}
-.book.cover-art img{display:block;width:100%;height:100%;object-fit:cover;object-position:center top;background:linear-gradient(145deg,#31375f,#202547)}
-.book.cover-art:after{content:'';position:absolute;inset:9px;border:1px solid #f2dc9d55;pointer-events:none;box-shadow:inset 0 0 28px #0002}
-.hero-copy{position:relative;z-index:2;padding:32px;border:1px solid rgba(227,216,255,.14);background:linear-gradient(135deg,rgba(45,49,83,.42),rgba(34,38,68,.18));backdrop-filter:blur(10px);border-radius:24px}
-header nav{gap:clamp(9px,1.35vw,17px);flex-wrap:wrap;justify-content:flex-end}.currency-card{position:relative;overflow:hidden;background:radial-gradient(circle at 82% 18%,rgba(237,197,107,.22),transparent 25%),linear-gradient(145deg,rgba(68,71,112,.86),rgba(35,40,70,.92))!important}.currency-card:before{content:'X';position:absolute;right:24px;top:16px;font:72px Georgia;color:#f2d48d18}.currency-card:after{content:'序列币';position:absolute;right:24px;bottom:20px;font:12px Georgia;letter-spacing:.18em;color:#efd29480}
-@media(max-width:800px){.book.cover-art{width:240px;height:360px}.hero-copy{padding:24px}}
-</style>
+<meta name="description" content="《第零序列》官方典藏书库：阅读第一篇《轮回启幕》、第二篇《百城星火》，探索逐章解锁的人物与世界档案。">
+<title>第零序列 · 官方典藏书库</title>
+<link rel="stylesheet" href="assets/css/style.css?v=3">
+<link rel="stylesheet" href="assets/css/home-v2.css?v=1">
 </head>
 <body class="home-page">
-<header><a class="brand" href="index.html">☾ <span>第零序列<small>THE ZERO SEQUENCE</small></span></a><nav><a href="search.html">搜索</a><a href="#volumes">卷目</a><a href="archive/characters.html">人物图鉴</a><a href="archive/bestiary.html">怪物图鉴</a><a href="archive/equipment.html">武器装备</a><a href="archive/items.html">道具图鉴</a><a href="archive/production.html">生产工坊</a><a href="archive/industry.html">产业链</a><a href="archive/materials.html">产业链</a><a href="archive/classes.html">职业体系</a><a href="archive/rules-supplement.html">规则补充</a><a href="archive/laws.html">九大本源属性</a><a href="archive/economy.html">货币体系</a><a href="archive/world.html">世界地图</a></nav></header>
+<header>
+  <a class="brand" href="index.html">☾ <span>第零序列<small>THE ZERO SEQUENCE</small></span></a>
+  <nav><a href="#volumes">篇章书库</a><a href="parts/illustrations-01.html">概念插画</a><a href="archive/unlocks.html">世界档案</a></nav>
+</header>
 <main>
-<section class="hero"><div class="hero-copy"><p class="eyebrow">命运 · 轮回 · 未知的边界</p><h1>第零<br><span>序列</span></h1><p class="en">THE ZERO SEQUENCE</p><p class="lead">当熟悉的未来开始偏移，当游戏与现实之间的边界逐渐消失。<br>一个曾经失去一切的人，重新获得了选择命运的机会。</p><div class="actions"><a class="button" href="parts/part-02.html">阅读第二篇《百城星火》 ↗</a><a href="parts/part-01.html">从第一篇开始</a><a href="#volumes">前往藏书目录</a><a href="parts/illustrations-01.html">概念插画</a><a href="search.html">搜索章节</a><a href="chapters/volume-20/chapter-010.html">最新正式章节 · 第200章</a></div></div><a class="book cover-art" href="parts/part-01.html" aria-label="开始阅读第一篇《轮回启幕》"><img src="/zero-sequence/assets/css/%60images/characters/f948ca5d-b2ab-4754-9cc7-72ed6df61f7c.png?v=20261103c" alt="顾长渊人物立绘"></a></section>
-<section id="volumes"><p class="eyebrow">THE STORY ARCS · 每十卷为一篇</p><h2>篇章总目录</h2>
-<p class="lead">以“篇 → 卷 → 章”整理长篇故事。每10卷汇成一篇，保留各卷原有链接与阅读顺序。</p>
-<div class="grid"><a class="card image-card" style="--card-art:url('assets/css/%60images/characters/dahezhao.png')" href="parts/part-01.html"><small>PART 01 · 01—10卷 · 已发布</small><h3>第一篇《轮回启幕》</h3><p>重生入局、神魔开服、城市盟约、失落商道与无名之门。第一至第十卷统一收录；故事并未在这里终结。</p><span style="display:inline-block;margin-top:10px;color:#ead09a">进入第一篇完整目录 →</span></a><a class="card image-card" style="--card-art:url('assets/images/illustrations/scene-viland-city.webp')" href="parts/part-02.html"><small>PART 02 · 全十卷正式完成 · 100章</small><h3>第二篇《百城星火》</h3><p>玩家群像、游戏升级、独立成长、现实生活、万器锻造与深渊方舟。第101—200章。</p><span style="display:inline-block;margin-top:10px;color:#ead09a">进入第二篇完整目录 →</span></a><a class="card image-card" style="--card-art:url('assets/images/illustrations/part-01-cover.webp')" href="parts/illustrations-01.html"><small>ILLUSTRATION ARCHIVE · 6 ARTWORKS</small><h3>第一篇 · 插画画廊</h3><p>概念封面、晨星镇、维兰德城、灰石商路、白霜边境与黑风试炼。随着阅读章节逐步解锁。</p><span style="display:inline-block;margin-top:10px;color:#ead09a">打开插画画廊 →</span></a></div>
-<p class="lead" style="margin-top:22px">第二篇《百城星火》全十卷（第101—200章）已完成正式重写并通过字数验收。第一次阅读可从第一篇开始，了解全部前情。 <a href="parts/recap-01.html" style="color:#ead09a;text-decoration:underline">前十卷剧情回顾（含剧透）</a></p></section>
-<section><p class="eyebrow">THE ARCHIVES</p><h2>世界档案</h2><div class="grid">
-<a class="card image-card" style="--card-art:url('assets/css/%60images/characters/linlie.png')" href="archive/characters.html"><h3>人物图鉴</h3><p>顾长渊、苏紫璃与拥有独立命运的人们。</p></a>
-<a class="card image-card" style="--card-art:url('assets/css/%60images/characters/ling%20tianyao.png')" href="archive/classes.html"><h3>职业体系</h3><p>五大体系、二十个基础分支、进化路线与240项核心技能。</p></a>
-<a class="card image-card" style="--card-art:url('assets/css/%60images/characters/GU%20YANCHE.png')" href="archive/special-classes.html"><h3>特殊职业</h3><p>隐藏主职业、稀有进化职业，以及独立隐藏力量。</p></a>
-<a class="card image-card" style="--card-art:url('assets/css/%60images/characters/586162d7-874d-4bf5-99a8-18fd31b2164e.png')" href="archive/laws.html"><h3>九大本源属性</h3><p>力、迅、守、灵、生、空、时、律、运；从本源点加点到适应、融合与领悟。</p></a>
-<a class="card" href="archive/equipment.html" style="background:radial-gradient(circle at 80% 24%,#dcb87029,transparent 38%),linear-gradient(145deg,#3c3c63,#242944)"><small style="font-size:10px;color:#f2d29d">WEAPON & EQUIPMENT ARCHIVE</small><h3>武器与装备图鉴</h3><p>十阶品质与万器成长：强化、重铸、合成、升阶、解封、觉醒。按章节解锁已登场装备，并记录材料、维修和成长代价。</p><span style="color:#f1d5a3;font-size:12px">浏览武器与装备 →</span></a>
-<a class="card image-card" style="--card-art:url('assets/images/illustrations/scene-graystone-trade.webp')" href="archive/items.html"><small>ITEM COMPENDIUM · TWELVE CATEGORIES</small><h3>道具图鉴 · 万物有用</h3><p>十二大类、十阶品质、绑定、交易、成长、合成、契约与融合后的实际使用限制。支持分类搜索。</p><span style="color:#f1d5a3;font-size:12px">探索道具系统 →</span></a>
-<a class="card image-card" style="--card-art:url('assets/images/covers/volume-05.webp')" href="archive/production.html"><small>CRAFT · FORGING · INDUSTRY</small><h3>生产工具与工坊体系</h3><p>八类生产工具、设施Lv.1—10、专业工坊、NPC独立经营、自动化生产和深渊方舟的分阶段建设。</p><span style="color:#f1d5a3;font-size:12px">查看生产与工坊 →</span></a>
-<a class="card image-card" style="--card-art:url('assets/images/illustrations/scene-viland-city.webp')" href="archive/ecology.html"><small>LIVING WORLD · ECOLOGY</small><h3>异世界文明与生态</h3><p>NPC家庭和职业、城市法律、魔物生态、Boss、副本、七层地图以及彼此关联的世界事件。</p><span style="color:#f1d5a3;font-size:12px">探索真实文明规则 →</span></a>
-<a class="card image-card" style="--card-art:url('assets/images/illustrations/scene-graystone-trade.webp')" href="archive/industry.html"><small>MATERIALS · LOOT · RECIPES · ORDERS · ECONOMY</small><h3>万界产业链 · 资源与百业</h3><p>16种材料、怪物取材关系、10份工艺配方、NPC工坊订单与六个地区经济模型。所有记录相互关联，支持搜索与分类切换。</p><span style="color:#f1d5a3;font-size:12px">查询材料、掉落、工坊订单 →</span></a><a class="card currency-card" href="archive/economy.html"><small>SEQUENCE CURRENCY</small><h3>货币与经济体系</h3><p>铜序币至序列币的十阶通用货币；固定兑换、自由市场、货币回收与万界经济。</p></a>
-<a class="card" href="archive/rules-supplement.html" style="background:radial-gradient(circle at 85% 20%,#bba1ed2c,transparent 43%),linear-gradient(145deg,#42456f,#242a4c)"><small>RULES ADDENDUM · ORIGINAL CANON FIRST</small><h3>世界规则补充档案</h3><p>NPC独立生活、真正死亡、声望与社会身份、副本空间、Lv.200成长边界，以及12种特殊隐藏职业的补充设计。原有设定与已发布正文不变。</p><span style="color:#f1d5a3;font-size:12px">阅读最新追加设定 →</span></a>
-<a class="card image-card" style="--card-art:url('assets/css/%60images/characters/dahezhao.png')" href="archive/world.html"><h3>世界地图</h3><p>城市、森林、遗迹与逐渐重叠的世界。</p></a>
-<a class="card" style="background:radial-gradient(circle at 80% 20%,rgba(159,118,223,.25),transparent 50%),linear-gradient(145deg,rgba(53,47,93,.93),rgba(23,28,52,.9))" href="archive/bestiary.html"><small>MONSTER & WILDLIFE · BESTIARY</small><h3>怪物图鉴 · 万界生态</h3><p>按正文进度逐步解锁：魔物技能、习性、栖息地、实战观察与章节出处。</p><span style="color:#efd39b;font-size:12px">查看已解锁生物档案 →</span></a>
-<a class="card image-card" style="--card-art:url('assets/css/%60images/characters/luojin.png')" href="archive/factions.html"><h3>势力档案</h3><p>公会、王国、商会与各地组织。</p></a></div></section>
-<section id="industry-archive"><p class="eyebrow">THE PRODUCTION WEB · INTERLINKED LIVING WORLD</p><h2>资源链与城市经济</h2><p class="lead">在《神魔轮回》中，怪物生态、采集、制造、商会交易和城市产业并非独立的游戏菜单。以下五个专题通过共用数据库彼此关联，已登场物品按正文解锁；其他内容清楚标注为设计示例。</p><div class="grid"><a class="card image-card" style="--card-art:url('assets/images/illustrations/scene-graystone-trade.webp')" href="archive/materials.html"><small>01 · MATERIAL RESOURCE</small><h3>材料与资源图鉴</h3><p>29条材料档案，区分正文采集记录与设计样例，追踪来源、用途及关联制作。</p><span style="color:#f1d5a3;font-size:12px">打开专题数据库 →</span></a>
-<a class="card image-card" style="--card-art:url('assets/images/illustrations/scene-blackwind-trial.webp')" href="archive/drops.html"><small>02 · MONSTER ECOLOGY</small><h3>魔物掉落与生态取材</h3><p>19种已登场生物的关联证据，明确未知掉率、生态保护及取材限制。</p><span style="color:#f1d5a3;font-size:12px">打开专题数据库 →</span></a>
-<a class="card image-card" style="--card-art:url('assets/images/covers/volume-05.webp')" href="archive/recipes.html"><small>03 · CRAFTING PROTOTYPES</small><h3>锻造配方与制作工艺</h3><p>16套配方和研究草案，关联材料、工匠等级、工坊设备和失败风险。</p><span style="color:#f1d5a3;font-size:12px">打开专题数据库 →</span></a>
-<a class="card image-card" style="--card-art:url('assets/images/illustrations/scene-graystone-trade.webp')" href="archive/orders.html"><small>04 · WORKSHOP CONTRACTS</small><h3>工坊订单与委托经营</h3><p>14份模拟合同：采购、验收、交货、风险与工坊生产的真实成本。</p><span style="color:#f1d5a3;font-size:12px">打开专题数据库 →</span></a>
-<a class="card image-card" style="--card-art:url('assets/images/illustrations/scene-viland-city.webp')" href="archive/city-economy.html"><small>05 · CITY ECONOMY</small><h3>城市经济与贸易网络</h3><p>6个区域经济模型，从市场供需、商队物流到矿区和边境的生态连锁反应。</p><span style="color:#f1d5a3;font-size:12px">打开专题数据库 →</span></a></div></section>
+<section class="hero zs-home-hero" aria-label="《第零序列》作品介绍">
+  <div class="hero-copy">
+    <p class="eyebrow">命运 · 轮回 · 未知的边界</p>
+    <h1>第零<br><span>序列</span></h1>
+    <p class="en">THE ZERO SEQUENCE</p>
+    <p class="zs-tagline">当命运重新开始，世界的真相逐渐苏醒。</p>
+    <p class="zs-hero-description">别人以为这是一场游戏。而顾长渊知道，真正的危机尚未到来。带着过去的记忆，他与拥有各自命运的伙伴，一起寻找另一种未来。</p>
+    <div class="zs-hero-actions">
+      <a class="zs-primary" href="chapters/volume-01/prologue.html">从序章开始阅读</a>
+      <a class="zs-secondary" href="#reading">继续阅读</a>
+    </div>
+    <div class="zs-home-statline" aria-label="作品发布进度"><span>2篇已发布</span><span>20卷</span><span>200章＋序章</span></div>
+  </div>
+  <div class="zs-hero-aside">
+    <img class="zs-official-portrait" src="/zero-sequence/assets/css/%60images/characters/f948ca5d-b2ab-4754-9cc7-72ed6df61f7c.png" width="450" height="630" fetchpriority="high" alt="《第零序列》顾长渊官方人物立绘">
+    <span class="zs-hero-seal">REWRITE THE FATE · ZERO SEQUENCE</span>
+  </div>
+</section>
+<section id="volumes" class="zs-home-section zs-reveal">
+  <div class="zs-section-heading">
+    <div><span class="zs-eyebrow">THE STORY ARCS · 每十卷为一篇</span><h2>篇章书库</h2></div>
+    <a href="search.html">搜索全部已发布章节</a>
+  </div>
+  <p class="lead">从重生开局，到百城星火。按「篇 → 卷 → 章」阅读；卷封面与故事档案随着阅读进度逐步揭晓。</p>
+  <div class="zs-part-grid">
+    <a class="zs-part-card" href="parts/part-01.html" aria-label="进入第一篇《轮回启幕》">
+      <img class="zs-part-art" src="assets/images/illustrations/part-01-cover.webp" width="520" height="650" loading="lazy" alt="第一篇《轮回启幕》概念封面">
+      <div class="zs-part-copy"><small>PART ONE · 01—10卷</small><h3>轮回启幕</h3><p>重返起点，走进一个比游戏更真实的世界。</p><span class="zs-part-link">进入第一篇 →</span></div>
+    </a>
+    <a class="zs-part-card" href="parts/part-02.html" aria-label="进入第二篇《百城星火》">
+      <img class="zs-part-art" src="assets/images/illustrations/scene-viland-city.webp" width="850" height="600" loading="lazy" alt="第二篇《百城星火》城市与商路概念插画">
+      <div class="zs-part-copy"><small>PART TWO · 11—20卷</small><h3>百城星火</h3><p>不同的人和城邦，开始拥有并守护自己的道路。</p><span class="zs-part-link">进入第二篇 →</span></div>
+    </a>
+  </div>
+</section>
+<section id="reading" class="zs-home-section zs-reveal" aria-label="最近阅读与连载进度">
+  <div class="zs-section-heading">
+    <div><span class="zs-eyebrow">READING PROGRESS</span><h2>继续你的旅程</h2></div>
+    <a href="archive/unlocks.html">查看分篇解锁记录</a>
+  </div>
+  <div class="zs-home-reading" id="zs-home-resume">
+    <div><h3 id="zs-resume-title">还没有阅读记录</h3><p id="zs-resume-description">从序章开始阅读；读过的章节和世界档案进度会保存在当前浏览器。</p></div>
+    <a id="zs-resume-link" href="chapters/volume-01/prologue.html">开始阅读</a>
+    <div class="zs-reading-progress" aria-hidden="true"><i id="zs-resume-bar"></i></div>
+  </div>
+  <p class="zs-footer-note">最新正式章节：第200章《百城星火》。<a href="chapters/volume-20/chapter-010.html" style="color:#efd59b;text-decoration:underline">前往最新章节</a>。阅读进度仅保存在本设备，换设备或清除浏览器数据后可能无法恢复。</p>
+</section>
+<section id="illustrations" class="zs-home-section zs-reveal">
+  <div class="zs-section-heading">
+    <div><span class="zs-eyebrow">VISUAL ARCHIVE</span><h2>概念插画馆</h2></div>
+    <a href="parts/illustrations-01.html">进入已有画廊</a>
+  </div>
+  <p class="lead">以现有官方插画与场景画面，呈现冒险世界的不同角落。重要场景按阅读进度解锁。</p>
+  <div class="zs-art-feature">
+    <a href="parts/illustrations-01.html">
+      <img src="assets/images/illustrations/scene-starfall-town.webp" loading="lazy" width="850" height="480" alt="晨星镇概念场景">
+      <div class="zs-art-copy"><h3>第一篇 · 概念插画</h3><p>晨星镇、维兰德、白霜边境与黑风试炼。</p><span>前往已解锁画廊 →</span></div>
+    </a>
+    <a href="parts/part-02.html">
+      <img src="assets/images/illustrations/scene-graystone-trade.webp" loading="lazy" width="850" height="480" alt="万界商路概念场景">
+      <div class="zs-art-copy"><h3>第二篇 · 视觉档案</h3><p>第二篇独立场景插画馆正在规划，先浏览十卷独立封面。</p><span>进入第二篇书库 →</span></div>
+    </a>
+  </div>
+</section>
+<section id="archives" class="zs-home-section zs-reveal">
+  <div class="zs-section-heading">
+    <div><span class="zs-eyebrow">THE LIVING WORLD · ARCHIVES</span><h2>万界档案馆</h2></div>
+    <a href="archive/unlocks.html">查看已解锁内容</a>
+  </div>
+  <p class="lead">人物不是等待玩家触发的背景，万界有自己的文明、职业、经济与历史。以下资料遵循章节解锁规则，不公开尚未揭露的终局秘密。</p>
+  <div class="zs-archive-grid">
+    <a class="zs-archive-link" href="archive/characters.html"><strong>人物图鉴</strong><span>主角团与拥有独立生活的万界居民</span></a>
+    <a class="zs-archive-link" href="archive/classes.html"><strong>职业与技能</strong><span>五大职业体系、成长与特殊传承</span></a>
+    <a class="zs-archive-link" href="archive/world.html"><strong>世界与地图</strong><span>城市、道路、遗迹与已探索区域</span></a>
+    <a class="zs-archive-link" href="archive/factions.html"><strong>势力与组织</strong><span>独立公会、商会与各地守卫</span></a>
+    <a class="zs-archive-link" href="archive/equipment.html"><strong>武器与装备</strong><span>成长、强化、资源与使用代价</span></a>
+    <a class="zs-archive-link" href="archive/unlocks.html"><strong>剧情解锁档案</strong><span>按照实际已读章节显示人物和事件</span></a>
+  </div>
+  <details class="zs-more-archives">
+    <summary>展开更多已发布专题数据库</summary>
+    <div class="zs-archive-extra">
+      <a href="archive/bestiary.html">怪物图鉴</a>
+      <a href="archive/special-classes.html">隐藏职业</a>
+      <a href="archive/laws.html">本源属性</a>
+      <a href="archive/items.html">道具</a>
+      <a href="archive/production.html">生产工坊</a>
+      <a href="archive/industry.html">万界产业链</a>
+      <a href="archive/materials.html">材料资源</a>
+      <a href="archive/drops.html">生态取材</a>
+      <a href="archive/recipes.html">锻造配方</a>
+      <a href="archive/orders.html">工坊订单</a>
+      <a href="archive/city-economy.html">城市贸易</a>
+      <a href="archive/economy.html">货币体系</a>
+      <a href="archive/ecology.html">文明生态</a>
+      <a href="archive/rules-supplement.html">规则补充</a>
+    </div>
+  </details>
+</section>
+<section id="about" class="zs-home-section zs-reveal">
+  <div class="zs-section-heading"><div><span class="zs-eyebrow">ABOUT THE ZERO SEQUENCE</span><h2>关于这部作品</h2></div></div>
+  <p class="lead">《第零序列》是一部围绕重生、万界探索、热血成长、伙伴情谊和自由选择展开的长篇奇幻故事。已发布第一篇《轮回启幕》与第二篇《百城星火》，共20卷、200章与序章。故事仍在继续。</p>
+  <p class="zs-footer-note">请从序章开始体验完整剧情。网站插画属于概念美术，角色设定以正式档案及已发布小说为准；世界观资料会随阅读进度逐步开放。<a href="parts/final-archive.html" style="color:#efd59b;text-decoration:underline">查看不提前剧透的档案汇总</a>。</p>
+</section>
 </main>
-<footer>© 第零序列 · THE ZERO SEQUENCE　｜　第一篇《轮回启幕》已发布，第二篇《百城星火》100章正式正文全部完成。</footer>
-<script src="/zero-sequence/assets/js/audio-player.js" defer></script>
-<script src="assets/js/progressive-archive.js?v=2" defer></script></body>
+<footer>© 第零序列 · THE ZERO SEQUENCE · 官方典藏书库 · 第1—200章已发布</footer>
+<script src="assets/js/progressive-archive.js?v=3" defer></script>
+<script src="assets/js/audio-player.js" defer></script>
+</body>
 </html>
