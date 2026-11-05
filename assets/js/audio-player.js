@@ -94,10 +94,10 @@
   function init(){
     buildAudioUI();
     if(!document.querySelector('script[src*="progressive-archive.js"]')){
-      const unlock=document.createElement('script');unlock.src='/zero-sequence/assets/js/progressive-archive.js?v=1';document.body.appendChild(unlock);
+      const unlock=document.createElement('script');unlock.src='/zero-sequence/assets/js/progressive-archive.js?v=4';document.body.appendChild(unlock);
     }
     if(!document.querySelector('script[src*="reader-experience.js"]')){
-      const reader=document.createElement('script');reader.src='/zero-sequence/assets/js/reader-experience.js?v=1';document.body.appendChild(reader);
+      const reader=document.createElement('script');reader.src='/zero-sequence/assets/js/reader-experience.js?v=2';document.body.appendChild(reader);
     }
     if('serviceWorker' in navigator){
       navigator.serviceWorker.register('/zero-sequence/sw.js').catch(()=>{});
