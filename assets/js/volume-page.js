@@ -118,8 +118,7 @@
       const number=Number(a.dataset.chapterIndex||0);
       const isPrologue=a.dataset.prologue==='1';
       const done=isPrologue?prologueDone:(number>0&&max>=localStart+number);
-      const current=typeof currentHref==='string'&&currentHref.endsWith(a.getAttribute('href')?.replace('..','')||'____')||
-        (typeof currentHref==='string'&&currentHref===new URL(a.href).pathname);
+      const current=typeof currentHref==='string'&&currentHref===new URL(a.href).pathname;
       a.classList.toggle('zs-chapter-read',done);
       a.classList.toggle('zs-chapter-current',!!current);
       const state=a.querySelector('.zs-chapter-state');
