@@ -79,7 +79,7 @@
       const serial=el('span','zs-chapter-index',prologue?'PROLOGUE · 序章':'CHAPTER '+String(globalFirst+n-1).padStart(3,'0'));
       mainTitle.insertBefore(serial,mainTitle.firstChild);
     }
-    const oldState=a.querySelector('span:not(.zs-chapter-name)');
+    const oldState=a.querySelector(':scope > span:not(.zs-chapter-name)');
     if(oldState)oldState.remove();
     let status=a.querySelector('.zs-chapter-state');
     if(!status){status=el('span','zs-chapter-state','未读');a.append(status);}
