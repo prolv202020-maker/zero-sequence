@@ -21,6 +21,7 @@ self.addEventListener('fetch',event=>{
         html=html.replace('</body>',PLAYER+'</body>');
       }
       if(!/(?:\/zero-sequence\/)?assets\/js\/progressive-archive\.js(?:\?v=\d+)?/.test(html)) html=html.replace('</body>',UNLOCK+'</body>');
+      else html=html.replace(/((?:\/zero-sequence\/)?assets\/js\/progressive-archive\.js)(?:\?v=\d+)?/g,'$1?v=4');
       if(!/(?:\/zero-sequence\/)?assets\/js\/reader-experience\.js(?:\?v=\d+)?/.test(html)) html=html.replace('</body>',READER+'</body>');
       const headers=new Headers(res.headers);headers.delete('content-length');headers.set('cache-control','no-cache');
       return new Response(html,{status:res.status,statusText:res.statusText,headers});
