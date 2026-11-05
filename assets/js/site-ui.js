@@ -87,6 +87,7 @@
     window.addEventListener('scroll',update,{passive:true});update();
     const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if(!reduce&&'IntersectionObserver'in window){
+      document.body.classList.add('zs-animations-ready');
       const observer=new IntersectionObserver(entries=>{
         entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('zs-visible');observer.unobserve(entry.target);}});
       },{rootMargin:'0px 0px 40px 0px',threshold:0.06});
