@@ -125,7 +125,7 @@ note.append(el('strong','','本章为情节草稿，尚非正式小说正文'),e
 article.parentNode.insertBefore(note,article);
 }
 function init(){css();markPartTwoDraft();articleUnlock();homepage();partPage();recapGate();archiveGate();catalogPage();finalPage();
-if(!document.querySelector('script[src*="/assets/js/site-ui.js"]')){const shell=document.createElement('script');shell.src=BASE+'assets/js/site-ui.js?v=1';document.body.appendChild(shell);}
+if(!document.querySelector('script[src*="site-ui.js"]')){const shell=document.createElement('script');shell.src=BASE+'assets/js/site-ui.js?v=1';document.body.appendChild(shell);}
 }
 window.ZSUnlock={get,set,entries,partOf};
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
