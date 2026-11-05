@@ -28,7 +28,7 @@
         const badge=document.createElement('span');badge.className='zs-volume-state';
         badge.setAttribute('aria-label','卷目阅读状态');media.appendChild(badge);
         a.insertBefore(media,a.firstChild);
-        const copy=document.createElement('span');copy.className='zs-cover-copy';
+        const copy=document.createElement('div');copy.className='zs-cover-copy';
         const small=a.querySelector(':scope > small');
         const heading=a.querySelector(':scope > h3');
         const desc=a.querySelector(':scope > p');
