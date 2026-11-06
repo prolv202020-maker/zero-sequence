@@ -94,7 +94,7 @@
   function init(){
     buildAudioUI();
     if(!document.querySelector('script[src*="progressive-archive.js"]')){
-      const unlock=document.createElement('script');unlock.src='/zero-sequence/assets/js/progressive-archive.js?v=4';document.body.appendChild(unlock);
+      const unlock=document.createElement('script');unlock.src='/zero-sequence/assets/js/progressive-archive.js?v=12';document.body.appendChild(unlock);
     }
     if(!document.querySelector('script[src*="reader-experience.js"]')){
       const reader=document.createElement('script');reader.src='/zero-sequence/assets/js/reader-experience.js?v=2';document.body.appendChild(reader);
