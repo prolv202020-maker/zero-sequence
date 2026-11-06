@@ -1,0 +1,16 @@
+# Author-only source materials must never enter the public Pages repository.
+# Keep them in a separate PRIVATE repository and outside this checkout.
+author-private/
+private/
+drafts/
+unpublished/
+internal/
+notes-private/
+*.author-only.md
+*.secret.md
+*.private.json
+*.internal.json
+.env
+.env.*
+!.env.example
+.DS_Store
