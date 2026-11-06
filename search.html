@@ -7,20 +7,30 @@
 <header><a class="brand" href="index.html">☾ <span>第零序列<small>THE ZERO SEQUENCE</small></span></a><nav><a href="parts/part-01.html">第一篇</a><a href="archive/characters.html">人物</a><a href="archive/world.html">地图</a></nav></header>
 <main class="page"><div class="crumb"><a href="index.html">首页</a> / 搜索</div><section class="s-hero"><p class="eyebrow">THE ZERO SEQUENCE · SEARCH</p><h1>查找章节与档案</h1>
 <p class="lead">搜索已公开的卷目、章节标题与职业、武器、道具、生产、生态档案；未公开的终局秘密仍不纳入。目前不提供正文全文搜索。</p>
-<div class="s-row"><input type="search" id="s-input" placeholder="例如：黑风、银月、顾长渊、第五卷" aria-label="输入搜索关键词" autocomplete="off"><select id="s-type" aria-label="搜索类别"><option value="all">全部</option><option value="chapter">章节</option><option value="volume">卷目</option><option value="archive">公开档案</option></select></div></section><p id="s-count" role="status" aria-live="polite"></p><div id="s-results" class="s-results"></div>
+<div class="s-row"><input type="search" id="s-input" placeholder="例如：晨星镇、顾长渊、第五卷" aria-label="输入搜索关键词" autocomplete="off"><select id="s-type" aria-label="搜索类别"><option value="all">全部</option><option value="chapter">章节</option><option value="volume">卷目</option><option value="archive">公开档案</option></select></div></section><p id="s-count" role="status" aria-live="polite"></p><div id="s-results" class="s-results"></div>
 </main><footer>© 第零序列 · 公开章节搜索</footer><script src="assets/js/audio-player.js" defer></script>
 <script>
 (async()=>{
 const input=document.getElementById('s-input'),type=document.getElementById('s-type'),out=document.getElementById('s-results'),status=document.getElementById('s-count');
-let data=[];try{const response=await fetch('assets/data/search-index.json?v=4',{cache:'no-cache'});if(!response.ok)throw Error('index');data=await response.json();}catch{status.textContent='搜索索引暂时无法加载，请使用第一篇目录。';return}
+let data=[];try{const response=await fetch('assets/data/search-index.json?v=5',{cache:'no-cache'});if(!response.ok)throw Error('index');data=await response.json();}catch{status.textContent='搜索索引暂时无法加载，请使用第一篇目录。';return}
 const qparam=new URLSearchParams(location.search).get('q');if(qparam)input.value=qparam.slice(0,80);
 function render(){const query=input.value.toLowerCase().replace(/\s+/g,'').trim(),kind=type.value;
-const progress=(()=>{try{return JSON.parse(localStorage.getItem('zs:part-progress:v1')||'{}')['p01']?.max||0}catch{return 0}})();
+const progress=(()=>{try{const x=JSON.parse(localStorage.getItem('zs:part-progress:v1')||'{}');return [Number(x.p01?.max)||0,Number(x.p02?.max)||0]}catch{return [0,0]}})();
 const publicItem=(item)=>{
- if(item.type==='chapter'){const m=(item.url||'').match(/volume-(\d+)\/chapter-(\d+)/);if(m){const v=Number(m[1]),n=Number(m[2]);return v<=10&&((v-1)*10+n)<=Math.max(1,progress)}}
- if(item.type==='volume'){const m=(item.url||'').match(/volume-(\d+)/);if(m)return Number(m[1])<=10&&(Number(m[1])-1)*10<=progress}
- if(item.type==='archive')return ['archive/bestiary.html','archive/equipment.html','archive/unlocks.html','archive/items.html','archive/production.html','archive/ecology.html','archive/industry.html','archive/classes.html','archive/economy.html','archive/laws.html','archive/world.html','archive/materials.html','archive/drops.html','archive/recipes.html','archive/orders.html','archive/city-economy.html'].includes(item.url)||progress>=100;
- return item.type!=='chapter'&&item.type!=='archive';
+ if(item.type==='chapter'){
+  if((item.url||'').includes('prologue.html'))return true;
+  const m=(item.url||'').match(/volume-(\d+)\/chapter-(\d+)/);
+  if(m){const v=Number(m[1]),n=(v-1)%10*10+Number(m[2]);return v>=1&&v<=20&&n<=progress[v<=10?0:1];}
+  return false;
+ }
+ if(item.type==='volume'){
+  const m=(item.url||'').match(/volume-(\d+)/);
+  if(m){const v=Number(m[1]);return v>=1&&v<=20&&((v-1)%10)*10<=progress[v<=10?0:1];}
+  return false;
+ }
+ // Archive landing pages are reader-safe; each page separately applies its own read progress.
+ if(item.type==='archive')return true;
+ return false;
 };
 const all=data.filter(item=>publicItem(item)&&(kind==='all'||item.type===kind)&&(!query||(item.title+' '+item.desc).toLowerCase().replace(/\s+/g,'').includes(query)));
 const found=all.slice(0,60);out.replaceChildren();status.textContent=(query?'匹配到 ':'浏览公开资料 · ')+all.length+' 条结果'+(all.length>60?'（显示前60条）':'');
