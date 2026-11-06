@@ -33,3 +33,7 @@ body[data-zs-atlas]:not(.zs-atlas-full) main.page > :not(.crumb):not(.eyebrow):n
 @media(max-width:900px){.zs-atlas-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:580px){.zs-atlas-grid{grid-template-columns:1fr}.zs-atlas-controls{flex-direction:column;align-items:stretch}.zs-atlas-controls input{flex:0 1 auto;width:100%}.zs-atlas-controls select{width:100%}}
 @media(prefers-reduced-motion:reduce){.zs-atlas-progress>i{transition:none}}
+
+/* 已公开角色立绘：从原有官方资源按阅读进度显示，不附带作者内参。 */
+.zs-atlas-portrait{display:block;width:100%;height:225px;object-fit:contain;object-position:center top;border-radius:10px;background:radial-gradient(circle at center,#515376,#23283e);margin:0 0 9px;border:1px solid #e7cd8d44}
+@media(max-width:600px){.zs-atlas-portrait{height:250px}}
