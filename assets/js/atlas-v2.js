@@ -64,9 +64,9 @@ oldNodes.forEach(n=>n.classList.add('zs-atlas-protected'));
 function render(){
  const p1=progress(1),p2=progress(2),full=p1>=100&&p2>=100;
  body.classList.toggle('zs-atlas-full',full);
- status.replaceChildren(make('span','','第一篇 '+p1+'/100 章'),make('span','','第二篇 '+p2+'/100 章'),make('span','',full?'完整典藏档案已开放':'详细后期档案继续封存'));
+ status.replaceChildren(make('span','','第一篇 '+p1+'/100 章'),make('span','','第二篇 '+p2+'/100 章'),make('span','',full?'两篇已读 · 公开档案持续更新':'按已读章节逐步公开'));
  fill.style.width=((p1+p2)/2)+'%';
- legacy.textContent=full?'两篇均完成阅读，页面下方已经开放原有的完整人物／职业图鉴。':'完整立绘、进阶路线及后期人物资料在两篇均完成后开放；当前可先探索已读章节对应的基础档案。';
+ legacy.textContent='这里仅展示已发布小说中适合读者阅读的阶段资料；完整成长方案、内部设计草案与未发表剧情保存在私人作者资料库。';
  const query=input.value.trim().toLowerCase(),filter=select.value;
  grid.replaceChildren();let total=0;
  data.forEach(entry=>{
@@ -78,10 +78,12 @@ function render(){
    const card=make('article','zs-atlas-entry');
    card.append(make('small','',entry.type+' · 第'+entry.p+'篇已揭晓'),make('h3','',entry.name),make('span','zs-atlas-tag',entry.role),make('p','',entry.note));
    if(kind==='characters'){
+     const art={'顾长渊':'f948ca5d-b2ab-4754-9cc7-72ed6df61f7c.png','苏紫璃':'586162d7-874d-4bf5-99a8-18fd31b2164e.png','林烈':'linlie.png','罗烬':'luojin.png','凌天曜':'ling%20tianyao.png','戴玄岳':'DAI%20XUANYUE.png','古言澈':'GU%20YANCHE.png'}[entry.name];
+     if(art){const pic=document.createElement('img');pic.src=ROOT+'assets/css/%60images/characters/'+art;pic.alt=entry.name+'人物立绘';pic.loading='lazy';pic.decoding='async';pic.className='zs-atlas-portrait';card.insertBefore(pic,card.firstChild);}
      const slug={'顾长渊':'gu-changyuan','苏紫璃':'su-zili','林烈':'lin-lie','罗烬':'luo-jin','凌天曜':'ling-tianyao','戴玄岳':'dai-xuanyue','古言澈':'gu-yanche'}[entry.name];
      if(slug)card.append(link(ROOT+'archive/characters/'+slug+'.html','进入独立档案 →'));
    }
-   if(full&&kind==='classes')card.append(link('#'+entry.group,'前往职业详细介绍'));
+
    grid.append(card);
  });
  count.textContent='目前显示 '+total+' 条档案';
