@@ -88,7 +88,7 @@ function recapGate(){const m=location.pathname.match(/\/parts\/recap-0([12])\.ht
 document.querySelectorAll('.r-list details').forEach((node,i)=>{const need=(i+1)*10;if(get(p).max>=need)return;node.replaceChildren(el('summary','','第'+(i+1+(p-1)*10)+'卷 · 🔒 读完本卷后解锁'));node.classList.add('zs-locked-summary');node.addEventListener('toggle',()=>{if(node.open)node.open=false;});});
 const intro=document.querySelector('main>.lead');if(intro)intro.textContent='每卷回顾按阅读进度开放，未读卷的剧情继续封存。';document.body.classList.add('zs-recap-ready');
 }
-function archiveGate(){if(!/\/archive\//.test(location.pathname)||/\/archive\/(?:unlocks|quests|bestiary|equipment|characters|classes)\.html$/.test(location.pathname)||/\/archive\/characters\//.test(location.pathname))return;
+function archiveGate(){if(document.querySelector('[data-public-archive]'))return;if(!/\/archive\//.test(location.pathname)||/\/archive\/(?:unlocks|quests|bestiary|equipment|characters|classes)\.html$/.test(location.pathname)||/\/archive\/characters\//.test(location.pathname))return;
 const main=document.querySelector('main');if(!main)return;
 if(get(1).max>=100&&get(2).max>=100){document.body.classList.add('zs-archive-approved');return;}
 main.classList.add('zs-gated-main');const wall=el('div','zs-spoiler-wall');
