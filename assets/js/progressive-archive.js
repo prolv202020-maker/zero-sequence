@@ -3,7 +3,6 @@
 'use strict';
 const BASE='/zero-sequence/';
 const KEY='zs:part-progress:v1';
-const MODE='zs:archive-view:v1';
 const partNames={1:'轮回启幕',2:'百城星火'};
 const entries=[
  {p:1,n:1,k:'人物',t:'顾长渊',d:'故事的主要视角人物。一次重返，让他重新思考什么才是最重要的。'},
@@ -43,8 +42,7 @@ function partOf(v){return Math.floor((v-1)/10)+1;}
 function nameOf(p){return partNames[p]||'待公开';}
 function get(p){const item=storeRead()['p'+String(p).padStart(2,'0')]||{};return {max:Math.max(0,Math.min(100,Number(item.max)||0)),prologue:!!item.prologue,updated:item.updated||0};}
 function set(p,n,prologue){if(p<1||p>99)return;const all=storeRead(),key='p'+String(p).padStart(2,'0');const prev=get(p);all[key]={max:Math.max(prev.max,Math.max(0,Math.min(100,n))),prologue:prev.prologue||!!prologue,updated:Date.now()};storeWrite(all);document.dispatchEvent(new Event('zs:part-progress-changed')); }
-function isAuthorPreview(){return sessionStorage.getItem(MODE)==='preview';}
-function available(entry){return isAuthorPreview()||get(entry.p).max>=entry.n;}
+function available(entry){return get(entry.p).max>=entry.n;}
 function el(tag,cls,content){const node=document.createElement(tag);if(cls)node.className=cls;if(content!==undefined)node.textContent=content;return node;}
 function aLink(href,text,cls){const a=el('a',cls,text);a.href=href;return a;}
 function css(){if(document.getElementById('zs-unlock-style'))return;
@@ -92,7 +90,7 @@ const intro=document.querySelector('main>.lead');if(intro)intro.textContent='每
 }
 function archiveGate(){if(!/\/archive\//.test(location.pathname)||/\/archive\/(?:unlocks|quests|bestiary|equipment|characters|classes)\.html$/.test(location.pathname)||/\/archive\/characters\//.test(location.pathname))return;
 const main=document.querySelector('main');if(!main)return;
-if((get(1).max>=100&&get(2).max>=100)||isAuthorPreview()){document.body.classList.add('zs-archive-approved');return;}
+if(get(1).max>=100&&get(2).max>=100){document.body.classList.add('zs-archive-approved');return;}
 main.classList.add('zs-gated-main');const wall=el('div','zs-spoiler-wall');
 wall.append(el('h2','','🔒 完整设定档案暂未解锁'),el('p','','此页可能包含第一篇后续章节的信息。为了避免剧透，先展示与你已读章节对应的渐进档案。为了防止第二篇和后期资料提前泄露，需完成第一篇与第二篇各100章，才开放原有的完整专题资料。'));
 const actions=el('div','zs-unlock-actions');actions.append(aLink(BASE+'archive/unlocks.html','查看已解锁档案 →'),aLink(BASE+'parts/part-01.html','返回第一篇目录 →'),aLink(BASE+'archive/quests.html','查看已解锁剧情事件 →'));wall.append(actions);main.append(wall);
